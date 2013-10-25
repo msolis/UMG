@@ -6,7 +6,7 @@ include("../Conexion/conexionBD.php")
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Login</title>
+		<title>Login - Red Hospitalaria</title>
 	
 				<link rel="stylesheet" href="../css/base.css">
 				<link rel="stylesheet" href="../css/skeleton.css">
