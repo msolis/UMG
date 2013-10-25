@@ -56,7 +56,7 @@ include("../Conexion/conexionBD.php")
         	</thead>
         	<tbody >
         		<?php
-        			$qry = "SELECT usuario, nombre, hospital, status, permisos from usuario;";
+        			$qry = "SELECT usuario, nombre, hospital, status, permisos from USUARIO;";
 
         			$result = mysql_query($qry);
         			

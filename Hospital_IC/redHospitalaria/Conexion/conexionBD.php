@@ -1,4 +1,4 @@
 <?php
-	mysql_connect("localhost:3306", "root", "luvez3282");
+	mysql_connect("localhost", "root", "sa2010sa");
 	mysql_select_db("redHospitalaria");
 ?>

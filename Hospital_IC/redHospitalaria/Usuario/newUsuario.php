@@ -63,7 +63,7 @@ include("../Conexion/conexionBD.php")
 					$upermisos = $_POST["permisos"];
 				
 
-					mysql_query ("INSERT INTO redHospitalaria.usuario( usuario.nombre, usuario.clave, usuario.hospital, usuario.status, usuario.permisos) VALUES('".$unombre."', '".$password."', '".$uhospital."', '".$ustatus."', '".$upermisos."');");
+					mysql_query ("INSERT INTO redHospitalaria.USUARIO( usuario.nombre, usuario.clave, usuario.hospital, usuario.status, usuario.permisos) VALUES('".$unombre."', '".$password."', '".$uhospital."', '".$ustatus."', '".$upermisos."');");
 					
 			
 			}
@@ -82,7 +82,7 @@ include("../Conexion/conexionBD.php")
 				<td>
 				<select name = "Hospital">
 				<?php
-        			$qry = "SELECT hospital, nombre from hospital;";
+        			$qry = "SELECT hospital, nombre from HOSPITAL;";
 
         			$result = mysql_query($qry);
         			
@@ -111,7 +111,7 @@ include("../Conexion/conexionBD.php")
 							<td>
 							<select name = "permisos">
 							<?php
-			        			$qry = "SELECT permisos, nombre_permiso from permisos;";
+			        			$qry = "SELECT permisos, nombre_permiso from PERMISOS;";
 
 			        			$result = mysql_query($qry);
 			        			
