@@ -55,15 +55,15 @@ include("../Conexion/conexionBD.php")
 		     if (isset($_POST["nombre"]))
 
            {
-					
+					$usuario = $_POST["usuario"];
 					$unombre = $_POST["nombre"];
-					$password = $_POST["CLAVE"];
-					$uhospital = $_POST["Hospital"];
-					$ustatus= $_POST["Status"];
+					$password = $_POST["clave"];
+					$uhospital = $_POST["hospital"];
+					$ustatus= $_POST["status"];
 					$upermisos = $_POST["permisos"];
 				
 
-					mysql_query ("INSERT INTO redHospitalaria.usuario( usuario.nombre, usuario.clave, usuario.hospital, usuario.status, usuario.permisos) VALUES('".$unombre."', '".$password."', '".$uhospital."', '".$ustatus."', '".$upermisos."');");
+					mysql_query ("INSERT INTO redhospitalaria.usuario( usuario.usuario, usuario.nombre, usuario.clave, usuario.hospital, usuario.status, usuario.permisos) VALUES( ".$usuario.",'".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");");
 					
 			
 			}
@@ -74,23 +74,25 @@ include("../Conexion/conexionBD.php")
 		<table  width="600">
 			<h2>Nuevo Usuario</h2>
 				
+				<p><input name ="usuario" type="text" placeholder="#de usuario" required=""></p>
 				<p><input name ="nombre" type="text" placeholder="nombre" required=""></p>
-				<p><input name = "CLAVE" type="password" placeholder="Clave" required=""></p>
+				<p><input name = "clave" type="password" placeholder="Clave" required=""></p>
 				
 				<tr>
 				<td>Hospital</td>
 				<td>
-				<select name = "Hospital">
+				<select name = "hospital">
 				<?php
-        			$qry = "SELECT hospital, nombre from hospital;";
+        			$qry = "SELECT hospital, nombre from redhospitalaria.hospital;";
 
         			$result = mysql_query($qry);
+        			echo "resultado".$qry;
         			
         			while ($row = mysql_fetch_array($result, MYSQL_NUM)){
 					   
         		?>
 
-        		<option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?>
+        		<option selected value= "<?php echo $row[0]; ?>">  <?php echo $row[1]; ?>
 
         			<?php
 					}
@@ -101,7 +103,7 @@ include("../Conexion/conexionBD.php")
         	<tr>
 				<td>Status:</td>
 				<td>
-					<SELECT NAME="Status"> 
+					<SELECT NAME="status"> 
 					<OPTION SELECTED VALUE = "A">Alta
 					<OPTION VALUE= "B">Baja
 					</SELECT> 
@@ -111,7 +113,7 @@ include("../Conexion/conexionBD.php")
 							<td>
 							<select name = "permisos">
 							<?php
-			        			$qry = "SELECT permisos, nombre_permiso from permisos;";
+			        			$qry = "SELECT permisos, nombre_permiso from redhospitalaria.permisos;";
 
 			        			$result = mysql_query($qry);
 			        			
@@ -119,7 +121,7 @@ include("../Conexion/conexionBD.php")
 								   
 			        		?>
 
-			        		<option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?>
+			        		<option selected value= "<?php echo $row[0]; ?>"><?php echo $row[1]; ?>
 
 			        			<?php
 								}
