@@ -6,7 +6,7 @@ include("../Conexion/conexionBD.php")
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Login</title>
+		<title>Login - Red Hospitalaria</title>
 	
 				<link rel="stylesheet" href="../css/base.css">
 				<link rel="stylesheet" href="../css/skeleton.css">
@@ -23,7 +23,7 @@ include("../Conexion/conexionBD.php")
             if (($password !="") && ($username !=""))
             {
                 
-                $result = mysql_query ("SELECT nombre, clave, status  from redHospitalaria.usuario where nombre = '".$username."' and clave = '".$password."';");
+                $result = mysql_query ("SELECT nombre, clave, status  from redHospitalaria.USUARIO where nombre = '".$username."' and clave = '".$password."';");
                 
                 
                 if ($result == 0)

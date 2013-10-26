@@ -63,7 +63,11 @@ include("../Conexion/conexionBD.php")
 					$upermisos = $_POST["permisos"];
 				
 
+<<<<<<< HEAD
 					mysql_query ("INSERT INTO redhospitalaria.usuario( usuario.usuario, usuario.nombre, usuario.clave, usuario.hospital, usuario.status, usuario.permisos) VALUES( ".$usuario.",'".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");");
+=======
+					mysql_query ("INSERT INTO redHospitalaria.USUARIO( usuario.nombre, usuario.clave, usuario.hospital, usuario.status, usuario.permisos) VALUES('".$unombre."', '".$password."', '".$uhospital."', '".$ustatus."', '".$upermisos."');");
+>>>>>>> ab24b3588eebe9e5308465b9342daa705325ecfc
 					
 			
 			}
@@ -83,7 +87,11 @@ include("../Conexion/conexionBD.php")
 				<td>
 				<select name = "hospital">
 				<?php
+<<<<<<< HEAD
         			$qry = "SELECT hospital, nombre from redhospitalaria.hospital;";
+=======
+        			$qry = "SELECT hospital, nombre from HOSPITAL;";
+>>>>>>> ab24b3588eebe9e5308465b9342daa705325ecfc
 
         			$result = mysql_query($qry);
         			echo "resultado".$qry;
@@ -113,7 +121,11 @@ include("../Conexion/conexionBD.php")
 							<td>
 							<select name = "permisos">
 							<?php
+<<<<<<< HEAD
 			        			$qry = "SELECT permisos, nombre_permiso from redhospitalaria.permisos;";
+=======
+			        			$qry = "SELECT permisos, nombre_permiso from PERMISOS;";
+>>>>>>> ab24b3588eebe9e5308465b9342daa705325ecfc
 
 			        			$result = mysql_query($qry);
 			        			
