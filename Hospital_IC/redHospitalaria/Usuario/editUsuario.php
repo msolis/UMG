@@ -1,5 +1,6 @@
 <?php
-include("../Conexion/conexionBD.php")
+include("../Conexion/conexionBD.php");
+include("../includes/selectores.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,7 +68,7 @@ include("../Conexion/conexionBD.php")
 
 	{   
 		
-		$result = mysql_query("SELECT usuario, nombre,clave, hospital, status, permisos FROM redhospitalaria.usuario WHERE usuario = '" . $usuario . "' ;");
+		$result = mysql_query("SELECT USUARIO, NOMBRE, CLAVE, HOSPITAL, STATUS, PERMISOS FROM redhospitalaria.usuario WHERE USUARIO = " . $usuario . " ;");
 		echo mysql_error();
 		if ($result == 0){
 			echo "Error";
@@ -83,67 +84,42 @@ include("../Conexion/conexionBD.php")
 		}
 	}
 ?>
-
 	<form method="POST">
 		<table  width="600">
-			<h2>Nuevo Usuario</h2>
-				
-				<p><input name ="usuario" value= "<?php echo $usuario ?>"</p>
-				<p><input name ="nombre"  value= "<?php echo $unombre ?>" required=""></p>
-				<p><input name = "clave"  value= "<?php echo $password?>"></p>
+			<h2>EDITAR USUARIO</h2>
+				<p><input name ="USUARIO" value= "<?php echo $usuario ?>"</p>
+				<p><input name ="NOMBRE"  value= "<?php echo $unombre ?>" required=""></p>
+				<p><input name = "CLAVE"  value= "<?php echo $password?>"></p>
 				
 				<tr>
-				<td>Hospital</td>
-				<td>
-				<select name = "hospital">
-				<?php
-        			$qry = "SELECT hospital, nombre from redhospitalaria.hospital;";
-
-        			$result = mysql_query($qry);
-        			echo "resultado".$qry;
-        			
-        			while ($row = mysql_fetch_array($result, MYSQL_NUM)){
-					   
-        		?>
-
-        		<option selected value= "<?php echo $row[0]; ?>">  <?php echo $row[1]; ?>
-
-        			<?php
-					}
-					?>
-        		</select>
-        		</td>
-        	</tr>
-        	<tr>
+					<td>Hospital</td>
+					<td>
+					<select name = "HOSPITAL">
+<?php
+	nuevoSelector("HOSPITAL", "NOMBRE", "HOSPITAL", $uhospital);   
+?>
+	        		</select>
+	        		</td>
+        		</tr>
+        		
 				<td>Status:</td>
-				<td>
-					<SELECT NAME="status"> 
-					<OPTION SELECTED VALUE = "A">Alta
-					<OPTION VALUE= "B">Baja
-					</SELECT> 
-				</td>
-						<tr>
-							<td>Permisos</td>
 							<td>
-							<select name = "permisos">
-							<?php
-			        			$qry = "SELECT permisos, nombre_permiso from redhospitalaria.permisos;";
-
-			        			$result = mysql_query($qry);
-			        			
-			        			while ($row = mysql_fetch_array($result, MYSQL_NUM)){
-								   
-			        		?>
-
-			        		<option selected value= "<?php echo $row[0]; ?>"><?php echo $row[1]; ?>
-
-			        			<?php
-								}
-								?>
-			        		</select>
-							<button id="entrar" type="submit"></button>
-							<button id="borrar" type="reset"></button>
-						</table>
+								<SELECT NAME="STATUS"> 
+								<OPTION SELECTED VALUE = "A">Alta
+								<OPTION VALUE= "B">Baja
+								</SELECT> 
+							</td>
+									<tr>
+										<td>Permisos</td>
+										<td>
+										<select name = "PERMISOS">
+										<?php
+											nuevoSelector("PERMISOS", "NOMBRE_PERMISO", "PERMISOS", $upermisos);   
+						        		?>
+						        		</select>
+										<button id="entrar" type="submit"></button>
+										<button id="borrar" type="reset"></button>
+									</table>
 			</form>
 		</tbody>
 	</body>
