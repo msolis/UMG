@@ -1,12 +1,13 @@
 <?php
-include("../Conexion/conexionBD.php")
+include("../Conexion/conexionBD.php");
+
 ?>
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Login - Red Hospitalaria</title>
+		<title>Login</title>
 	
 				<link rel="stylesheet" href="../css/base.css">
 				<link rel="stylesheet" href="../css/skeleton.css">
@@ -23,7 +24,7 @@ include("../Conexion/conexionBD.php")
             if (($password !="") && ($username !=""))
             {
                 
-                $result = mysql_query ("SELECT nombre, clave, status  from redHospitalaria.USUARIO where nombre = '".$username."' and clave = '".$password."';");
+                $result = mysql_query ("SELECT nombre, clave, status, hospital  from redHospitalaria.usuario where nombre = '".$username."' and clave = '".$password."';");
                 
                 
                 if ($result == 0)
@@ -41,11 +42,13 @@ include("../Conexion/conexionBD.php")
                         $nombre = $row_array[0];
                         $clave= $row_array[1];
                         $status = $row_array[2];
+                        $uhospital = $row_array[3];
                         if ($status == "A"){
 
                             session_start();
 
-                            $_SESSION ["iher_username"] = $username;
+                            $_SESSION ["username"] = $username;
+                             $_SESSION ["hospital"] = $uhospital;
                         
                             header("Location: ../Principal/menu.php");
                         

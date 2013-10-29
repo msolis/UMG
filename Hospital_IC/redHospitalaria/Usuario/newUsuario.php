@@ -1,6 +1,8 @@
 <?php
 include("../Conexion/conexionBD.php");
 include("../includes/selectores.php");
+include("../Conexion/valius.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,57 +16,25 @@ include("../includes/selectores.php");
 				<link rel="stylesheet" href="../css/principal.css">
 </head>
 <body>
-	<ul id="nav">
-		<li class="current"><a href="../Principal/menu.php">Inicio</a></li>
-		<li><a href="">Usuario</a>
-			<ul>
-				<li><a href="../Usuario/usuario.php">Usuarios</a><li>
-				<li><a href="../Usuario/newUsuario.php">Nuevo Usuario</a></li>
-				<li><a href="../Usuario/editUsuario.php">Edit Usuario.</a></li>
-			</ul>
-		</li>
-		<li><a href="#">Empleados</a>
-			<ul>
-				<li><a href="#">Empleados</a></li>
-				<li><a href="#">Nuevo Empleado</a></li>
-				<li><a href="#">Editar Empleado</a></li>
-			</ul>
-		</li>
-		<li><a href="#">Paciente</a>
-			<ul>
-				<li><a href="#">Pacientes</a></li>
-				<li><a href="#">Nuevo Paciente</a></li>
-				<li><a href="#">Editar Paciente</a></li>
-			</ul>
-		</li>	
-		<li><a href="#">Consulta</a></li>
-		<li><a href="#">Ingresos</a></li>
-		<li><a href="#">Farmacias</a></li>
-		<li><a href="#">Hospitales</a></li>
-		
-		
-		<li><a href="../Login/login.php">Salir</a></li>
-	</ul>
-<br>
-<br>
-<br>
-<br>
-<br>
+	<?php include("../includes/menu.php"); ?>
+	
 	<tbody>
 <?php 
 
-		if (isset($_POST["USUARIO"]))
+		if (isset($_POST["NOMBRE"]))
 
 		{
-		$usuario = $_POST["USUARIO"];
+		
 		$unombre = $_POST["NOMBRE"];
 		$password = $_POST["CLAVE"];
 		$uhospital = $_POST["hospital"];
 		$ustatus= $_POST["STATUS"];
 		$upermisos = $_POST["PERMISOS"];
 
+		$query="INSERT INTO redhospitalaria.usuario (usuario.NOMBRE, usuario.CLAVE, usuario.HOSPITAL, usuario.STATUS, usuario.PERMISOS) VALUES( '".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");";
+		echo $query;
 
-		mysql_query ("INSERT INTO redhospitalaria.usuario (usuario.USUARIO, usuario.NOMBRE, usuario.CLAVE, usuario.HOSPITAL, usuario.STATUS, usuario.PERMISOS) VALUES( ".$usuario.",'".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");");
+		mysql_query ($query);
 
 		}
 
@@ -73,7 +43,7 @@ include("../includes/selectores.php");
 		<table  width="600">
 			<h2>Nuevo Usuario</h2>
 				
-				<p><input name ="USUARIO" type="text" placeholder="#de usuario" required=""></p>
+				
 				<p><input name ="NOMBRE" type="text" placeholder="nombre" required=""></p>
 				<p><input name = "CLAVE" type="password" placeholder="Clave" required=""></p>
 				
@@ -82,7 +52,7 @@ include("../includes/selectores.php");
 					<td>
 					<select name = "hospital">
 <?php
-	nuevoSelector("HOSPITAL", "NOMBRE", "hospital", "$uhospital");   
+	nuevoSelector("HOSPITAL", "NOMBRE", "hospital", "") ;  
 ?>
 	        		</select>
 	        		</td>
@@ -100,7 +70,7 @@ include("../includes/selectores.php");
 										<td>
 										<select name = "PERMISOS">
 <?php
-	nuevoSelector("PERMISOS", "NOMBRE_PERMISO", "PERMISOS", $upermisos);   
+	nuevoSelector("PERMISOS", "NOMBRE_PERMISO", "PERMISOS", "");   
 ?>
 						        		</select>
 						        		
