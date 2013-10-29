@@ -105,20 +105,17 @@
 										</div>
 									</form>
 								</div>
-								<div class="l_pane" style="display:none">
-									<form action="index.php" method="post" class="nice" id="rp_form" novalidate="novalidate">
-										<div class="sepH_c">
-											<p class="sepH_b">Please enter your email address. You will receive a link to create a new password via email.</p>
-											<div class="elVal">
-												<label for="upname">E-mail:</label>
-												<input type="text" id="upname" name="upname" class="oversize expand input-text">
-											</div>
-										</div>
-										<div class="cf">
-											<input type="submit" class="button small radius right black" value="Get new password">
-										</div>
-									</form>
+								<?php
+									if(isset($_GET["Error"])){
+								?>
+								<div class="l_pane">
+									<div class="sepH_c">
+										<p class="sepH_b" style="color:red; font-weight: bold;"><?php echo $_GET["Error"]; ?></p>
+									</div>
 								</div>
+								<?php
+								}
+								?>
                             </div>
                         </div>
                     </div>
