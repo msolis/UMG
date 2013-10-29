@@ -16,6 +16,7 @@ include("../Conexion/valius.php");
 				<link rel="stylesheet" href="../css/principal.css">
 </head>
 <body>
+
 <?php include("../includes/menu.php"); ?>
 
 <table width="600">
