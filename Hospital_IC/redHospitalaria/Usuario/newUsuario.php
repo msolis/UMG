@@ -1,5 +1,6 @@
 <?php
-include("../Conexion/conexionBD.php")
+include("../Conexion/conexionBD.php");
+include("../includes/selectores.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,96 +53,61 @@ include("../Conexion/conexionBD.php")
 	<tbody>
 <?php 
 
-		     if (isset($_POST["nombre"]))
+		if (isset($_POST["USUARIO"]))
 
-           {
-					$usuario = $_POST["usuario"];
-					$unombre = $_POST["nombre"];
-					$password = $_POST["clave"];
-					$uhospital = $_POST["hospital"];
-					$ustatus= $_POST["status"];
-					$upermisos = $_POST["permisos"];
-				
+		{
+		$usuario = $_POST["USUARIO"];
+		$unombre = $_POST["NOMBRE"];
+		$password = $_POST["CLAVE"];
+		$uhospital = $_POST["hospital"];
+		$ustatus= $_POST["STATUS"];
+		$upermisos = $_POST["PERMISOS"];
 
-<<<<<<< HEAD
-					mysql_query ("INSERT INTO redhospitalaria.usuario( usuario.usuario, usuario.nombre, usuario.clave, usuario.hospital, usuario.status, usuario.permisos) VALUES( ".$usuario.",'".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");");
-=======
-					mysql_query ("INSERT INTO redHospitalaria.USUARIO( usuario.nombre, usuario.clave, usuario.hospital, usuario.status, usuario.permisos) VALUES('".$unombre."', '".$password."', '".$uhospital."', '".$ustatus."', '".$upermisos."');");
->>>>>>> ab24b3588eebe9e5308465b9342daa705325ecfc
-					
-			
-			}
+
+		mysql_query ("INSERT INTO redhospitalaria.usuario (usuario.USUARIO, usuario.NOMBRE, usuario.CLAVE, usuario.HOSPITAL, usuario.STATUS, usuario.PERMISOS) VALUES( ".$usuario.",'".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");");
+
+		}
 
 ?>
-
 	<form method="POST">
 		<table  width="600">
 			<h2>Nuevo Usuario</h2>
 				
-				<p><input name ="usuario" type="text" placeholder="#de usuario" required=""></p>
-				<p><input name ="nombre" type="text" placeholder="nombre" required=""></p>
-				<p><input name = "clave" type="password" placeholder="Clave" required=""></p>
+				<p><input name ="USUARIO" type="text" placeholder="#de usuario" required=""></p>
+				<p><input name ="NOMBRE" type="text" placeholder="nombre" required=""></p>
+				<p><input name = "CLAVE" type="password" placeholder="Clave" required=""></p>
 				
-				<tr>
-				<td>Hospital</td>
-				<td>
-				<select name = "hospital">
-				<?php
-<<<<<<< HEAD
-        			$qry = "SELECT hospital, nombre from redhospitalaria.hospital;";
-=======
-        			$qry = "SELECT hospital, nombre from HOSPITAL;";
->>>>>>> ab24b3588eebe9e5308465b9342daa705325ecfc
-
-        			$result = mysql_query($qry);
-        			echo "resultado".$qry;
-        			
-        			while ($row = mysql_fetch_array($result, MYSQL_NUM)){
-					   
-        		?>
-
-        		<option selected value= "<?php echo $row[0]; ?>">  <?php echo $row[1]; ?>
-
-        			<?php
-					}
-					?>
-        		</select>
-        		</td>
-        	</tr>
-        	<tr>
+					<tr>
+					<td>Hospital</td>
+					<td>
+					<select name = "hospital">
+<?php
+	nuevoSelector("HOSPITAL", "NOMBRE", "hospital", "$uhospital");   
+?>
+	        		</select>
+	        		</td>
+        		</tr>
+        		
 				<td>Status:</td>
-				<td>
-					<SELECT NAME="status"> 
-					<OPTION SELECTED VALUE = "A">Alta
-					<OPTION VALUE= "B">Baja
-					</SELECT> 
-				</td>
-						<tr>
-							<td>Permisos</td>
 							<td>
-							<select name = "permisos">
-							<?php
-<<<<<<< HEAD
-			        			$qry = "SELECT permisos, nombre_permiso from redhospitalaria.permisos;";
-=======
-			        			$qry = "SELECT permisos, nombre_permiso from PERMISOS;";
->>>>>>> ab24b3588eebe9e5308465b9342daa705325ecfc
-
-			        			$result = mysql_query($qry);
-			        			
-			        			while ($row = mysql_fetch_array($result, MYSQL_NUM)){
-								   
-			        		?>
-
-			        		<option selected value= "<?php echo $row[0]; ?>"><?php echo $row[1]; ?>
-
-			        			<?php
-								}
-								?>
-			        		</select>
-							<button id="entrar" type="submit"></button>
-							<button id="borrar" type="reset"></button>
-						</table>
+								<SELECT NAME="STATUS"> 
+								<OPTION SELECTED VALUE = "A">Alta
+								<OPTION VALUE= "B">Baja
+								</SELECT> 
+							</td>
+									<tr>
+										<td>Permisos</td>
+										<td>
+										<select name = "PERMISOS">
+<?php
+	nuevoSelector("PERMISOS", "NOMBRE_PERMISO", "PERMISOS", $upermisos);   
+?>
+						        		</select>
+						        		
+										<button id="entrar" type="submit"></button>
+										<button id="borrar" type="reset"></button>
+									</tr>
+		</table>
 			</form>
 		</tbody>
 	</body>
