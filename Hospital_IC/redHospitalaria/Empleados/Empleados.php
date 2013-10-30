@@ -56,14 +56,16 @@ include("../Conexion/valius.php");
 ?>
         	
 					<form>
+					<table>
         				<tr class="alt">
-	        				<td><h5><?php echo $row[0]; ?></td>
-	        				<td><h5><?php echo $row[1]; ?></td>
-	        				<td><h5><?php echo $row[2]; ?></td>
-	        				<td><h5><?php echo $row[3]; ?></td>
-	        				<td><h5><?php echo $row[4]; ?></td>
+	        				<td><h5><?php echo $row[0]; ?></h5></td>
+	        				<td><h5><?php echo $row[1]; ?></h5></td>
+	        				<td><h5><?php echo $row[2]; ?></h5></td>
+	        				<td><h5><?php echo $row[3]; ?></h5></td>
+	        				<td><h5><?php echo $row[4]; ?></h5></td>
 	        				
 			        			<td>
+			        </table>
 			        				<h5> <a href="../Usuario/editUsuario.php?Id=<?php echo $row[0] ?>" style="color:Black">Modificar</a>
 			        			</td>
         				</tr>
