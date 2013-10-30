@@ -56,7 +56,7 @@ include("../Conexion/valius.php");
 ?>
         	
 					<form>
-					<table>
+				
         				<tr class="alt">
 	        				<td><h5><?php echo $row[0]; ?></h5></td>
 	        				<td><h5><?php echo $row[1]; ?></h5></td>
@@ -65,8 +65,8 @@ include("../Conexion/valius.php");
 	        				<td><h5><?php echo $row[4]; ?></h5></td>
 	        				
 			        			<td>
-			        </table>
-			        				<h5> <a href="../Usuario/editUsuario.php?Id=<?php echo $row[0] ?>" style="color:Black">Modificar</a>
+			        
+			        				<h5> <a href="../Usuario/editUsuario.php?Id=<?php echo $row[0] ?>" style="color:Black">Modificar</a></h5>
 			        			</td>
         				</tr>
         			</form>
