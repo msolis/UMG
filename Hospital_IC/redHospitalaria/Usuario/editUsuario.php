@@ -9,14 +9,11 @@ include("../Conexion/valius.php");
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
-		<title>Menu</title>
+		<title>Editar Usuario</title>
 				<link rel="stylesheet" href="../css/base.css">
 				<link rel="stylesheet" href="../css/skeleton.css">
 				<link rel="stylesheet" href="../css/layout.css">	
 				<link rel="stylesheet" href="../css/principal.css">
-
-
-
 </head>
 <body>
 	<?php include("../includes/menu.php"); ?>
@@ -30,16 +27,29 @@ include("../Conexion/valius.php");
 					$ustatus= "";
 					$upermisos ="";
 
-	if (isset($usuario))
-
-
-	{   
-		
-		$result = mysql_query("SELECT USUARIO, NOMBRE, CLAVE, HOSPITAL, STATUS, PERMISOS FROM redhospitalaria.usuario WHERE USUARIO = " . $usuario . " ;");
-		echo mysql_error();
-		if ($result == 0){
+					if(isset ($_POST ["entrar"])){
+						
+					$unombre = $_POST["NOMBRE"];
+					$password = $_POST["CLAVE"];
+					$uhospital = $_POST["HOSPITAL"];
+					$ustatus= $_POST["STATUS"];
+					$upermisos = $_POST["PERMISOS"];
+					
+					$query="UPDATE redhospitalaria.usuario SET NOMBRE='".$unombre."', CLAVE= '".$password."', HOSPITAL= ".$uhospital.", STATUS= '".$ustatus."', PERMISOS= ".$upermisos."  where  USUARIO= ".$usuario;
+					mysql_query ($query);
+						
+					}
+					
+			if (isset($usuario))
+			{   
+			$result = mysql_query("SELECT USUARIO, NOMBRE, CLAVE, HOSPITAL, STATUS, PERMISOS FROM redhospitalaria.usuario WHERE USUARIO = " . $usuario . ";");
+			echo mysql_error();
+			
+			if ($result ==0)
+			{
 			echo "Error";
-		}else{
+			}else
+			{
 			$row_array = mysql_fetch_array($result);
 
 			$usuario = $row_array[0];
@@ -48,8 +58,12 @@ include("../Conexion/valius.php");
 			$uhospital = $row_array[3];
 			$ustatus = $row_array[4];
 			$upermisos = $row_array[5];
+			
+			}
 		}
-	}
+		
+			
+	
 ?>
 	<form method="POST">
 		<table  width="600">
@@ -84,11 +98,12 @@ include("../Conexion/valius.php");
 											nuevoSelector("PERMISOS", "NOMBRE_PERMISO", "PERMISOS", $upermisos);   
 						        		?>
 						        		</select>
-										<button id="entrar" type="submit"></button>
+										<button name="entrar" type="submit"></button>
 										<button id="borrar" type="reset"></button>
 									</table>
 			</form>
 		</tbody>
+	
 	</body>
 </html>
 
