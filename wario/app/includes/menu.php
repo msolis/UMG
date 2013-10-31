@@ -1,4 +1,17 @@
-
+<?php 
+	$qryInfoUser = "select Correo, Nombre, Imagen from USUARIO WHERE Corporacion = ? and Id = ?;";
+	$stmt = $db->prepare($qryInfoUser);
+	$stmt->bind_param('ii', $USER_ID, $USER_CORPORATION);
+	
+	$stmt->execute();
+	$rowArray = mysqli_fetch_array($stmt->get_result());
+	
+	$USER_CORREO = $rowArray[0];
+	$USER_NAME = $rowArray[1];
+	$USER_IMAGE_PATH = "../data/usuarios/" . $rowArray[2];
+	
+	
+?>
 <div class="row sepH_b">
 	<div class="six columns">
 		<div class="row">
@@ -14,15 +27,15 @@
 	<div class="six columns">
 		<div class="user_box cf">
 			<div class="user_avatar">
-				<img src="img/user_female.png" alt="">
+				<img src="<?php echo $USER_IMAGE_PATH; ?>" alt="">
 			</div>
 			<div class="user_info user_sep">
 				<p class="sepH_a">
-					<strong>Mary Adams</strong>
+					<strong><?php echo $USER_NAME; ?></strong>
 				</p>
 				<span>
-					<a href="#" class="sep">Settings</a>
-					<a href="index.php">Log out</a>
+					<a href="#" class="sep">Configuración</a>
+					<a href="../secure/logout.php">Salir</a>
 				</span>
 			</div>
 			<div class="ntf_bar user_sep">

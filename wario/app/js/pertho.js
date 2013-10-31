@@ -20,7 +20,7 @@
                 //* scroll to top
                 $().UItoTop();
                 //* page styles switcher
-                prth_style_sw.init();
+                //prth_style_sw.init();
             }
             if(!jQuery.browser.mobile) {
                 //* main navigatin
