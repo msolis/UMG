@@ -1,7 +1,7 @@
-
 <?php
   include("coneccion.php");
   ?>
+
 <html>
 <head>
   <title></title>
@@ -16,15 +16,9 @@
           $Tipo_Sangre=$_POST["tiposangre"];
           $Peso=$_POST["peso"];
           $Estatus=$_POST["estatus"];
+
           
-          $sql="SELECT ID_PASIENTE FROM pasientes WHERE ID_PASIENTE='".$id."'";
-          $result=mysql_query($sql,$conexio);
-         if($row=mysql_fetch_array($result))
-          {
-          	echo "el id <br> ".$id."</bre> ya fue ingresado.";
-            exit();
-          }
-          mysql_query("INSERT INTO pasientes(ID_PASIENTE,NOMBRE,DIRECCION,TELEFONO,TIPO_SANGRE,PESO,ESTATUS)VALUES('$id','$Nombre','$Direccion','$Telefono','$Tipo_Sangre','$Peso','$Estatus');",$conexio);
+          mysql_query("INSERT INTO hospitaldb.pasientes(ID_PASIENTE,NOMBRE,DIRECCION,TELEFONO,TIPO_SANGRE,PESO,ESTATUS)VALUES('$Nombre','$Direccion','$Telefono','$Tipo_Sangre','$Peso','$Estatus');",$conexio);
         echo "Registro Exitoso! <br><br> pasiente: <b>".$Nombre."</b> <br>estatus: <b>".$Estatus."</br>";
        
         mysql_close($conexio);
