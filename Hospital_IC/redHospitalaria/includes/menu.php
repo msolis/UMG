@@ -10,8 +10,8 @@
 		<li><a href="#">Empleados</a>
 			<ul>
 				<li><a href="../Empleados/Empleados.php">Empleados</a></li>
-				<li><a href="#">Nuevo Empleado</a></li>
-				<li><a href="#">Editar Empleado</a></li>
+				<li><a href="../Empleados/newEmpleados.php">Nuevo Empleado</a></li>
+				
 			</ul>
 		</li>
 		<li><a href="#">Paciente</a>

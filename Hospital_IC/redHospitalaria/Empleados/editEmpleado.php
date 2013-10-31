@@ -93,11 +93,11 @@ include("../includes/selectores.php");
 			<h2>Datos del Empleado</h2>
 				
 				
-				<p><input name ="NOMBRE" type="text" placeholder="Nombres" required=""></p>
-				<p><input name ="APELLIDO" type="text" placeholder="Apellidos" required=""></p>
-				<p><input name ="DPI" type="text" placeholder="DPI o CEDULA" required=""></p>
-				<p><input name ="TELEFONO" type="text" placeholder="Telefono" required=""></p>
-				<p><input name ="DIRECCION" type="text" placeholder="Direccion" required=""></p>
+				<p><input name ="NOMBRE"  value= "<?php echo $unombre ?>"></p>
+				<p><input name ="APELLIDO" value= "<?php echo $uapellido ?>"></p>
+				<p><input name ="DPI" value= "<?php echo $udpi ?>"></p>
+				<p><input name ="TELEFONO" value= "<?php echo $utelefono ?>"></p>
+				<p><input name ="DIRECCION" value= "<?php echo $udireccion ?>"></p>
 				
 					<tr>
 						<td>Pais</td>

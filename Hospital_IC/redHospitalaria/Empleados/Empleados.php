@@ -66,7 +66,7 @@ include("../Conexion/valius.php");
 	        			
 	        			
 	        			<th>
-	        				<a href="../Usuario/editEmpleado.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
+	        				<a href="../Empleados/editEmpleado.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
 	        			</th>
         			</tr>
         		</form>

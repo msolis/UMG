@@ -1,7 +1,6 @@
 <?php
 include("../Conexion/conexionBD.php");
 include("../includes/selectores.php");
-include("../Conexion/valius.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +13,11 @@ include("../Conexion/valius.php");
 				<link rel="stylesheet" href="../css/skeleton.css">
 				<link rel="stylesheet" href="../css/layout.css">	
 				<link rel="stylesheet" href="../css/principal.css">
+				
 </head>
 <body>
 	<?php include("../includes/menu.php"); ?>
+	
 	<tbody>
 <?php 
 
@@ -66,20 +67,22 @@ include("../Conexion/valius.php");
 	
 ?>
 	<form method="POST">
+	
 		<table  width="600">
+		
 			<h2>EDITAR USUARIO</h2>
-				<p><input name ="USUARIO" value= "<?php echo $usuario ?>"</p>
-				<p><input name ="NOMBRE"  value= "<?php echo $unombre ?>" required=""></p>
+				
+				<p><input name ="NOMBRE"  value= "<?php echo $unombre ?>"></p>
 				<p><input name = "CLAVE"  value= "<?php echo $password?>"></p>
 				
 				<tr>
 					<td>Hospital</td>
 					<td>
-					<select name = "HOSPITAL">
+						<select name = "HOSPITAL">
 <?php
 	nuevoSelector("HOSPITAL", "NOMBRE", "HOSPITAL", $uhospital);   
 ?>
-	        		</select>
+	        			</select>
 	        		</td>
         		</tr>
         		
