@@ -7,6 +7,11 @@
         </div>
 	</footer>
 	
+	<script src="../js/jquery.rwd-table.js"></script>
+	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/dataTables.plugins.js"></script>
+	<script src="../js/ColVis.min.js"></script>
+	
 	
 </body>
 </html>

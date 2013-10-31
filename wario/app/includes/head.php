@@ -77,6 +77,8 @@
 	<script src="../js/jquery.list.min.js"></script>
 	<script src="../js/pertho.js"></script>
 	
+	
+	
 
 	<script>
 		$(document).on("ready", function() {
@@ -90,7 +92,7 @@
 							//* full calendar
 				//prth_calendar.init();
 				//* filterable list
-				//prth_flist.init();
+				prth_flist.init();
 				//* smart gallery
 				//prth_gallery.init();
 				//* home page charts resize

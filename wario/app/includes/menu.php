@@ -72,8 +72,8 @@
                 <li style="z-index: 99;">
                     <a href="" class="mb_parent" style="padding-right: 23px;">Usuarios<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
-                        <li><a href="index.php?uid=1&amp;page=form_elements">Creación de Usuarios</a></li>
-                        <li><a href="index.php?uid=1&amp;page=form_extended">Lista de Usuarios</a></li>
+                        <li><a href="../users/new.php">Creación de Usuarios</a></li>
+                        <li><a href="../users/">Lista de Usuarios</a></li>
                     </ul>
                 </li>
                 <li style="z-index: 98;">
@@ -205,3 +205,4 @@
         </ul -->
     </div>
 </div>
+</header>
