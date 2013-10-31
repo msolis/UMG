@@ -26,11 +26,13 @@ include("../Conexion/valius.php");
 		{
 		
 		$unombre = $_POST["NOMBRE"];
-		$password = $_POST["CLAVE"];
-		$uhospital = $_POST["HOSPITAL"];
-		$ustatus= $_POST["STATUS"];
-		$upermisos = $_POST["PERMISOS"];
-
+		$uapellido = $_POST["APELLLIDO"];
+		$udpi = $_POST["DPI"];
+		$utelefono = $_POST["TELEFONO"];
+		$udireccion = $_POST["DIRECCION"];
+		
+		
+		
 		$query="INSERT INTO redhospitalaria.usuario (usuario.NOMBRE, usuario.CLAVE, usuario.HOSPITAL, usuario.STATUS, usuario.PERMISOS) VALUES( '".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");";
 		mysql_query ($query);
 

@@ -9,7 +9,7 @@
 		</li>
 		<li><a href="#">Empleados</a>
 			<ul>
-				<li><a href="#">Empleados</a></li>
+				<li><a href="../Empleados/Empleados.php">Empleados</a></li>
 				<li><a href="#">Nuevo Empleado</a></li>
 				<li><a href="#">Editar Empleado</a></li>
 			</ul>

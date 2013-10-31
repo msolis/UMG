@@ -12,7 +12,8 @@ include("../Conexion/valius.php");
 		<link rel="stylesheet" href="../css/skeleton.css">
 		<link rel="stylesheet" href="../css/layout.css">	
 		<link rel="stylesheet" href="../css/principal.css">
-</head>
+		<link rel="stylesheet" href="../css/Boxusuarios.css">
+		</head>
 <body>
 	<?php include("../includes/menu.php"); ?>
 </body>
