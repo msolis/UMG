@@ -19,63 +19,63 @@ include("../Conexion/valius.php");
 </head>
 <body>
 <?php include("../includes/menu.php"); ?>
-<br><br><br><br>
+<table width="900">
+	       	<thead>
+        		<tr>
+        			<th>ID.Empleado</th>
+        			<th>Nombre</th>
+        			<th>Apellido</th>
+        			<th>DPI</th>
+        			<th>Telefono</th>
+        			<th>Direccion</th>
+        			<th>Pais</th>
+        			<th>Departamento</th>
+        			<th>Municipio</th>
+        			<th>Titulo</th>
+        			<th>Genero</th>
+        			<th>Fecha de Ingreso</th>
+        			<th>Status</th>
+        			       			
+        		</tr>
+        	</thead>
+        	<tbody >
+        		<?php
+        			$qry = "SELECT DATOS_PERSONALES, NOMBRE, APELLIDO, DPI, TELEFONO, DIRECCION,PAIS, DEPARTAMENTO, MUNICIPIO,TITULO, GENERO,FECHA_INGRESO, STATUS from datos_personales;";
 
-<div class ="datagrid">
-		<table>
-			<thead>
-				<tr>
-					<th>ID.Empleado</th>
-	        		<th>Codigo de datos P.</th>
-	        		<th>Hospital Asignado</th>
-	        		<th>Departamento Area.</th>
-	       			<th>Puesto</th>
-	       			<th>Modificar</th>
-				</tr>
-			</thead>
-		
-			<tfoot>
-					<tr>
-						<td colspan="4">
-							<div id="paging">
-								<ul>
-								<li><span>-----------------------------------------------------------------------------
-								---------------------------------------------------------------------------------
-								-----</span></li>
-								</ul>
-							</div>
-						</td>
-					</tr>
-			</tfoot>
-
-			<tbody>
-<?php
-	$qry = "SELECT empleado, datos_personales, hospital, depto_area, puesto from empleado;";
-	$result = mysql_query($qry);
-	while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
-?>
+        			$result = mysql_query($qry);
+        			
+        			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
+					   
+        		?>
         	
-					<form>
-				
-        				<tr class="alt">
-	        				<td><h5><?php echo $row[0]; ?></h5></td>
-	        				<td><h5><?php echo $row[1]; ?></h5></td>
-	        				<td><h5><?php echo $row[2]; ?></h5></td>
-	        				<td><h5><?php echo $row[3]; ?></h5></td>
-	        				<td><h5><?php echo $row[4]; ?></h5></td>
-	        				
-			        			<td>
-			        
-			        				<h5> <a href="../Usuario/editUsuario.php?Id=<?php echo $row[0] ?>" style="color:Black">Modificar</a></h5>
-			        			</td>
-        				</tr>
-        			</form>
-<?php
-														}
-?>
+				<form>
+        			<tr>
+        				<th><?php echo $row[0]; ?></th>
+        				<th><?php echo $row[1]; ?></th>
+        				<th><?php echo $row[2]; ?></th>
+        				<th><?php echo $row[3]; ?></th>
+        				<th><?php echo $row[4]; ?></th>
+	        			<th><?php echo $row[5]; ?></th>
+	        			<th><?php echo $row[6]; ?></th>
+	        			<th><?php echo $row[7]; ?></th>
+	        			<th><?php echo $row[8]; ?></th>
+	        			<th><?php echo $row[9]; ?></th>
+	        			<th><?php echo $row[10]; ?></th>
+	        			<th><?php echo $row[11]; ?></th>
+	        			<th><?php echo $row[12]; ?></th>
+	        			
+	        			
+	        			<th>
+	        				<a href="../Usuario/editEmpleado.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
+	        			</th>
+        			</tr>
+        		</form>
+        		
+        		<?php
+        		}
+        		?>
+
         	</tbody>
-	</div>
-	
-	</table>
+        </table>
 </body>
 </html>
