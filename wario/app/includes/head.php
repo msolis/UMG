@@ -1,11 +1,11 @@
 <?php 
 	include("../includes/verifysession.php");
+	include("../includes/conexion.php");
 ?>
-<!doctype html public "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!doctype html>
 
-<html>
+<html lang="es">
 <head>
-	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Hospital</title>
 
@@ -77,6 +77,8 @@
 	<script src="../js/jquery.list.min.js"></script>
 	<script src="../js/pertho.js"></script>
 	
+	
+	
 
 	<script>
 		$(document).on("ready", function() {
@@ -90,7 +92,7 @@
 							//* full calendar
 				//prth_calendar.init();
 				//* filterable list
-				//prth_flist.init();
+				prth_flist.init();
 				//* smart gallery
 				//prth_gallery.init();
 				//* home page charts resize
