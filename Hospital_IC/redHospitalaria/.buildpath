@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="Conexion"/>
+	<buildpathentry kind="src" path="includes"/>
+	<buildpathentry kind="src" path="Login"/>
+	<buildpathentry kind="src" path="Principal"/>
+	<buildpathentry kind="src" path="Usuario"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>

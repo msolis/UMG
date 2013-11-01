@@ -72,8 +72,8 @@ include("../includes/selectores.php");
 		
 			<h2>EDITAR USUARIO</h2>
 				
-				<p><input name ="NOMBRE"  value= "<?php echo $unombre ?>"></p>
-				<p><input name = "CLAVE"  value= "<?php echo $password?>"></p>
+				<p><input name="NOMBRE"  value="<?php echo $unombre; ?>" /></p>
+				<p><input name = "CLAVE"  value= "<?php echo $password; ?>"></p>
 				
 				<tr>
 					<td>Hospital</td>
