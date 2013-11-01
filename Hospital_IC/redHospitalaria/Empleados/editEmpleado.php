@@ -1,6 +1,7 @@
 <?php
 include("../Conexion/conexionBD.php");
 include("../includes/selectores.php");
+include("../Conexion/valius.php");
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +91,7 @@ include("../includes/selectores.php");
 ?>
 	<form method="POST">
 		<table  width="600"> 
-			<h2>Datos del Empleado</h2>
+			<h2>Editar Empleado</h2>
 				
 				
 				<p><input name ="NOMBRE"  value= "<?php echo $unombre ?>"></p>
@@ -104,7 +105,7 @@ include("../includes/selectores.php");
 							<td>
 								<select name = "PAIS">
 <?php
-	nuevoSelector("PAIS", "NOMBRE_PAIS", "PAIS", "") ;  
+	nuevoSelector("PAIS", "NOMBRE_PAIS", "PAIS", $upais) ;  
 ?>
 	        					</select>
 	        				</td>
@@ -114,7 +115,7 @@ include("../includes/selectores.php");
 							<td>
 								<select name = "DEPARTAMENTO">
 <?php
-	nuevoSelector("DEPARTAMENTO", "NOMBRE_DEPARTAMENTO", "DEPARTAMENTO", "") ;  
+	nuevoSelector("DEPARTAMENTO", "NOMBRE_DEPARTAMENTO", "DEPARTAMENTO", "$udepartamento") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -124,7 +125,7 @@ include("../includes/selectores.php");
 							<td>
 								<select name = "MUNICIPIO">
 <?php
-	nuevoSelector("MUNICIPIO", "NOMBRE_MUNICIPIO", "MUNICIPIO", "") ;  
+	nuevoSelector("MUNICIPIO", "NOMBRE_MUNICIPIO", "MUNICIPIO", "$umunicipio") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -134,7 +135,7 @@ include("../includes/selectores.php");
 							<td>
 								<select name = "TITULO">
 <?php
-	nuevoSelector("TITULO", "NOMBRE_TITULO", "TITULO", "") ;  
+	nuevoSelector("TITULO", "NOMBRE_TITULO", "TITULO", "$utitulo") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -142,7 +143,7 @@ include("../includes/selectores.php");
         		
 				<td>Genero</td>
 							<td>
-								<SELECT NAME="GENERO"> 
+								<SELECT name="GENERO""> 
 								<OPTION SELECTED VALUE = "F">Femenino
 								<OPTION VALUE= "M">Masculino
 								</SELECT> 
@@ -150,17 +151,18 @@ include("../includes/selectores.php");
 										
 				<td>Status</td>
 							<td>
-								<SELECT NAME="Status"> 
-								<OPTION SELECTED VALUE = "A">Alta
+								<SELECT name="Status"> 
+								<OPTION SELECTED VALUE= "A">Alta
 								<OPTION VALUE= "B">Baja
 								</SELECT> 
 							</td>
 				
 									</tr>
 									
-									<p><input name ="FECHA_INGRESO" type="text" placeholder="Fecha Ingreso yyyymmdd" required=""></p>
+									<p><input name= FECHA_INGRESO value= "<?php echo $ufecha_ingreso ?>"></p>
 														        		
-										<button id="entrar" type="submit"></button>
+										
+										<button name="entrar" type="submit"></button>
 										<button id="borrar" type="reset"></button>
 		
 		</table>

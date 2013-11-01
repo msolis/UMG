@@ -48,7 +48,8 @@ include("../Conexion/conexionBD.php");
                             session_start();
 
                             $_SESSION ["username"] = $username;
-                             $_SESSION ["hospital"] = $uhospital;
+                            $_SESSION ["datos_personales"] = $udatosPersonales;
+                            $_SESSION ["hospital"] = $uhospital;
                         
                             header("Location: ../Principal/menu.php");
                         
