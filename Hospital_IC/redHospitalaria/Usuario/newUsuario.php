@@ -27,13 +27,11 @@ include("../Conexion/valius.php");
 		
 		$unombre = $_POST["NOMBRE"];
 		$password = $_POST["CLAVE"];
-		$uhospital = $_POST["hospital"];
+		$uhospital = $_POST["HOSPITAL"];
 		$ustatus= $_POST["STATUS"];
 		$upermisos = $_POST["PERMISOS"];
 
 		$query="INSERT INTO redhospitalaria.usuario (usuario.NOMBRE, usuario.CLAVE, usuario.HOSPITAL, usuario.STATUS, usuario.PERMISOS) VALUES( '".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");";
-		echo $query;
-
 		mysql_query ($query);
 
 		}
@@ -50,7 +48,7 @@ include("../Conexion/valius.php");
 					<tr>
 					<td>Hospital</td>
 					<td>
-					<select name = "hospital">
+					<select name = "HOSPITAL">
 <?php
 	nuevoSelector("HOSPITAL", "NOMBRE", "hospital", "") ;  
 ?>

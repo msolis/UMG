@@ -48,7 +48,8 @@ include("../Conexion/conexionBD.php");
                             session_start();
 
                             $_SESSION ["username"] = $username;
-                             $_SESSION ["hospital"] = $uhospital;
+                            $_SESSION ["datos_personales"] = $udatosPersonales;
+                            $_SESSION ["hospital"] = $uhospital;
                         
                             header("Location: ../Principal/menu.php");
                         
@@ -65,13 +66,14 @@ include("../Conexion/conexionBD.php");
 	<div class="container">
 		
 		<div class="form-bg">
-			<form method= "POST">
+			<form method="POST">
 				<h2>USUARIO</h2>
 				<p><input name ="nombre" type="text" placeholder="Usuario" required=""></p>
 				<p><input name = "CLAVE" type="password" placeholder="Password" required=""></p>
 				
 				<button type="submit"></button>
-			<form>
+			</form>
+			
 		</div>
 	</div>
 	

@@ -5,6 +5,7 @@
 	<title>Hospital</title>
 
 	<style type="text/css">
+	
 	</style>
 	<link rel="stylesheet" type="text/css" href="../css/foundation.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">

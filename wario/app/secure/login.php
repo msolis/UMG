@@ -4,17 +4,28 @@
 		$usuario = $_POST["usuario"];
 		$clave = $_POST["clave"];
 		
-		$qry = "SELECT Id from USUARIO where Correo = '" . $usuario . "' and Clave = '" . $clave . "';";
-		$result = mysql_query($qry);
-		$rowCount = mysql_num_rows($result);
-		$rowArray = mysql_fetch_array($result);
-		$id = $rowArray[0];
+		$stmt = $db->prepare("SELECT Corporacion, Id from USUARIO where Correo = ? and Clave = ?;");
+		$stmt->bind_param('ss', $usuario, $clave);
 		
+		$stmt->execute();
+		
+		$result = $stmt->get_result();
+		
+		$rowCount = mysqli_num_fields($result);
+		$rowArray = mysqli_fetch_array($result);
+		
+		//variables del usuario
+		$corporacion = $rowArray[0];
+		$id = $rowArray[1];
+		echo $rowCount;
 		if ($rowCount == 0){
 			header("Location: index.php?Error=NO se pudo autenticar el Usuario.");
 		}else{
 			session_start();
+			//save important variables user
+			
 			$_SESSION['hospital_user'] = $id;
+			$_SESSION['hospital_corporacion'] = $corporacion;
 			header("Location: ../home/index.php");
 		}
 		
