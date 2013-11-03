@@ -58,15 +58,11 @@
     <div class="twelve columns">
         <nav id="smoothmenu_h" class="ddsmoothmenu">
             <ul class="cf l_tinynav1">
-                <li style="z-index: 100;">
-                    <a href="" class="mb_parent" style="padding-right: 23px;">Dashboard<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
-                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: block;">
-                        <li>
-                            <a href="index.php?uid=1&amp;page=dashboard">Regular</a>
-                        </li>
-                        <li>
-                            <a href="index.php?uid=1&amp;page=dashboard_drag">Drag&amp;Drop</a>
-                        </li>
+                <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Medicos<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../medicos/new.php">Creación de Medicos</a></li>
+                        <li><a href="../medicos/">Lista de Medicos</a></li>
                     </ul>
                 </li>
                 <li style="z-index: 99;">
@@ -76,36 +72,19 @@
                         <li><a href="../users/">Lista de Usuarios</a></li>
                     </ul>
                 </li>
-                <li style="z-index: 98;">
-                    <a href="" class="mb_parent" style="padding-right: 23px;">UI Elements<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
-                    <ul style="display: none; top: 32px; visibility: visible;">
-                        <li><a href="index.php?uid=1&amp;page=ui_alertbox_btn_ico_tip">Alerts, Buttons, Icons, Tooltips</a></li>
-                        <li><a href="index.php?uid=1&amp;page=ui_gallery">Gallery</a></li>
-                        <li><a href="index.php?uid=1&amp;page=ui_grid">Grid</a></li>
-                        <li><a href="index.php?uid=1&amp;page=ui_pricingtable">Pricing Table</a></li>
-                        <li><a href="index.php?uid=1&amp;page=ui_scrollable">Scrollable</a></li>
-                        <li><a href="index.php?uid=1&amp;page=ui_sidebar">Sidebar</a></li>
-                        <li><a href="index.php?uid=1&amp;page=search_page">Search Page</a></li>
-                        <li><a href="index.php?uid=1&amp;page=ui_tabs">Tabs / Accordion</a></li>
-                        <li><a href="index.php?uid=1&amp;page=ui_typography">Typography</a></li>
-                        <li><a href="index.php?uid=1&amp;page=ui_widgets">Widgets</a></li>
-                    </ul>
+                <li style="z-index: 99;">
+                    <a href="../corporation/view.php" class="mb_parent" style="padding-right: 23px;">Corporacion<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                 </li>
                 <li style="z-index: 97;">
-                    <a href="" class="mb_parent" style="padding-right: 23px;">Plugins<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Configuraciones<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
-                        <li><a href="index.php?uid=1&amp;page=plugin_charts">Charts</a></li>
-                        <li><a href="index.php?uid=1&amp;page=plugin_tables">Data tables</a></li>
-                        <li><a href="index.php?uid=1&amp;page=plugin_explorer">File explorer</a></li>
-                        <li><a href="index.php?uid=1&amp;page=plugin_help">Help/Faq</a></li>
-                        <li><a href="index.php?uid=1&amp;page=plugin_dialogs">Dialog boxes/Notifications</a></li>
-                        <li><a href="index.php?uid=1&amp;page=plugin_wizard">Wizard</a></li>
+                        <li><a href="../settings/index_pais.php">Paises</a></li>
                     </ul>
                 </li>
                 <li style="z-index: 96;">
-                    <a href="" class="mb_parent" style="padding-right: 23px;">Navigation<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Confuraciones<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
-                        <li><a href="index.php?uid=1&amp;page=nav_sticky">Sticky navigation</a></li>
+                        <li><a href="index.php?uid=1&amp;page=nav_sticky">Paises</a></li>
                         <li><a href="index.php?uid=1&amp;page=nav_sticky_center">Sticky centered navigation</a></li>
                         <li><a href="index.php?uid=1&amp;page=nav_sidebar">Sidebar navigation</a></li>
                     </ul>

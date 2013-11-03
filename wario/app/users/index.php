@@ -16,6 +16,12 @@
 	                <div id="dt1_length" class="dataTables_length">
 	                </div>
 	                <div class="dataTables_filter" id="dt1_filter">
+	                	<button type="button" name="nuevo" class="button small nice blue radius">Nuevo</button>
+	                	<script type="text/javascript">
+	                		$("#nuevo").on("click", function(){
+	                			window.location.href = "new.php";
+	                		});
+	                	</script>
 	                	<label>Search: <input type="text" aria-controls="dt1"></label>
 	               	</div>
 	                <table cellpadding="0" cellspacing="0" border="0" class="display mobile_dt1 dt_act dataTable" id="dt1" aria-describedby="dt1_info">
