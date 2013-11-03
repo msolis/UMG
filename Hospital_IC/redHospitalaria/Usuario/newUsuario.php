@@ -17,7 +17,6 @@ include("../Conexion/valius.php");
 </head>
 <body>
 	<?php include("../includes/menu.php"); ?>
-	
 	<tbody>
 <?php 
 
@@ -37,14 +36,12 @@ include("../Conexion/valius.php");
 		}
 
 ?>
-	<form method="POST">
-		<table  width="600">
+
+	<from method= "POST">
+		<table width="600">
 			<h2>Nuevo Usuario</h2>
-				
-				
-				<p><input name ="NOMBRE" type="text" placeholder="nombre" required=""></p>
-				<p><input name = "CLAVE" type="password" placeholder="Clave" required=""></p>
-				
+				<p><input name = "NOMBRE" type = "text" placeholder= "nombre" requierd=""></p>
+				<p><input name = "CLAVE" type= "text" placeholder="clave" required=""></p>
 					<tr>
 					<td>Hospital</td>
 					<td>
@@ -55,10 +52,9 @@ include("../Conexion/valius.php");
 	        		</select>
 	        		</td>
         		</tr>
-        		
-				<td>Status:</td>
-							<td>
-								<SELECT NAME="STATUS"> 
+        		<td>Status</td>
+        					<td>
+        						<SELECT NAME="STATUS"> 
 								<OPTION SELECTED VALUE = "A">Alta
 								<OPTION VALUE= "B">Baja
 								</SELECT> 
@@ -77,7 +73,8 @@ include("../Conexion/valius.php");
 									</tr>
 		</table>
 			</form>
-		</tbody>
+	
+	</tbody>
 	</body>
 </html>
 

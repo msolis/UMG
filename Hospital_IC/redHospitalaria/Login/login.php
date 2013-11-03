@@ -3,10 +3,9 @@ include("../Conexion/conexionBD.php");
 
 ?>
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Login</title>
 	
 				<link rel="stylesheet" href="../css/base.css">
@@ -63,19 +62,15 @@ include("../Conexion/conexionBD.php");
         }
 
     ?>
-	<div class="container">
-		
-		<div class="form-bg">
-			<form method="POST">
+<div class="container">
+	<div class="form-bg">
+			<from method="POST">
 				<h2>USUARIO</h2>
-				<p><input name ="nombre" type="text" placeholder="Usuario" required=""></p>
-				<p><input name = "CLAVE" type="password" placeholder="Password" required=""></p>
-				
-				<button type="submit"></button>
-			</form>
-			
-		</div>
+					<p><imput name = "nombre" type= "text" placeholder= "Usuario" required =""></p>
+					<p><imput name = "CLAVE" type = "password" placeholder= Password" requiered= ""></p>
+					<button type = "submit"></button>
+					</from>
 	</div>
-	
+</div>
 </body>
 </html>

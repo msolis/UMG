@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <?php
 include("../Conexion/conexionBD.php");
 include("../includes/selectores.php");
@@ -8,8 +10,7 @@ include("../Conexion/valius.php");
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Login</title>
 	
 				<link rel="stylesheet" href="../css/base.css">
@@ -19,9 +20,14 @@ include("../Conexion/valius.php");
 </head>
 <body>
 
+>>>>>>> branch 'master' of https://github.com/msolis/UMG.git
 
 <ul id="nav">
+<<<<<<< HEAD
+		<li class="current"><a href="../Principal/menu.php">Inicio</a></li>
+=======
 		<li class="current"><a href="../includes/menu.php">Inicio</a></li>
+>>>>>>> branch 'master' of https://github.com/msolis/UMG.git
 		<li><a href="">Usuario</a>
 			<ul>
 				<li><a href="../Usuario/usuario.php">Usuarios</a><li>
@@ -51,5 +57,8 @@ include("../Conexion/valius.php");
 		<li><a href="../Login/salir.php">Salir</a></li>
 
 	</ul>
+<<<<<<< HEAD
+=======
 	</body>
 </html>
+>>>>>>> branch 'master' of https://github.com/msolis/UMG.git
