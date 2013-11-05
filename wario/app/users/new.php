@@ -37,13 +37,15 @@
 			
 			$stmt = $db->prepare("INSERT INTO Usuario (Corporacion, Id, Correo, Clave, Estatus, Nombre, Imagen, Telefono, Direccion) values (?, ?, ?, ?, ?, ?, ?, ?, ?);");
 			$stmt->bind_param('iisssssss', $USER_CORPORATION, $Id, $Correo, $Clave, $Estatus, $Nombre, $Imagen, $Telefono, $Direccion);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if ($result == 0){
-				header("Location: index.php");
+			$rc = $stmt->execute();
+			if (!$rc) {
+				$typeError = "error";
+				$textError = "NO se pudo guardar el registro. Error: " . $stmt->error;
 			}else{
-				$error = "Ha ocurrido un Error, No se pudo guardar el Usuario.";
+				$typeError = "success";
+				$textError = "Información ha sido guardada exitosamente.";
 			}
+			
 		}else{
 			$error = "El Correo electronico ya existe";	
 		}
@@ -54,7 +56,11 @@
 ?>
 
 <div class="container" style="padding-bottom: 30px;">
-
+		<?php 
+			if ($typeError){
+				alert($typeError, $textError);
+			}
+		?>
 		<div class="row">
 			<div class="twelve columns">
 				<div class="box_c">

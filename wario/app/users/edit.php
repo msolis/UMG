@@ -2,6 +2,7 @@
 	include("../includes/head.php");
 	include("../includes/menu.php");
 	
+	
 	$Id = "";
 	$Nombre = "";
 	$Correo = "";
@@ -23,6 +24,20 @@
 			$Estatus = $_POST["Estatus"];
 			$Telefono = $_POST["Telefono"];
 			$Direccion = $_POST["Direccion"];
+			
+			$qryInsert = "UPDATE Usuario set Correo = ?, Clave = ?, Estatus = ?, Nombre = ?, Telefono = ?, Direccion = ? where Corporacion = ? and Id = ?;";
+			
+			$stmt = $db->prepare($qryInsert);
+			$stmt->bind_param('ssssssii', $Correo, $Clave, $Estatus, $Nombre, $Telefono, $Direccion, $USER_CORPORATION, $Id);
+			$rc = $stmt->execute();
+			if (!$rc) {
+				$typeError = "error";
+				$textError = "NO se pudo guardar el registro. Error: " . $stmt->error;
+			}else{
+				$typeError = "success";
+				$textError = "Información Editada Exitosamente.";
+			}
+			mysqli_stmt_close($stmt);
 		}
 
 		$stmt = $db->prepare("SELECT Corporacion, Id, Correo, Estatus, Nombre, Imagen, Telefono, Direccion FROM Usuario where Corporacion = ? and Id = ?;");
@@ -41,14 +56,17 @@
 		$Telefono = $rowArray["Telefono"];
 		$Direccion = $rowArray["Direccion"];
 
-		echo $Id;
-
 	}
 
 ?>
 
 <div class="container" style="padding-bottom: 30px;">
-
+		<?php 
+		
+			if ($typeError){
+				alert($typeError, $textError);
+			}
+		?>
 		<div class="row">
 			<div class="twelve columns">
 				<div class="box_c">

@@ -34,7 +34,7 @@
 					<strong><?php echo $USER_NAME; ?></strong>
 				</p>
 				<span>
-					<a href="#" class="sep">Configuración</a>
+					<a href="../users/settings.php" class="sep">Configuración</a>
 					<a href="../secure/logout.php">Salir</a>
 				</span>
 			</div>
