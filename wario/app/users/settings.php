@@ -22,7 +22,7 @@
 			$Telefono = $_POST["Telefono"];
 			$Direccion = $_POST["Direccion"];
 			
-			$qryInsert = "UPDATE Usuario set Correo = ?, Clave = ?, Nombre = ?, Telefono = ?, Direccion = ? where Corporacion = ? and Id = ?;";
+			$qryInsert = "UPDATE usuario set correo = ?, clave = ?, nombre = ?, telefono = ?, direccion = ? where corporacion = ? and id = ?;";
 			
 			$stmt = $db->prepare($qryInsert);
 			$stmt->bind_param('sssssii', $Correo, $Clave, $Nombre, $Telefono, $Direccion, $USER_CORPORATION, $Id);
@@ -37,7 +37,7 @@
 			mysqli_stmt_close($stmt);
 		}
 
-		$stmt = $db->prepare("SELECT Corporacion, Id, Correo, Estatus, Nombre, Imagen, Telefono, Direccion FROM Usuario where Corporacion = ? and Id = ?;");
+		$stmt = $db->prepare("SELECT corporacion, id, correo, estatus, nombre, imagen, telefono, direccion FROM usuario where corporacion = ? and id = ?;");
 		$stmt->bind_param('ii', $USER_CORPORATION, $Id);
 		
 		$stmt->execute();
@@ -45,13 +45,13 @@
 		$rowCount = mysqli_num_rows($result);
 		$rowArray = mysqli_fetch_array($result);
 
-		$Id = $rowArray["Id"];
-		$Correo = $rowArray["Correo"];
-		$Estatus = $rowArray["Estatus"];
-		$Nombre = $rowArray["Nombre"];
-		$Imagen = $rowArray["Imagen"];
-		$Telefono = $rowArray["Telefono"];
-		$Direccion = $rowArray["Direccion"];
+		$Id = $rowArray["id"];
+		$Correo = $rowArray["correo"];
+		$Estatus = $rowArray["estatus"];
+		$Nombre = $rowArray["nombre"];
+		$Imagen = $rowArray["imagen"];
+		$Telefono = $rowArray["telefono"];
+		$Direccion = $rowArray["direccion"];
 
 	}
 

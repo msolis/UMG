@@ -39,7 +39,7 @@
 	                	
 	                		$clase = "";
 	                		
-		                	$stmt = $db->prepare('select Id, Nombre, Correo, Imagen, Estatus from usuario where Corporacion = ?;');
+		                	$stmt = $db->prepare('select id, nombre, correo, imagen, estatus from usuario where corporacion = ?;');
 		                	$stmt->bind_param('i', $USER_CORPORATION);
 		                	
 		                	$stmt->execute();
@@ -53,11 +53,11 @@
 									$clase == "odd";
 		                ?>
 		                	<tr class="<?= $clase ?>">
-		                		<td class=""><img src="../data/usuarios/<?php echo $row["Imagen"]; ?>" style="height:25px;" /></td>
-	                            <td class=""><?php echo $row["Nombre"]; ?></td>
-	                            <td class=""><?php echo $row["Correo"]; ?></td>
-	                            <td class=""><?php echo $row["Estatus"]; ?></td>
-	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["Id"]; ?>">Editar</a></td>
+		                		<td class=""><img src="../data/usuarios/<?php echo $row["imagen"]; ?>" style="height:25px;" /></td>
+	                            <td class=""><?php echo $row["nombre"]; ?></td>
+	                            <td class=""><?php echo $row["correo"]; ?></td>
+	                            <td class=""><?php echo $row["estatus"]; ?></td>
+	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                        </tr>
 		                <?php 
 		                	}
