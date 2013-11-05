@@ -1,5 +1,5 @@
 <?php 
-	$qryInfoUser = "select Correo, Nombre, Imagen from USUARIO WHERE Corporacion = ? and Id = ?;";
+	$qryInfoUser = "select correo, nombre, imagen from usuario WHERE corporacion = ? and id = ?;";
 	$stmt = $db->prepare($qryInfoUser);
 	$stmt->bind_param('ii', $USER_ID, $USER_CORPORATION);
 	
