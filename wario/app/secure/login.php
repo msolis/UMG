@@ -4,7 +4,7 @@
 		$usuario = $_POST["usuario"];
 		$clave = $_POST["clave"];
 		
-		$stmt = $db->prepare("SELECT Corporacion, Id from USUARIO where Correo = ? and Clave = ?;");
+		$stmt = $db->prepare("SELECT corporacion, id from usuario where correo = ? and clave = ?;");
 		$stmt->bind_param('ss', $usuario, $clave);
 		
 		$stmt->execute();
