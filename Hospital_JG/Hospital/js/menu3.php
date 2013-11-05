@@ -18,7 +18,7 @@
 		<a href="#">INGRESOS</a>
 		<ul>
 			<li>
-				<a href="#">INGRESO USUARIO DE PASIENTES</a>
+				<a href="ingresos/ingreso.php">INGRESO USUARIO DE PASIENTES</a>
 			</li>
 			<li>
 				<a href="#">INGRESO USUARIO EMPLEADO</a>

@@ -1,6 +1,6 @@
 
 <?php
-  include("coneccion.php");
+  include("../include/conexion.php");
   ?>
 <html>
 <head>
@@ -16,7 +16,7 @@
           $Tipo_Sangre=$_POST["tiposangre"];
           $Peso=$_POST["peso"];
           $Estatus=$_POST["estatus"];
-          
+
           $sql="SELECT ID_PASIENTE FROM pasientes WHERE ID_PASIENTE='".$id."'";
           $result=mysql_query($sql,$conexio);
          if($row=mysql_fetch_array($result))
