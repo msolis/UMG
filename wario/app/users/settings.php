@@ -22,7 +22,7 @@
 			$Telefono = $_POST["Telefono"];
 			$Direccion = $_POST["Direccion"];
 			
-			$qryInsert = "UPDATE usuario set correo = ?, clave = ?, nombre = ?, telefono = ?, direccion = ? where corporacion = ? and id = ?;";
+			$qryInsert = "update usuario set correo = ?, clave = ?, nombre = ?, telefono = ?, direccion = ? where corporacion = ? and id = ?;";
 			
 			$stmt = $db->prepare($qryInsert);
 			$stmt->bind_param('sssssii', $Correo, $Clave, $Nombre, $Telefono, $Direccion, $USER_CORPORATION, $Id);

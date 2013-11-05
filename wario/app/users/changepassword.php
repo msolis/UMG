@@ -17,7 +17,7 @@
 			$Clave = $_POST["$Clave"];
 			$Clave_Confirmacion = $_POST["$Clave_Confirmacion"];
 			
-			$stmt = $db->prepare("SELECT Id FROM Usuario where Corporacion = ? and Id = ? and Clave = ?;");
+			$stmt = $db->prepare("select id from usuario where corporacion = ? and id = ? and clave = ?;");
 			$stmt->bind_param('iis', $USER_CORPORATION, $Id, $Clave_Actual);
 			
 			$stmt->execute();
@@ -29,7 +29,7 @@
 				$textError = "Clave Invalida.";
 			}else{
 			
-				$qryInsert = "UPDATE Usuario set Clave = ? where Corporacion = ? and Id = ?;";
+				$qryInsert = "update usuario set clave = ? where corporacion = ? and id = ?;";
 				
 				$stmt = $db->prepare($qryInsert);
 				$stmt->bind_param('sii', $Clave, $USER_CORPORATION, $Id);
@@ -46,7 +46,7 @@
 			}
 		}
 
-		$stmt = $db->prepare("SELECT Corporacion, Id, Correo, Estatus, Nombre, Imagen, Telefono, Direccion FROM Usuario where Corporacion = ? and Id = ?;");
+		$stmt = $db->prepare("select corporacion, id, correo, estatus, nombre, imagen, telefono, direccion from usuario where corporacion = ? and id = ?;");
 		$stmt->bind_param('ii', $USER_CORPORATION, $Id);
 		
 		$stmt->execute();
@@ -54,12 +54,12 @@
 		$rowCount = mysqli_num_rows($result);
 		$rowArray = mysqli_fetch_array($result);
 
-		$Id = $rowArray["Id"];
-		$Correo = $rowArray["Correo"];
-		$Nombre = $rowArray["Nombre"];
-		$Imagen = $rowArray["Imagen"];
-		$Telefono = $rowArray["Telefono"];
-		$Direccion = $rowArray["Direccion"];
+		$Id = $rowArray["id"];
+		$Correo = $rowArray["correo"];
+		$Nombre = $rowArray["nombre"];
+		$Imagen = $rowArray["imagen"];
+		$Telefono = $rowArray["telefono"];
+		$Direccion = $rowArray["direccion"];
 
 	}
 
