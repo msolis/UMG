@@ -9,15 +9,27 @@
 	$success = "";
 	if (isset($_POST["boton"])){
 		$Nombre = $_POST["Nombre"];
-		$Correo = $_POST["Correo"];
+		$Direccion = $_POST["Direccion"];
+		$Nit = $_POST["Nit"];
+		$Razon = $_POST["Razon"];
+		$Pais = $_POST["Pais"];
+		$Departamento = $_POST["Departamento"];
+		$Sendmail = $_POST["Sendmail"];
+		$Smtp = $_POST["Smtp"];
+		$passmail = $_POST["passmail"];
+		$Smtpport = $_POST["Smtpport"];
 		$Estatus = $_POST["Estatus"];
 		$Telefono = $_POST["Telefono"];
-		$Direccion = $_POST["Direccion"];
+		$Ventacorrelativo = $_POST["Ventacorrelativo "];
+		$Ventacorrelativoauto = $_POST["Ventacorrelativoauto"];
+		$Ventaserie = $_POST["Ventaserie"];
+		
+		
 		$Clave = "12345";
 		$error = "";
 		
-		$stmt = $db->prepare("SELECT corporacion, id from usuario where corporacion = ? and correo = ?;");
-		$stmt->bind_param('is', $USER_CORPORATION, $Correo);
+		$stmt = $db->prepare("SELECT corporacion, id from hospital where corporacion = ? and id = ?;");
+		$stmt->bind_param('is', $USER_CORPORATION, $Id);
 		
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -27,7 +39,7 @@
 		if ($rowCount == 0){
 			
 			/// get new usuer id
-			$stmt = $db->prepare("SELECT ifnull(max(id),0)+1 as id from usuario where corporacion = ?;");
+			$stmt = $db->prepare("SELECT ifnull(max(id),0)+1 as id from hospital where corporacion = ?;");
 			$stmt->bind_param('i', $USER_CORPORATION);
 			$stmt->execute();
 			$result = $stmt->get_result();
@@ -35,7 +47,7 @@
 			
 			$Id = $rowArray["Id"];
 			
-			$stmt = $db->prepare("INSERT INTO usuario (corporacion, id, correo, clave, estatus, nombre, imagen, telefono, direccion) values (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+			$stmt = $db->prepare("INSERT INTO hospital (corporacion, id, correo, clave, estatus, nombre, imagen, telefono, direccion) values (?, ?, ?, ?, ?, ?, ?, ?, ?);");
 			$stmt->bind_param('iisssssss', $USER_CORPORATION, $Id, $Correo, $Clave, $Estatus, $Nombre, $Imagen, $Telefono, $Direccion);
 			$rc = $stmt->execute();
 			if (!$rc) {
