@@ -28,8 +28,10 @@
 			}
 			else
 			{*/
+				chmod("../data/", 0755);
 				move_uploaded_file($_FILES["file"]["tmp_name"],
 				"../data/" . $_POST["folder"] . "/" . $image_name);
+				
 				echo "Stored in: " . "../data/" . $_POST["folder"] . "/" .  $image_name;
 			//}
 				//header("Location: " . $_POST["redirect_to"]);
