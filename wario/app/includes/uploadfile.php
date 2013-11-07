@@ -28,7 +28,7 @@
 			}
 			else
 			{*/
-				chmod("../data/", 0755);
+				chmod("../data/" . $_POST["folder"] . "/" . $image_name, 0755);
 				move_uploaded_file($_FILES["file"]["tmp_name"],
 				"../data/" . $_POST["folder"] . "/" . $image_name);
 				
