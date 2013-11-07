@@ -1,0 +1,19 @@
+#button {
+padding: 0;
+}
+#button li {
+display: inline;
+}
+#button li a {
+font-family: Arial;
+font-size:21px;
+text-decoration: none;
+float:left;
+padding: 10px;
+background-color: #2175bc;
+color: #fff;
+}
+{
+background:url(../uno.jepg);
+<background-color:#cccccc;
+}
