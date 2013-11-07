@@ -7,7 +7,7 @@
 		
 		
 ?>
-<div class="row" id="alerta">
+	<div class="row" id="alerta">
         <div class="twelve columns">
             <div class="box_c">
                 <div class="box_c_heading cf">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <script type="text/javascript">
-    	$("#alerta").delay(2000).slideUp(1000);
+    	$("#alerta").delay(60000).slideUp(1000);
     </script>
  <?php 
 	}
