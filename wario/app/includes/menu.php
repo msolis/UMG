@@ -87,6 +87,13 @@
                     </ul>
                 </li>
                 <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Especialidad Medicas<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../especialidad/new.php">Crear Especialidad</a></li>
+                        <li><a href="../especialidad/">Especialidades de Medicos</a></li>
+                    </ul>
+                </li>
+                <li style="z-index: 99;">
                     <a href="../corporation/view.php" class="mb_parent" style="padding-right: 23px;">Corporacion<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                 </li>
                 <li style="z-index: 97;">
