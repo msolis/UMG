@@ -59,8 +59,8 @@
 	                	
 	                		$clase = "";
 	                		
-		                	$stmt = $db->prepare('select id, nombrecomercial, nit, telefono, estatus from cliente;');
-		                	
+		                	$stmt = $db->prepare('select id, nombrecomercial, nit, telefono, estatus from cliente where corporacion = ?;');
+		                	$stmt->bind_param("i", $USER_CORPORATION);
 		                	$stmt->execute();
 		                	
 		                	$result = $stmt->get_result();
