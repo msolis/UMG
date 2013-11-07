@@ -2,6 +2,7 @@
 	include("../includes/verifysession.php");
 	include("../includes/conexion.php");
 	include("../includes/alerts.php");
+	include("../includes/global_functions.php");
 ?>
 <!doctype html>
 
