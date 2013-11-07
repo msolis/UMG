@@ -22,10 +22,8 @@
 			$selected = " ";
 		}
 		?>
-						<option value="<?php echo $row[$value_name]; ?>" <?php echo $selected; ?>><?php echo $row[$text_name]; ?> </option>
-						
-						<?php 
-						
-					}
+			<option value="<?php echo $row[$value_name]; ?>" <?php echo $selected; ?>><?php echo $row[$text_name]; ?> </option>
+		<?php 
 		}
+	}
 ?>
