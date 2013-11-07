@@ -32,13 +32,13 @@
 				"../data/" . $_POST["folder"] . "/" . $image_name);
 				echo "Stored in: " . "../data/" . $_POST["folder"] . "/" .  $image_name;
 			//}
-				header("Location: " . $_POST["redirect_to"]);
+				//header("Location: " . $_POST["redirect_to"]);
 		}
 	}
 	else
 	{
 		echo "Invalid file";
-		header("Location: " . $_POST["redirect_to"] . "?error=No se pudo guardar la imagen");
+		//header("Location: " . $_POST["redirect_to"] . "?error=No se pudo guardar la imagen");
 	}
 	
 	
