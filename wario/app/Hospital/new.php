@@ -1,6 +1,10 @@
 <?php
 	include("../includes/head.php");
 	include("../includes/menu.php");
+	include("../includes/conexion.php");
+	
+	
+	
 ?>
 
 <?php 
@@ -19,15 +23,10 @@
 		$passmail = $_POST["passmail"];
 		$Smtpport = $_POST["Smtpport"];
 		$Estatus = $_POST["Estatus"];
-		$Telefono = $_POST["Telefono"];
 		$Ventacorrelativo = $_POST["Ventacorrelativo "];
 		$Ventacorrelativoauto = $_POST["Ventacorrelativoauto"];
 		$Ventaserie = $_POST["Ventaserie"];
-		
-		
-		$Clave = "12345";
-		$error = "";
-		
+		$Id= $_POST["Id"];
 		$stmt = $db->prepare("SELECT corporacion, id from hospital where corporacion = ? and id = ?;");
 		$stmt->bind_param('is', $USER_CORPORATION, $Id);
 		
@@ -47,8 +46,8 @@
 			
 			$Id = $rowArray["Id"];
 			
-			$stmt = $db->prepare("INSERT INTO hospital (corporacion, id, correo, clave, estatus, nombre, imagen, telefono, direccion) values (?, ?, ?, ?, ?, ?, ?, ?, ?);");
-			$stmt->bind_param('iisssssss', $USER_CORPORATION, $Id, $Correo, $Clave, $Estatus, $Nombre, $Imagen, $Telefono, $Direccion);
+			$stmt = $db->prepare("INSERT INTO hospital (corporacion, id, nombre, direccion, nit, razonsocial, pais, departamento, sendmail_from, smtp, sendmail_passwprd, smtp_port, estatus, venta_correlativo, venta_correlativo_autonumerico, ventaserie) values (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?);");
+			$stmt->bind_param('iissssiisssisiss', $USER_CORPORATION, $Id, $Nombre, $Direccio, $Nit, $Razon, $Pais, $Departamento, $Sendmail,$Smtp,$passmail,$smtpport,$Estatus,$Estatus,Ventacorrelativo,$Ventacorrelativoauto,$Ventaserie);
 			$rc = $stmt->execute();
 			if (!$rc) {
 				$typeError = "error";
@@ -87,20 +86,38 @@
 									<input type="text" required id="Nombre" name="Nombre" class="input-text">
 								</div>
 								<div class="formRow">
-									<label for="nice_text_oversized">Correo Electrónico</label>
-									<input type="email" required id="Correo" name="Correo" class="input-text large">
-								</div>
-								<div class="formRow">
-									<label for="nice_text_oversized">Confirmación de Correo Electrónico</label>
-									<input type="email" required id="Correo_Confirmacion" name="Correo_Confirmacion" class="input-text large">
-								</div>
-								<div class="formRow">
-									<label for="nice_text_small">Telefono</label>
-									<input type="text" id="Telefono" name="Telefono" class="input-text large">
-								</div>
-								<div class="formRow">
 									<label for="nice_text_medium">Dirección</label>
 									<textarea name="Direccion" id="Direccion" cols="1" rows="1" class="large"></textarea>
+								</div>
+								<div class="formRow">
+									<label for="nice_text_oversized">Nit</label>
+									<input type="text" required id="Nit" name="Nit" class="input-text large">
+								</div>
+								<div class="formRow">
+									<label for="nice_text_small">Razon Social</label>
+									<input type="text" id="Razon" name="Razon" class="input-text large">
+								</div>
+								<select id="pais" name="pais" class="custom dropdown medium" >
+									<?php newSelector("pais", "id", "descripcion", " where estatus = 'A'", ""); ?>
+								</select>
+								<select id="Departamento" name="Departamento" class="custom dropdown medium" >
+									<?php newSelector("departamento", "id", "descripcion", "where estatus = 'A'" ,""); ?>
+								</select>
+								<div class="formRow">
+									<label for="nice_text">Correo Electronico</label>
+									<input type="text" required id="Sendmail" name="Sendmail" class="input-text">
+								</div>
+								<div class="formRow">
+									<label for="nice_text">SMTP</label>
+									<input type="text" required id="smtp" name="smtp" class="input-text">
+								</div>
+								<div class="formRow">
+									<label for="nice_text">Contraseña</label>
+									<input type="text" required id="passmail" name="passmail" class="input-text">
+								</div>
+								<div class="formRow">
+									<label for="nice_text">Puerto SMTP</label>
+									<input type="text" required id="Smtpport" name="Smtpport" class="input-text">
 								</div>
 								<div class="formRow" style="">
 									<label for="nice_select">Estatus</label>
@@ -110,34 +127,19 @@
 									</select>
 								</div>
 								<div class="formRow">
-                                    <button type="submit" name="boton" class="button small nice blue radius">Guardar</button>
-									<a href="index.php" class="clear_form">Cancelar</a>
-									
-									<script>
-										$("form").on("submit", function(){
-											var correo = $("#Correo");
-											var correo_confirmacion = $("#Correo_Confirmacion");
-											var nombre = $("#Nombre");
-
-											if (nombre.val() == ""){
-												alert("Debe Introducir el Nombre del Usuario");
-												return false;
-											}
-
-											if (correo.val() == ""){
-												alert("Debe Ingresar un Correo Electrónico");
-												return false;
-											}
-
-											if (correo.val() != correo_confirmacion.val(){
-												alert("Los Correo deben ser identicos");
-												return false;
-											}
-											
-											return true;
-										});
-									</script>
-                                </div>
+									<label for="nice_text">Correlativo De Venta</label>
+									<input type="text" required id="Ventacorrelativo" name="Ventacorrelativo" class="input-text">
+								</div>
+								<div class="formRow">
+									<label for="nice_text">Auto Numerico</label>
+									<input type="text" required id="Nombre" name="Nombre" class="input-text">
+								</div>
+								<div class="formRow">
+									<label for="nice_text">No de Serie</label>
+									<input type="text" required id="Ventaserie" name="Ventaserie" class="input-text">
+								</div>
+								
+								
 							</form>
 						</div>
 										
