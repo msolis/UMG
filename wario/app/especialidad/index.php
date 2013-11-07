@@ -25,10 +25,8 @@
 	<div class="row">
 	    <div class="twelve columns">
 	        <div class="box_c">
-	            <div class="box_c_heading cf box_actions">
+	            <div class="box_c_heading cf">
 	                <p>Clientes</p>
-	            	<span class="bAct_hide"><img src="../images/blank.gif" class="bAct_x" alt=""></span>
-	            	<span class="bAct_toggle"><img src="../images/blank.gif" class="bAct_minus" alt=""></span>
 	            </div>
 	            <div class="box_c_content">
 	                <div id="dt1_wrapper" class="dataTables_wrapper" role="grid">

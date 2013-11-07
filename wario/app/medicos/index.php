@@ -6,7 +6,7 @@
 	<div class="row">
 	    <div class="twelve columns">
 	        <div class="box_c">
-	            <div class="box_c_heading cf box_actions">
+	            <div class="box_c_heading cf">
 	                <p>Medicos</p>
 
 	            </div>

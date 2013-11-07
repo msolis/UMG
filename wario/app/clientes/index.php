@@ -25,10 +25,8 @@
 	<div class="row">
 	    <div class="twelve columns">
 	        <div class="box_c">
-	            <div class="box_c_heading cf box_actions">
+	            <div class="box_c_heading cf">
 	                <p>Clientes</p>
-	            	<span class="bAct_hide"><img src="../images/blank.gif" class="bAct_x" alt=""></span>
-	            	<span class="bAct_toggle"><img src="../images/blank.gif" class="bAct_minus" alt=""></span>
 	            </div>
 	            <div class="box_c_content">
 	                <div id="dt1_wrapper" class="dataTables_wrapper" role="grid">
@@ -77,7 +75,10 @@
 	                            <td class=""><?php echo $row["nombrecomercial"]; ?></td>
 	                            <td class=""><?php echo $row["telefono"]; ?></td>
 	                            <td class=""><?php echo $row["estatus"]; ?></td>
-	                            <td class="" style="text-aling:center;"><a href="edit.php?id=<?php echo $row["id"]; ?>">Editar</a></td>
+	                            <td class="" style="text-aling:center;">
+	                            	<a href="edit.php?id=<?php echo $row["id"]; ?>">Editar</a>
+	                            	<a href="pacientes.php?id=<?php echo $row["id"]; ?>">Pacientes</a>
+	                            </td>
 	                        </tr>
 		                <?php 
 		                	}
