@@ -57,6 +57,12 @@
 					<div class="box_c_content form_a">
 						<div class="tab_pane" style="">
 							<form action="" method="post" class="nice custom" style="">
+								<div class="formRow" style="">
+									<label for="nice_select">Pais</label>
+									<select id="pais" name="pais" class="custom dropdown medium" >
+										<?php newSelector("pais", "id", "descripcion", " where estatus = 'A'", ""); ?>
+									</select>
+								</div>
 								<div class="formRow">
 									<label for="nice_text">Nombre</label>
 									<input type="text" required id="Nombre" name="Nombre" class="input-text">
@@ -66,12 +72,6 @@
 									<select id="Estatus" name="Estatus" class="custom dropdown medium" >
 										<option value="A">Alta</option>
 										<option value="B">Baja</option>
-									</select>
-								</div>
-								<div class="formRow" style="">
-									<label for="nice_select">Pais</label>
-									<select id="pais" name="pais" class="custom dropdown medium" >
-										<?php newSelector("pais", "id", "descripcion", " where estatus = 'A'", ""); ?>
 									</select>
 								</div>
 								<div class="formRow">
