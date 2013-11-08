@@ -139,12 +139,12 @@
 							</form>
 							<script>
 								$(document).on("ready", function(){
-									$("#pais").on("change", function(){
+									$("#Pais").on("change", function(){
 										change_pais();
 									});
 
 									function change_pais(){
-										$.post("../ws/departamentos.php", { pais: $("#pais").val() }, function(data){
+										$.post("../ws/departamentos.php", { pais: $("#Pais").val() }, function(data){
 											$("#Departamento").empty();
 											$( data ).each(function(index, item) {
 												$("#Departamento").append($("<option></option>")
