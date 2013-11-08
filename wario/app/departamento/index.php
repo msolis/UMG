@@ -25,8 +25,9 @@
 	                <table cellpadding="0" cellspacing="0" border="0" class="display mobile_dt1 dt_act dataTable" id="dt1" aria-describedby="dt1_info">
                         <thead>
                             <tr role="row">
-                            	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 311px;">#</th>
-                            	<th class="essential sorting" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Capital: activate to sort column ascending" style="width: 206px;">Nombre</th>
+                            	<th class="essential sorting" role="columnheader">Pais</th>
+                            	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" >#</th>
+                            	<th class="essential sorting" role="columnheader" >Departamento</th>
                             	<th class="sorting" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Population: activate to sort column ascending" style="width: 170px;">Estatus</th>
                             	<th style="width: 10px;"></th>
                             </tr>
@@ -36,7 +37,7 @@
 	                	
 	                		$clase = "";
 	                		
-		                	$stmt = $db->prepare('select pais ,id, descripcion, estatus from departamento;');
+		                	$stmt = $db->prepare('select d.pais, d.id, d.descripcion as departamento, p.descripcion as nombre_pais, d.estatus from departamento d inner join pais p on p.id = d.pais order by p.descripcion asc, d.descripcion asc;');
 		                	
 		                	$stmt->execute();
 		                	
@@ -49,9 +50,9 @@
 									$clase == "odd";
 		                ?>
 		                	<tr class="<?= $clase ?>">
-		                	    <td class=""><?php echo $row["pais"]; ?></td>
+		                	    <td class=""><?php echo $row["nombre_pais"]; ?></td>
 	                            <td class=""><?php echo $row["id"]; ?></td>
-	                            <td class=""><?php echo $row["descripcion"]; ?></td>
+	                            <td class=""><?php echo $row["departamento"]; ?></td>
 	                            <td class=""><?php echo $row["estatus"]; ?></td> 
 	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                            
