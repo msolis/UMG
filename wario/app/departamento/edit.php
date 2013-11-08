@@ -3,8 +3,10 @@
 	include("../includes/menu.php");
 	
 	
+	$Pais = "";
+	$NombrePais = "";
 	$Id = "";
-	$Descriocion = "";
+	$Descripcion = "";
 	$Estatus = "";
 	
 	
@@ -13,18 +15,20 @@
 		header("Location: index.php");	
 	}else{
 
+		$Pais = $_GET["Pais"];
 		$Id = $_GET["Id"];
 
 		if (isset($_POST["boton"])){
-			$Descriocion = $_POST["Descriocion"];
+			$Descripcion = $_POST["Descripcion"];
 			$Estatus = $_POST["Estatus"];
 			$Pais = $_POST["Pais"]; 
+			$Id = $_POST["Id"]; 
+
 			
-			
-			$qryInsert = "update departamento set Estatus = ?, Descripcion = ? Pais = ?  where id = ?;";
+			$qryInsert = "update departamento set Estatus = ?, Descripcion = ?  where pais = ? and id = ?;";
 			
 			$stmt = $db->prepare($qryInsert);
-			$stmt->bind_param('sssi',  $Estatus, $Descriocion ,$Pais ,$Id);
+			$stmt->bind_param('sssi',  $Estatus, $Descripcion ,$Pais ,$Id);
 			$rc = $stmt->execute();
 			if (!$rc) {
 				$typeError = "error";
@@ -36,8 +40,8 @@
 			mysqli_stmt_close($stmt);
 		}
 
-		$stmt = $db->prepare("select descripcion, estatus, pais from departamento where   id = ?;");
-		$stmt->bind_param('i', $Id);
+		$stmt = $db->prepare("select d.pais, d.id, d.descripcion, d.estatus, p.descripcion as nombre_pais from departamento d inner join pais p on p.id = d.pais where d.pais = ? and d.id = ?;");
+		$stmt->bind_param('ii', $Pais, $Id);
 		
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -46,8 +50,10 @@
 
 		
 		$Estatus = $rowArray["estatus"];
-		$Descriocion = $rowArray["descripcion"];
+		$Descripcion = $rowArray["descripcion"];
 		$Pais = $rowArray["pais"];
+		$NombrePais = $rowArray["nombre_pais"];
+
 	}
 
 ?>
@@ -69,9 +75,17 @@
 						<div class="tab_pane" style="">
 							<form action="" method="post" class="nice custom" style="">
 								
+								<input id="Pais" name="Pais" type="hidden" value="<?php echo $Pais; ?>">
+								<input id="Id" name="Id" type="hidden" value="<?php echo $Id; ?>">
+
+								<div class="formRow">
+									<label for="nice_text">Pais</label>
+									<input type="text" disabled class="input-text" value="<?php echo $NombrePais; ?>">
+								</div>
+
 								<div class="formRow">
 									<label for="nice_text">Nombre</label>
-									<input type="text" id="Descriocion" name="Descriocion" class="input-text" value="<?php echo $Descriocion ?>">
+									<input type="text" id="Descripcion" name="Descripcion" class="input-text" value="<?php echo $Descripcion ?>">
 								</div>
 								
 								<div class="formRow" style="">

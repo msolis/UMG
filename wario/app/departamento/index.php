@@ -54,7 +54,7 @@
 	                            <td class=""><?php echo $row["id"]; ?></td>
 	                            <td class=""><?php echo $row["departamento"]; ?></td>
 	                            <td class=""><?php echo $row["estatus"]; ?></td> 
-	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
+	                            <td class="" style="text-aling:center;"><a href="edit.php?Pais=<?php echo $row["pais"] ?>&Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                            
 	                        </tr>
 		                <?php 
