@@ -2,8 +2,8 @@
 include("../Conexion/conexionBD.php");
 include("../includes/selectores.php");
 include("../Conexion/valius.php");
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +14,7 @@ include("../Conexion/valius.php");
 				<link rel="stylesheet" href="../css/skeleton.css">
 				<link rel="stylesheet" href="../css/layout.css">	
 				<link rel="stylesheet" href="../css/principal.css">
+				<link rel="stylesheet" href="../css/Boxusuarios.css">
 </head>
 <body>
 	<?php include("../includes/menu.php"); ?>
@@ -71,10 +72,9 @@ include("../Conexion/valius.php");
 										<button id="entrar" type="submit"></button>
 										<button id="borrar" type="reset"></button>
 									</tr>
-		</table>
+				</table>
 			</form>
-	
-	</tbody>
+		</tbody>
 	</body>
 </html>
 

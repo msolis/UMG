@@ -1,4 +1,7 @@
-<?php include("../Conexion/valius.php") ?>
+<?php
+include("../Conexion/valius.php");
+?>
+
 <!doctype html>
 <html>
 <head>
