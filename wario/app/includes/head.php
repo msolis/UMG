@@ -1,6 +1,8 @@
 <?php 
 	include("../includes/verifysession.php");
 	include("../includes/conexion.php");
+	include("../includes/alerts.php");
+	include("../includes/global_functions.php");
 ?>
 <!doctype html>
 
@@ -74,8 +76,8 @@
 	<script src="../js/jquery.jqplot.min.js"></script>
 	<script src="../js/jqplot.plugins.js"></script>
 	<script src="../js/fullcalendar.min.js"></script>
-	<script src="../js/jquery.list.min.js"></script>
 	<script src="../js/pertho.js"></script>
+	<script src="../js/ui.spinner.js"></script>
 	
 	
 	
@@ -92,7 +94,7 @@
 							//* full calendar
 				//prth_calendar.init();
 				//* filterable list
-				prth_flist.init();
+				//prth_flist.init();
 				//* smart gallery
 				//prth_gallery.init();
 				//* home page charts resize
@@ -100,10 +102,7 @@
 				//* home page charts
 				//prth_charts.ds_plot1();
 				//prth_charts.ds_plot2();
-				if(!jQuery.browser.mobile) {
-					// create image from visible chart
-					prth_charts.makeImage();
-				}
+				
 				//* horizontal scrollable (charts)
 				prth_h_scrollable.init();
 						//replace themeforest iframe

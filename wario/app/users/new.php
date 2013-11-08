@@ -16,7 +16,7 @@
 		$Clave = "12345";
 		$error = "";
 		
-		$stmt = $db->prepare("SELECT Corporacion, Id from USUARIO where Corporacion = ? and Correo = ?;");
+		$stmt = $db->prepare("SELECT corporacion, id from usuario where corporacion = ? and correo = ?;");
 		$stmt->bind_param('is', $USER_CORPORATION, $Correo);
 		
 		$stmt->execute();
@@ -27,7 +27,7 @@
 		if ($rowCount == 0){
 			
 			/// get new usuer id
-			$stmt = $db->prepare("SELECT ifnull(max(Id),0)+1 as Id from USUARIO where Corporacion = ?;");
+			$stmt = $db->prepare("SELECT ifnull(max(id),0)+1 as id from usuario where corporacion = ?;");
 			$stmt->bind_param('i', $USER_CORPORATION);
 			$stmt->execute();
 			$result = $stmt->get_result();
@@ -35,15 +35,17 @@
 			
 			$Id = $rowArray["Id"];
 			
-			$stmt = $db->prepare("INSERT INTO Usuario (Corporacion, Id, Correo, Clave, Estatus, Nombre, Imagen, Telefono, Direccion) values (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+			$stmt = $db->prepare("INSERT INTO usuario (corporacion, id, correo, clave, estatus, nombre, imagen, telefono, direccion) values (?, ?, ?, ?, ?, ?, ?, ?, ?);");
 			$stmt->bind_param('iisssssss', $USER_CORPORATION, $Id, $Correo, $Clave, $Estatus, $Nombre, $Imagen, $Telefono, $Direccion);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if ($result == 0){
-				header("Location: index.php");
+			$rc = $stmt->execute();
+			if (!$rc) {
+				$typeError = "error";
+				$textError = "NO se pudo guardar el registro. Error: " . $stmt->error;
 			}else{
-				$error = "Ha ocurrido un Error, No se pudo guardar el Usuario.";
+				$typeError = "success";
+				$textError = "Información ha sido guardada exitosamente.";
 			}
+			
 		}else{
 			$error = "El Correo electronico ya existe";	
 		}
@@ -54,7 +56,11 @@
 ?>
 
 <div class="container" style="padding-bottom: 30px;">
-
+		<?php 
+			if ($typeError){
+				alert($typeError, $textError);
+			}
+		?>
 		<div class="row">
 			<div class="twelve columns">
 				<div class="box_c">

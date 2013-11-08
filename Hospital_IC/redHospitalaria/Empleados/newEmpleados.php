@@ -36,9 +36,10 @@ include("../Conexion/valius.php");
 		$utitulo = $_POST["TITULO"];
 		$ugenero = $_POST["GENERO"];
 		$ufecha_ingreso = $_POST["FECHA_INGRESO"];
-		$ustatus =$_POST["Status"];
+		$ustatus = $_POST["STATUS"];
 		
-		$query="INSERT INTO redhospitalaria.datos_personales( NOMBRE, APELLIDO, DPI, TELEFONO, DIRECCION, PAIS, DEPARTAMENTO, MUNICIPIO, TITULO, GENERO, FECHA_INGRESO, STATUS) VALUES( '".$unombre."', '".$uapellido."', '".$udpi."', '".$utelefono."','".$udireccion."',".$upais.", ".$udepartamento.", ".$umunicipio.", ".$utitulo.", '".$ugenero."', ".$ufecha_ingreso.", '".$ustatus."' );";
+		
+		$query="INSERT INTO redhospitalaria.datos_personales( NOMBRE, APELLIDO, DPI, TELEFONO, DIRECCION, PAIS, DEPARTAMENTO, MUNICIPIO, TITULO, GENERO, FECHA_INGRESO, STATUS) VALUES( '".$unombre."', '".$uapellido."', '".$udpi."', '".$utelefono."','".$udireccion."',".$upais.", ".$udepartamento.", ".$umunicipio.", ".$utitulo.", '".$ugenero."', '".$ufecha_ingreso."', '".$ustatus."');";
 		mysql_query ($query);
 
 		}
@@ -103,19 +104,21 @@ include("../Conexion/valius.php");
 								<OPTION VALUE= "M">Masculino
 								</SELECT> 
 							</td>
-										
-				<td>Status</td>
+							</tr>
+							<tr>	
+							<td>Status</td>
 							<td>
-								<SELECT NAME="Status"> 
+								<SELECT NAME="STATUS"> 
 								<OPTION SELECTED VALUE = "A">Alta
 								<OPTION VALUE= "B">Baja
 								</SELECT> 
 							</td>
+										
 				
 									</tr>
 									
 									<p><input name ="FECHA_INGRESO" type="text" placeholder="Fecha Ingreso yyyymmdd" required=""></p>
-														        		
+									
 										<button id="entrar" type="submit"></button>
 										<button id="borrar" type="reset"></button>
 		

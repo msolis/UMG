@@ -21,7 +21,7 @@
 				exit();
 				}
 
-			$result = mysql_query("select  count(*) as campo from usuario_paciente where id_usuario = '".$usuario."' and clave = '".$clave."';");
+			$result = mysql_query("select  count(*) as campo from usuario_paciente where usuario_paciente = '".$usuario."' and clave = '".$clave."';");
 						
 			if ($result == 0)
 				echo "Base de Datos No existe";
@@ -32,7 +32,7 @@
 						if ($conteo == 0)
 						{
 
-							 $result2 = mysql_query("select  count(*) as campo from usuario_empleado where idusuario_empleado = '".$usuario."' and clave = '".$clave."';");
+							 $result2 = mysql_query("select  count(*) as campo from usuario_empleado where nom_usuario = '".$usuario."' and clave = '".$clave."';");
 						
 			                 if ($result2 == 0)
 				                 echo "Base de Datos No existe";
@@ -51,7 +51,7 @@
 										else
 											{
 																
-																	 $result3 = mysql_query("select  count(*) as campo from usuario_empleado where idusuario_empleado = '".$usuario."' and clave = '".$clave."' and privilegios = '2';");
+																	 $result3 = mysql_query("select  count(*) as campo from usuario_empleado where nom_usuario = '".$usuario."' and clave = '".$clave."' and privilegios = 'a';");
 						
 			                  										 if ($result3 == 0)
 				               										  echo "Base de Datos No existe";

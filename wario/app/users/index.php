@@ -6,17 +6,15 @@
 	<div class="row">
 	    <div class="twelve columns">
 	        <div class="box_c">
-	            <div class="box_c_heading cf box_actions">
+	            <div class="box_c_heading cf">
 	                <p>Usuarios</p>
-	            	<span class="bAct_hide"><img src="../images/blank.gif" class="bAct_x" alt=""></span>
-	            	<span class="bAct_toggle"><img src="../images/blank.gif" class="bAct_minus" alt=""></span>
 	            </div>
 	            <div class="box_c_content">
 	                <div id="dt1_wrapper" class="dataTables_wrapper" role="grid">
 	                <div id="dt1_length" class="dataTables_length">
 	                </div>
 	                <div class="dataTables_filter" id="dt1_filter">
-	                	<button type="button" name="nuevo" class="button small nice blue radius">Nuevo</button>
+	                	<button type="button" id="nuevo" class="button small nice blue radius">Nuevo</button>
 	                	<script type="text/javascript">
 	                		$("#nuevo").on("click", function(){
 	                			window.location.href = "new.php";
@@ -39,7 +37,7 @@
 	                	
 	                		$clase = "";
 	                		
-		                	$stmt = $db->prepare('select Id, Nombre, Correo, Imagen, Estatus from usuario where Corporacion = ?;');
+		                	$stmt = $db->prepare('select id, nombre, correo, imagen, estatus from usuario where corporacion = ?;');
 		                	$stmt->bind_param('i', $USER_CORPORATION);
 		                	
 		                	$stmt->execute();
@@ -53,11 +51,11 @@
 									$clase == "odd";
 		                ?>
 		                	<tr class="<?= $clase ?>">
-		                		<td class=""><img src="../data/usuarios/<?php echo $row["Imagen"]; ?>" style="height:25px;" /></td>
-	                            <td class=""><?php echo $row["Nombre"]; ?></td>
-	                            <td class=""><?php echo $row["Correo"]; ?></td>
-	                            <td class=""><?php echo $row["Estatus"]; ?></td>
-	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["Id"]; ?>">Editar</a></td>
+		                		<td class=""><img src="../data/usuarios/<?php echo $row["imagen"]; ?>" style="height:25px;" /></td>
+	                            <td class=""><?php echo $row["nombre"]; ?></td>
+	                            <td class=""><?php echo $row["correo"]; ?></td>
+	                            <td class=""><?php echo $row["estatus"]; ?></td>
+	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                        </tr>
 		                <?php 
 		                	}

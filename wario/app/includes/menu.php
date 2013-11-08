@@ -1,5 +1,5 @@
 <?php 
-	$qryInfoUser = "select Correo, Nombre, Imagen from USUARIO WHERE Corporacion = ? and Id = ?;";
+	$qryInfoUser = "select correo, nombre, imagen from usuario WHERE corporacion = ? and id = ?;";
 	$stmt = $db->prepare($qryInfoUser);
 	$stmt->bind_param('ii', $USER_ID, $USER_CORPORATION);
 	
@@ -34,7 +34,7 @@
 					<strong><?php echo $USER_NAME; ?></strong>
 				</p>
 				<span>
-					<a href="#" class="sep">Configuración</a>
+					<a href="../users/settings.php" class="sep">Configuración</a>
 					<a href="../secure/logout.php">Salir</a>
 				</span>
 			</div>
@@ -70,6 +70,34 @@
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
                         <li><a href="../users/new.php">Creación de Usuarios</a></li>
                         <li><a href="../users/">Lista de Usuarios</a></li>
+                    </ul>
+                </li>
+                <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Clientes<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../clientes/new.php">Crear Cliente</a></li>
+                        <li><a href="../clientes/">Lista de Clientes</a></li>
+                    </ul>
+                </li>
+                <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Paises<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../pais/new.php">Crear Pais</a></li>
+                        <li><a href="../pais/">Lista de Paises</a></li>
+                    </ul>
+                </li>
+                <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Hospitales<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../Hospital/new.php">Crear Hospital</a></li>
+                        <li><a href="../Hospital/">Lista de Hospitales</a></li>
+                    </ul>
+                </li>
+                <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Especialidad Medicas<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../especialidad/new.php">Crear Especialidad</a></li>
+                        <li><a href="../especialidad/">Especialidades de Medicos</a></li>
                     </ul>
                 </li>
                 <li style="z-index: 99;">

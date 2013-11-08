@@ -1,0 +1,120 @@
+
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);*/
+
+html {
+	
+	min-height: 100%;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	color: blue;
+}
+body
+{
+
+background-repeat:no-repeat;
+background-position: 65% 50%;
+background-color: #2E9AFE;
+}
+
+
+body, html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+	a:hover, li:hover > a {
+		color:#01DF01;
+		 font-weight:bold;
+		/*color hover menu*/
+	}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+}
+
+
+  #pasiente
+{
+   float:left;
+   padding:2px;
+   cursor:pointer;
+   display:block;
+   width:300px;
+   margin:75px;
+   text-align:left;
+}
+legend
+{
+   font-family: "Trebuchet MS", Geneva, Arial, Helvetica, sans-serif;
+   font-weight: bold;
+}
+label
+{
+   display: block;
+   padding:10px;
+   margin:10px;
+   cursor:pointer;
+}
+
+
+ 
+#next_button{
+    position: absolute;
+    bottom: 75%; right: 0px;
+}
+.datagrid {
+position: relative;
+visibility: visible;
+top: 25%;
+} 
+.datagrid table 
+{ 
+	border-collapse: collapse; text-align: left; 
+	width: 100%; 
+	}
+	 .datagrid 
+	 {
+	 	font: normal 12px/150% Arial, Helvetica, sans-serif;
+	 	 background: #fff; overflow: hidden;
+	 	  border: 1px solid #006699; 
+	 	  -webkit-border-radius: 3px; 
+	 	  -moz-border-radius: 3px; border-radius: 3px; 
+	 	  }
+	 	  .datagrid table td, .datagrid table th 
+	 	  { 
+	 	  	padding: 3px 125px; 
+	 	  	}
+	 	  	.datagrid table thead th 
+	 	  	{
+	 	  		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );
+	 	  		background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );
+	 	  		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+	 	  		background-color:#006699; color:#FFFFFF; font-size: 15px; font-weight: bold; 
+	 	  		border-left: 1px solid #0070A8; 
+	 	  	} 
+	 	  		
+	 	  			
+	 	   .datagrid table tbody .alt td 
+	 	   {
+	 	    background: #E1EEf4; color: #00557F; 
+	 	    }
+	 	  				 
+	 	  .datagrid table tfoot td 
+	 	   { 
+	 	  	padding: 0;
+	   		 font-size: 12px 
+		   	}
+	 	  				      	

@@ -20,7 +20,7 @@ include("../Conexion/valius.php");
 <?php include("../includes/menu.php"); ?>
 
 <table width="600">
-	       	<thead>
+	<thead>
         		<tr>
         			<th>ID.Usuario</th>
         			<th>Nombre</th>
@@ -38,10 +38,9 @@ include("../Conexion/valius.php");
         			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 					   
         		?>
-        	
-				<form>
-        			<tr>
-        				<th><?php echo $row[0]; ?></th>
+    			<from>
+    			<tr>
+    					<th><?php echo $row[0]; ?></th>
         				<th><?php echo $row[1]; ?></th>
         				<th><?php echo $row[2]; ?></th>
         				<th><?php echo $row[3]; ?></th>
