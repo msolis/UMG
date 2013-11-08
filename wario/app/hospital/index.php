@@ -75,7 +75,7 @@
 	                            <td class=""><?php echo $row["nit"]; ?></td>
 	                            <td class=""><?php echo $row["razonsocial"]; ?></td>
 	                            <td class=""><?php echo $row["estatus"]; ?></td>
-	                            <td class="" style="text-aling:center;"><a href="edit.php?id=<?php echo $row["id"]; ?>">Editar</a></td>
+	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                        </tr>
 		                <?php 
 		                	}
