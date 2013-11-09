@@ -33,7 +33,7 @@
 			$result = $stmt->get_result();
 			$rowArray = mysqli_fetch_array($result);
 			
-			$Id = $rowArray["Id"];
+			$Id = $rowArray["id"];
 			
 			$stmt = $db->prepare("insert into cliente (corporacion, id, nombrecomercial, nit, direccion, fechacreacion, telefono, estatus) values (?, ?, ?, ?, ?, curdate(), ?, ?);");
 			$stmt->bind_param('iisssss', $USER_CORPORATION, $Id, $Nombre, $Nit, $Direccion, $Telefono, $Estatus);
