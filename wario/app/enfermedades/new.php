@@ -11,7 +11,6 @@
 		$Nombre = $_POST["Nombre"];
 		$Descripcion = $_POST["Descripcion"];
 		$Diagnostico = $_POST["Diagnostico"];
-		$Fechacreacion = $_POST["Fechacreacion"];
 		$Estatus = $_POST["Estatus"];
 		
 		
@@ -24,8 +23,8 @@
 			$rowArray = mysqli_fetch_array($result);			
 			$Id = $rowArray["id"];
 			
-			$stmt = $db->prepare("insert into enfermedad (corporacion, id, nombre, descripcion, diagnostrico, fechacreacion, estatus) values (?, ?, ?, ?, ?, ?, ?);");
-			$stmt->bind_param('iisssss', $USER_CORPORATION, $Id, $Nombre, $Descripcion, $Diagnostico, $Fechacreacion, $Estatus);
+			$stmt = $db->prepare("insert into enfermedad (corporacion, id, nombre, descripcion, diagnostrico, fechacreacion, estatus) values (?, ?, ?, ?, ?, curdate(), ?);");
+			$stmt->bind_param('iissss', $USER_CORPORATION, $Id, $Nombre, $Descripcion, $Diagnostico, $Estatus);
 			$rc = $stmt->execute();
 			if (!$rc) {
 				$typeError = "error";
@@ -34,10 +33,7 @@
 				$typeError = "success";
 				$textError = "Información ha sido guardada exitosamente.";
 			}
-			
 		}
-	
-
 ?>
 
 <div class="container" style="padding-bottom: 30px;">
@@ -65,13 +61,8 @@
 								</div>
 								<div class="formRow">
 									<label for="nice_text_oversized">Diagnostico</label>
-									<input type="text"  id="Diagnostico" name="Diagnostico" class="input-text large">
+									<textarea name="Diagnostico" id="Diagnostico" cols="1" rows="1" class="large"></textarea>
 								</div>
-								<div class="formRow">
-									<label for="nice_text_small">Fecha de Creacion</label>
-									<input type="text" id="Fechacreacion" name="Fechacreacion" class="input-text large">
-								</div>
-								
 								<div class="formRow" style="">
 									<label for="nice_select">Estatus</label>
 									<select id="Estatus" name="Estatus" class="custom dropdown medium" >

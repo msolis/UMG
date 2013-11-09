@@ -9,6 +9,7 @@
 	}
 
 	$qryselector = "select " . $value_name . ", " . $text_name . " from " . $table_name . " " . $where_qry;
+	//echo $qryselector;
 	$stmt = $db->prepare($qryselector);
 	$stmt->execute();
 	$result = $stmt->get_result();
