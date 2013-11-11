@@ -1,3 +1,4 @@
+<?php include("../conexion/conexion.php"); ?>
 <!DOCTYPE html>
 <head>
 
@@ -13,7 +14,6 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    position: absolute;
     top: 2em;
     left: 1em;
     width: 9em }  
@@ -36,14 +36,44 @@
     padding-top: 1em;
     border-top: thin dotted }
   </style>
-<link rel="stylesheet" href="../css/menu.css" type="text/css" />
 </head>
 
-<body><span style="font-family:arial; color:#FF3399; font-size:42px;">
+<body>
+  <span style="font-family:arial; color:#FF3399; font-size:42px;">
+    <?php include("../includes/menu.php"); ?>
+  </span> 
+<div>
+  <table>
+    <tr>
+      <td>#</td>
+      <td>Usuario</td>
+      <td>Hospital</td>
+      <td></td>
+    </tr>
+    <?php
+      $qry = "select u.idusuario, u.usuario, u.contrasena, h.nombre as nombre_hospital from usuario u inner join hospital h on u.hospital_idhospital = h.idhospital;";
+      $result = mysql_query($qry);
 
-<?php include("../includes/menu.php"); ?>
+      $rowCount = mysql_num_rows($result);
 
-</span> 
+      while($row = mysql_fetch_array($result, MYSQL_BOTH))
+      {
+  ?>
+    <tr>
+        <td><?php echo $row["idusuario"]; ?></td>
+        <td><?php echo $row["usuario"]; ?></td>
+        <td><?php echo $row["nombre_hospital"]; ?></td>
+        <td>
+          <a href="editar.php?id=<?php echo $row["idusuario"]; ?>">Editar</a>
+        </td>
+    </tr>
+  <?php
+      }
+    ?>
+    
+
+  </table>
+  </div>
 </body>
 
 </html>
