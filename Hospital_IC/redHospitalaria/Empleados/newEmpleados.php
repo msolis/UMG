@@ -39,11 +39,10 @@ include("../Conexion/valius.php");
 		$ustatus = $_POST["STATUS"];
 		
 		
-		$query="INSERT INTO redhospitalaria.datos_personales( NOMBRE, APELLIDO, DPI, TELEFONO, DIRECCION, PAIS, DEPARTAMENTO, MUNICIPIO, TITULO, GENERO, FECHA_INGRESO, STATUS) VALUES( '".$unombre."', '".$uapellido."', '".$udpi."', '".$utelefono."','".$udireccion."',".$upais.", ".$udepartamento.", ".$umunicipio.", ".$utitulo.", '".$ugenero."', '".$ufecha_ingreso."', '".$ustatus."');";
+		$query="INSERT INTO redhospitalaria.datos_personales( NOMBRE, APELLIDO, DPI, TELEFONO, DIRECCION, PAIS, DEPARTAMENTO, MUNICIPIO,TITULO, GENERO, FECHA_INGRESO, STATUS) VALUES( '".$unombre."', '".$uapellido."', '".$udpi."', '".$utelefono."','".$udireccion."',".$upais.", ".$udepartamento.", ".$umunicipio.", ".$utitulo.", '".$ugenero."', '".$ufecha_ingreso."','".$ustatus."');";
 		mysql_query ($query);
 
 		}
-
 ?>
 	<form method="POST">
 		<table  width="600"> 
@@ -118,8 +117,8 @@ include("../Conexion/valius.php");
 									</tr>
 									
 									<p><input name ="FECHA_INGRESO" type="text" placeholder="Fecha Ingreso yyyymmdd" required=""></p>
-									
-										<button id="entrar" type="submit"></button>
+										
+										<button name="entrar" type="submit" ></button>
 										<button id="borrar" type="reset"></button>
 		
 		</table>
@@ -128,3 +127,4 @@ include("../Conexion/valius.php");
 	</body>
 </html>
 
+ 

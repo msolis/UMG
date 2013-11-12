@@ -36,6 +36,7 @@ include("../Conexion/valius.php");
 					$ustatus ="";
 						
 					if(isset ($_POST["entrar"])){
+
 					$unombre = $_POST["NOMBRE"];
 					$uapellido = $_POST["APELLIDO"];
 					$udpi = $_POST["DPI"];
@@ -90,8 +91,7 @@ include("../Conexion/valius.php");
 	<form method="POST">
 		<table  width="600"> 
 			<h2>Editar Empleado</h2>
-				
-				
+								
 				<p><input name ="NOMBRE"  value= "<?php echo $unombre ?>"></p>
 				<p><input name ="APELLIDO" value= "<?php echo $uapellido ?>"></p>
 				<p><input name ="DPI" value= "<?php echo $udpi ?>"></p>
@@ -159,7 +159,7 @@ include("../Conexion/valius.php");
 									
 									<p><input name= FECHA_INGRESO value= "<?php echo $ufecha_ingreso ?>"></p>
 										
-										<button name="entrar" type="submit"></button>
+										<button name="entrar" type="submit" ></button>
 										<button id="borrar" type="reset"></button>
 		
 				</table>

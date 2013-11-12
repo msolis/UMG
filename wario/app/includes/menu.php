@@ -89,8 +89,21 @@
                 <li style="z-index: 99;">
                     <a href="" class="mb_parent" style="padding-right: 23px;">Hospitales<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
-                        <li><a href="../Hospital/new.php">Crear Hospital</a></li>
-                        <li><a href="../Hospital/">Lista de Hospitales</a></li>
+                        <li><a href="../hospital/new.php">Crear Hospital</a></li>
+                        <li><a href="../hospital/">Lista de Hospitales</a></li>
+                    </ul>
+                     <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Departamentos<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../departamento/new.php">Crear Departamento</a></li>
+                        <li><a href="../departamento/">Lista de Departamentos</a></li>
+                    </ul>
+                </li>
+                <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Enfermedades<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../enfermedades/new.php">Crear Enfermedad</a></li>
+                        <li><a href="../enfermedades/">Lista de Enfermedades</a></li>
                     </ul>
                 </li>
                 <li style="z-index: 99;">
@@ -98,6 +111,13 @@
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
                         <li><a href="../especialidad/new.php">Crear Especialidad</a></li>
                         <li><a href="../especialidad/">Especialidades de Medicos</a></li>
+                    </ul>
+                </li>
+                <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Sintomas<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../sintoma/new.php">Crear Sintoma</a></li>
+                        <li><a href="../sintoma/">Listado de Sintomas</a></li>
                     </ul>
                 </li>
                 <li style="z-index: 99;">

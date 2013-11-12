@@ -3,18 +3,19 @@ include("../Conexion/conexionBD.php");
 
 ?>
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Login</title>
-	
-				<link rel="stylesheet" href="../css/base.css">
-				<link rel="stylesheet" href="../css/skeleton.css">
-				<link rel="stylesheet" href="../css/layout.css">	
-				<link rel="stylesheet" href="../css/principal.css">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+                <title>Login</title>
+        
+                                <link rel="stylesheet" href="../css/base.css">
+                                <link rel="stylesheet" href="../css/skeleton.css">
+                                <link rel="stylesheet" href="../css/layout.css">        
+                                <link rel="stylesheet" href="../css/principal.css">
 </head>
 <body>
-	<?php
+        <?php
 
         if (isset($_POST["nombre"])){
             $username = $_POST["nombre"];
@@ -62,15 +63,19 @@ include("../Conexion/conexionBD.php");
         }
 
     ?>
-<div class="container">
-	<div class="form-bg">
-			<from method="POST">
-				<h2>USUARIO</h2>
-					<p><imput name = "nombre" type= "text" placeholder= "Usuario" required =""></p>
-					<p><imput name = "CLAVE" type = "password" placeholder= Password" requiered= ""></p>
-					<button type = "submit"></button>
-					</from>
-	</div>
-</div>
+        <div class="container">
+                
+                <div class="form-bg">
+                        <form method="POST">
+                                <h2>USUARIO</h2>
+                                <p><input name ="nombre" type="text" placeholder="Usuario" required=""></p>
+                                <p><input name = "CLAVE" type="password" placeholder="Password" required=""></p>
+                                
+                                <button type="submit"></button>
+                        </form>
+                        
+                </div>
+        </div>
+        
 </body>
 </html>
