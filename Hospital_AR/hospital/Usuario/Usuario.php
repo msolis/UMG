@@ -8,7 +8,7 @@
     font-family: Georgia, "Times New Roman",
           Times, serif;
     color: purple;
-    background-color: #d8da3d }
+    background-color: #ADD8E6 }
   ul.navbar {
     list-style-type: none;
     padding: 0;
@@ -52,6 +52,11 @@
 
 
       include  "../includes/conexion.php";
+      $qry = "select max(idUsuario)+1 as id from Usuario;";
+      $result = mysql_query($qry);
+      $rowarray = mysql_fetch_array($result);
+
+      $id = $rowarray["id"];
       $insert = "insert into usuario (idUsuario, Usuario, Contrasena, Hospital_idhospital)";
       $insert .= " values ($id,'$Usuario', '$Contrasena', '$Hospital')";
 
@@ -78,7 +83,6 @@
 
 <form action="Usuario.php" method="POST">
 <table>
-<tr><td>ID: </td><td><input type="text" name="idUsuario" /></td></tr>
 <tr><td>Usuario:</td> <td><input type="text" name="Usuario" /></td></tr>
 <tr><td>Contrasena:</td><td> <input type="text" name="Contrasena" /></td></tr>
 <tr><td>Hospital:</td> <td><input type="text" name="Hospital" /></td></tr>
@@ -86,7 +90,7 @@
 </table>
 
 <input type="submit" value ="iniciar" name="iniciar"/><br>
-<a href="menu.php"> regresar a menu </a>
+<a href="../menu/menuu.php"> regresar a menu </a>
 
 </td>
 </tr>

@@ -1,4 +1,4 @@
-
+<html>
 <head>
 	<title>
 	</title>    <style type="text/css">
@@ -45,11 +45,6 @@
 			</tr>
 			<br>
 			<tr>	
-				<td>APELLIDO:</td>
-				<td><input name="APELLIDO"   type="text" value=""></td>
-			</tr>
-			<br>
-            <tr>	
 				<td>NIT:</td>
 				<td><input name="NIT"  required type="text" value=""></td>
 			</tr>
@@ -59,28 +54,16 @@
 				<td><input name="DPI" required type="text" value=""></td>
 			</tr>
 			<br>
-			
 			<tr>	
-				<td>DIRECCION:</td>
-				<td><input name="DIRECCION" required type="text" value=""></td>
+				<td>CODIGO:</td>
+				<td><input name="CODIGO" required type="password" value=""></td>
 			</tr>
-			<br>
-			
-<tr>	
-				<td>TELEFONO:</td>
-				<td><input name="TELEFONO" required type="text" value=""></td>
-			</tr>
-			<br>
-<tr>	
-				<td>EDAD:</td>
-				<td><input name="EDAD" required type="text" value=""></td>
-			</tr>
-			<br>
-			
+			<tr>
+			<td>
+				
  
 		</table>
-<input type="submit" value ="iniciar" name="iniciar"/><br>
-<a href="../menu/menuu.php"> regresar a menu </a>
+
 	
 </body>
 </html>

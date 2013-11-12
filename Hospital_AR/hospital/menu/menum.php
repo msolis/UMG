@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>
-	</title>
-	    <style type="text/css">
+    <title></title>
+    <style type="text/css">
   body {
     padding-left: 11em;
     font-family: Georgia, "Times New Roman",
@@ -36,37 +36,9 @@
     padding-top: 1em;
     border-top: thin dotted }
   </style>
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
 </head>
 <body>
-<FORM method="POST">
-		<table>
-			<tr>	
-				<td>NOMBRE:</td>
-				<td><input name="NOMBRE"  required type="text" value=""></td>
-			</tr>
-			<br>
-			<tr>	
-				<td>DIRECCION:</td>
-				<td><input name="NIT"  required type="text" value=""></td>
-			</tr>
-			<br>     
-            <tr>	
-				<td>TELEFONO:</td>
-				<td><input name="TELEFONO" required type="text" value=""></td>
-			</tr>
-			<br>
-			<tr>	
-				<td>CODIGO:</td>
-				<td><input name="CODIGO" required type="password" value=""></td>
-			</tr>
-			<tr>
-			<td>
-				
- 
-		</table>
-<input type="submit" value ="iniciar" name="iniciar"/><br>
-<a href="../menu/menuu.php"> regresar a menu </a>
-	
+    <?php include("../includes/menu.php"); ?>
 </body>
 </html>
-

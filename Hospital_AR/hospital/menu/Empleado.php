@@ -37,7 +37,8 @@
 
  
 		</table>
-			
+<input type="submit" value ="iniciar" name="iniciar"/><br>
+<a href="../menu/menuu.php"> regresar a menu </a>			
 	
 </body>
 </html>
