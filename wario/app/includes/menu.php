@@ -72,6 +72,13 @@
                         <li><a href="../users/">Lista de Usuarios</a></li>
                     </ul>
                 </li>
+                 <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Proveedores<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../clientes/new.php">Crear Proveedores</a></li>
+                        <li><a href="../clientes/">Lista de Proveedores</a></li>
+                    </ul>
+                </li>
                 <li style="z-index: 99;">
                     <a href="" class="mb_parent" style="padding-right: 23px;">Clientes<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
