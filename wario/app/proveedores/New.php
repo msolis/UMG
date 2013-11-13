@@ -16,7 +16,7 @@
 		$Nit = $_POST["Nit"];
 		$error = "";
 		
-		$stmt = $db->prepare("select corporacion, id from usuario where corporacion = ? and id = ?;");
+		$stmt = $db->prepare("select corporacion, id from proveedor where corporacion = ? and id = ?;");
 		$stmt->bind_param('is', $USER_CORPORATION, $id);
 		
 		$stmt->execute();
@@ -27,7 +27,7 @@
 		if ($rowCount == 0){
 			
 			/// get new usuer id
-			$stmt = $db->prepare("select ifnull(max(id),0)+1 as id from usuario where corporacion = ? ;");
+			$stmt = $db->prepare("select ifnull(max(id),0)+1 as id from proveedor where corporacion = ? ;");
 			$stmt->bind_param('i', $USER_CORPORATION);
 			$stmt->execute();
 			$result = $stmt->get_result();
@@ -35,8 +35,8 @@
 			
 			$Id = $rowArray["Id"];
 			
-			$stmt = $db->prepare("insert into proveedor (corporacion, id, nombre, direccion, nit,correo,telefono,celucar) values (?, ?, ?, ?, ?, ?, ?);");
-			$stmt->bind_param('iissssss', $USER_CORPORATION, $Id, $Nombre, $Direccion, $Nit, $Correo,$Telefono,$Celular);
+			$stmt = $db->prepare("insert into proveedor (corporacion, id, nombre, direccion, nit,correo,telefono,celucar) values (?,?, ?, ?, ?, ?, ?, ?);");
+			$stmt->bind_param('iissssss' , $USER_CORPORATION, $Id, $Nombre, $Direccion, $Nit, $Correo,$Telefono,$Celular);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			if ($result == 0){
@@ -70,11 +70,11 @@
 								</div>
 								<div class="formRow">
 									<label for="nice_text_oversized">Direccion</label>
-									<input type="" required id="Correo" name="Correo" class="input-text large">
+									<input type="text" required id="Correo" name="Correo" class="input-text large">
 								</div>
 								<div class="formRow">
 									<label for="nice_text_oversized">Nit</label>
-									<input type="email" required id="Nit" name=" class="input-text large">
+									<input type="text" required id="Nit" name=" class="input-text large">
 								</div>
 								<div class="formRow">
 									<label for="nice_text_small">Correo</label>

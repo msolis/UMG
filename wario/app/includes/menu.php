@@ -75,8 +75,8 @@
                  <li style="z-index: 99;">
                     <a href="" class="mb_parent" style="padding-right: 23px;">Proveedores<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
-                        <li><a href="../clientes/new.php">Crear Proveedores</a></li>
-                        <li><a href="../clientes/">Lista de Proveedores</a></li>
+                        <li><a href="../proveedores/new.php">Crear Proveedores</a></li>
+                        <li><a href="../proveedores/">Lista de Proveedores</a></li>
                     </ul>
                 </li>
                 <li style="z-index: 99;">
@@ -181,55 +181,25 @@
                 </li>
             </ul>
             <select class="tinynav tinynav1">
-                <option>-- Navigation --</option>
-                <option value="">Dashboard</option>
-                <option value="index.php?uid=1&amp;page=dashboard">Regular</option>
-                <option value="index.php?uid=1&amp;page=dashboard_drag">Drag&amp;Drop</option>
-                <option value="">Forms</option>
-                <option value="index.php?uid=1&amp;page=form_elements">Form elements</option>
-                <option value="index.php?uid=1&amp;page=form_extended">Form elements (extended)</option>
-                <option value="index.php?uid=1&amp;page=form_validation">Form validation</option>
-                <option value="index.php?uid=1&amp;page=form_example">Form example</option>
-                <option value="">UI Elements</option>
-                <option value="index.php?uid=1&amp;page=ui_alertbox_btn_ico_tip">Alerts, Buttons, Icons, Tooltips</option>
-                <option value="index.php?uid=1&amp;page=ui_gallery">Gallery</option>
-                <option value="index.php?uid=1&amp;page=ui_grid">Grid</option>
-                <option value="index.php?uid=1&amp;page=ui_pricingtable">Pricing Table</option>
-                <option value="index.php?uid=1&amp;page=ui_scrollable">Scrollable</option>
-                <option value="index.php?uid=1&amp;page=ui_sidebar">Sidebar</option>
-                <option value="index.php?uid=1&amp;page=search_page">Search Page</option>
-                <option value="index.php?uid=1&amp;page=ui_tabs">Tabs / Accordion</option>
-                <option value="index.php?uid=1&amp;page=ui_typography">Typography</option>
-                <option value="index.php?uid=1&amp;page=ui_widgets">Widgets</option>
-                <option value="">Plugins</option>
-                <option value="index.php?uid=1&amp;page=plugin_charts">Charts</option>
-                <option value="index.php?uid=1&amp;page=plugin_tables">Data tables</option>
-                <option value="index.php?uid=1&amp;page=plugin_explorer">File explorer</option>
-                <option value="index.php?uid=1&amp;page=plugin_help">Help/Faq</option>
-                <option value="index.php?uid=1&amp;page=plugin_dialogs">Dialog boxes/Notifications</option>
-                <option value="index.php?uid=1&amp;page=plugin_wizard">Wizard</option>
-                <option value="">Navigation</option>
-                <option value="index.php?uid=1&amp;page=nav_sticky">Sticky navigation</option>
-                <option value="index.php?uid=1&amp;page=nav_sticky_center">Sticky centered navigation</option>
-                <option value="index.php?uid=1&amp;page=nav_sidebar">Sidebar navigation</option>
-                <option value="">Error Pages</option>
-                <option value="index.php?uid=1&amp;page=error_401">401</option>
-                <option value="index.php?uid=1&amp;page=error_403">403</option>
-                <option value="index.php?uid=1&amp;page=error_404">404</option>
-                <option value="index.php?uid=1&amp;page=error_500">500</option>
-                <option value="index.php?uid=1&amp;page=error_503">503</option>
-                <option value="index.php?uid=1&amp;page=error_unexpected">Unexpected error</option>
-                <option value="">Sub-levels</option>
-                <option value="#">First level</option>
-                <option value="#">Second level</option>
-                <option value="#">Third level</option>
-                <option value="#">Third level</option>
-                <option value="#">Second level</option>
-                <option value="#">First level</option>
-                <option value="#">First level</option>
-                <option value="#">First level</option>
-                <option value="index.php?uid=1&amp;page=documentation">Documentation</option>
+                <option>-- Menu --</option>
+				<option value="../medicos/">Medicos</option>
+				<option value="../users/">Usuarios</option>
+				<option value="../clientes/">Clientes</option>
+				<option value="../pais/">Paises</option>
+				<option value="../hospital/">Hospitales</option>
+				<option value="../departamento/">Departamentos</option>
+				<option value="../enfermedades/">Enfermedades</option>
+				<option value="../especialidad/">Especialidad</option>
+				<option value="../sintomas/">Sintomas</option>
             </select>
+            <script type="text/javascript">
+			$(document).on("ready", function(){
+				$("#menunavegacion").on("change", function(){
+					window.location.href=$(this).val();
+				});
+			});
+			</script>
+			            
         </nav>
         <!--ul id="breadcrumbs" class="cf">
             <li>You are here:</li>
