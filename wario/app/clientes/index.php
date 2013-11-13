@@ -29,7 +29,7 @@
 	                <p>Clientes</p>
 	            </div>
 	            <div class="box_c_content">
-	                <div id="dt1_wrapper" class="dataTables_wrapper" role="grid">
+	                <div id="dt1_wrapper" class="dataTables_wrapper">
 	                <div id="dt1_length" class="dataTables_length">
 	                </div>
 	                <div class="dataTables_filter" id="dt1_filter">
@@ -39,9 +39,9 @@
 	                			window.location.href = "new.php";
 	                		});
 	                	</script>
-	                	<label>Search: <input type="text" aria-controls="dt1"></label>
+	                	<label>Search: <input type="text" ></label>
 	               	</div>
-	                <table cellpadding="0" cellspacing="0" border="0" class="display mobile_dt1 dt_act dataTable" id="dt1" aria-describedby="dt1_info">
+	                <table class="display mobile_dt1 dt_act dataTable" id="dt1">
                         <thead>
                             <tr role="row">
                             	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" style="width: 311px;">#</th>
