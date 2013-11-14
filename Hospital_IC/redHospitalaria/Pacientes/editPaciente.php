@@ -16,6 +16,7 @@ include("../Conexion/valius.php");
 				
 </head>
 <body>
+
 	<?php include("../includes/menu.php"); ?>
 	
 	<tbody>
