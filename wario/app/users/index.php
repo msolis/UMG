@@ -55,7 +55,7 @@
 	                            <td class=""><?php echo $row["nombre"]; ?></td>
 	                            <td class=""><?php echo $row["correo"]; ?></td>
 	                            <td class=""><?php echo $row["estatus"]; ?></td>
-	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["Id"]; ?>">Editar</a></td>
+	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                        </tr>
 		                <?php 
 		                	}

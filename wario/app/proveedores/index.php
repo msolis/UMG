@@ -26,9 +26,9 @@
                         <thead>
                             <tr role="row">
                             	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 311px;"></th>
-                            	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 311px;">Name</th>
-                            	<th class="essential sorting" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Capital: activate to sort column ascending" style="width: 206px;">Correo</th>
-                            	<th class="sorting" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Population: activate to sort column ascending" style="width: 170px;">Estatus</th>
+                            	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 311px;">Nombre</th>
+                            	<th class="essential sorting" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Capital: activate to sort column ascending" style="width: 206px;">Direccion</th>
+                            	<th class="sorting" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Population: activate to sort column ascending" style="width: 170px;">Nit</th>
                             	<th style="width: 10px;"></th>
                             </tr>
                         </thead>
@@ -51,11 +51,11 @@
 									$clase == "odd";
 		                ?>
 		                	<tr class="<?= $clase ?>">
-		                		<td class=""><img src="../data/usuarios/<?php echo $row["imagen"]; ?>" style="height:25px;" /></td>
-	                            <td class=""><?php echo $row["Nombre"]; ?></td>
-	                            <td class=""><?php echo $row["Direccion"]; ?></td>
-	                            <td class=""><?php echo $row["Nit"]; ?></td>
-	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["Id"]; ?>">Editar</a></td>
+		                		<td class=""></td>
+	                            <td class=""><?php echo $row["nombre"]; ?></td>
+	                            <td class=""><?php echo $row["direccion"]; ?></td>
+	                            <td class=""><?php echo $row["nit"]; ?></td>
+	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                        </tr>
 		                <?php 
 		                	}
