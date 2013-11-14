@@ -42,7 +42,7 @@
 		$Genero = $_POST["Genero"];
 		$Correo = $_POST["Correo"];
 		$Clave = "23";
-		$Estatus = "A";
+		$Estatus = $_POST["Estatus"];
 		$Aseguradora = $_POST["Aseguradora"];
 		$Poliza = $_POST["Poliza"];
 		$Poliza_Expiracion = $_POST["Poliza_Expiracion"];
@@ -51,18 +51,14 @@
 			$Poliza_Expiracion  = "1900-01-01";
 		}
 		$Poliza_Observacion = $_POST["Poliza_Observacion"];
-		
-		$stmt = $db->prepare("SELECT ifnull(max(id),0)+1 as id from paciente where corporacion = ?;");
-		$stmt->bind_param('i', $USER_CORPORATION);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$rowArray = mysqli_fetch_array($result);
+		$Id = $_POST["Id"];
 
-		$Id = $rowArray["id"];
-		$qry = "insert into paciente (fecharegistro, corporacion, id, nombre, direccion, dpi, fechanacimiento, pais, departamento, estado_civil, correo, clave, genero, estatus, aseguradora, poliza, poliza_expiracion, poliza_certificado, poliza_observacion) " .
-		 " values (curdate(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+		$qry = "update paciente set nombre = ?, direccion = ?, dpi = ?, fechanacimiento = ?, pais = ?, departamento = ?, estado_civil = ?, correo = ?, clave = ?" . 
+			", genero = ?, estatus = ?, aseguradora = ?, poliza = ?, poliza_expiracion = ?, poliza_certificado = ?, poliza_observacion = ? where corporacion = ? and id  = ?; ";
+
 		$stmt = $db->prepare($qry);
-		$stmt->bind_param('iissssiiissisissss', $USER_CORPORATION, $Id, $Nombre, $Direccion, $Dpi, $FechaNacimiento, $Pais, $Departamento, $EstadoCivil, $Correo, $Clave, $Genero, $Estatus, $Aseguradora, $Poliza, $Poliza_Expiracion, $Poliza_Certificado, $Poliza_Observacion);
+		$stmt->bind_param('ssssiiissisissssii', $Nombre, $Direccion, $Dpi, $FechaNacimiento, $Pais, $Departamento, $EstadoCivil, $Correo, $Clave, $Genero, $Estatus, $Aseguradora, $Poliza, $Poliza_Expiracion, $Poliza_Certificado, $Poliza_Observacion, $USER_CORPORATION, $Id);
+
 		$rc = $stmt->execute();
 		if (!$rc) {
 			$typeError = "error";
@@ -109,11 +105,12 @@
 			<div class="twelve columns">
 				<div class="box_c">
 					<div class="box_c_heading cf">
-						<p>Nueva Paciente</p>
+						<p>Editar Paciente</p>
 					</div>
 					<div class="box_c_content form_a">
 						<div class="tab_pane" style="">
 							<form action="" method="post" class="nice custom" style="">
+								<input type="hidden" id="Id" name="Id" value="<?php echo $Id; ?>">
 								<div class="formRow">
 									<label for="nice_text_oversized">Nombre</label>
 									<input type="text" required id="Nombre" name="Nombre" required class="input-text large" value="<?php echo $Nombre; ?>">
@@ -226,7 +223,14 @@
 
 								<div class="formRow">
 									<label for="nice_text_oversized">Correo Electrónico</label>
-									<input type="email" id="Correo" name="Correo" required class="input-text large">
+									<input type="email" id="Correo" name="Correo" required class="input-text large" value="<?php echo $Correo; ?>">
+								</div>
+								<div class="formRow" style="">
+									<label for="nice_select">Estatus</label>
+									<select id="Estatus" name="Estatus" class="custom dropdown medium" >
+										<option value="A" <?php if($Estatus == "A") echo " selected " ?>>Alta</option>
+										<option value="B" <?php if($Estatus == "B") echo " selected " ?>>Baja</option>
+									</select>
 								</div>
 								<div class="formRow">
                                     <button type="submit" name="boton" class="button small nice blue radius">Guardar</button>

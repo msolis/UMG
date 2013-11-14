@@ -62,7 +62,7 @@
 			<div class="twelve columns">
 				<div class="box_c">
 					<div class="box_c_heading cf">
-						<p>Nueva Paciente</p>
+						<p>Nuevo Paciente</p>
 					</div>
 					<div class="box_c_content form_a">
 						<div class="tab_pane" style="">
