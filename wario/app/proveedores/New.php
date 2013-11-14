@@ -17,7 +17,7 @@
 		$error = "";
 		
 		$stmt = $db->prepare("select corporacion, id from proveedor where corporacion = ? and id = ?;");
-		$stmt->bind_param('is', $USER_CORPORATION, $id);
+		$stmt->bind_param('ii', $USER_CORPORATION, $id);
 		
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -26,31 +26,28 @@
 		
 		if ($rowCount == 0){
 			
-			/// get new usuer id
+	
 			$stmt = $db->prepare("select ifnull(max(id),0)+1 as id from proveedor where corporacion = ? ;");
 			$stmt->bind_param('i', $USER_CORPORATION);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$rowArray = mysqli_fetch_array($result);
 			
-			$Id = $rowArray["Id"];
+			$Id = $rowArray["id"];
 			
 			$stmt = $db->prepare("insert into proveedor (corporacion, id, nombre, direccion, nit,correo,telefono,celucar) values (?,?, ?, ?, ?, ?, ?, ?);");
 			$stmt->bind_param('iissssss' , $USER_CORPORATION, $Id, $Nombre, $Direccion, $Nit, $Correo,$Telefono,$Celular);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			if ($result == 0){
-				header("Location: index.php");
+			$rc = $stmt->execute();
+			
+		if (!$rc) {
+				$typeError = "error";
+				$textError = "NO se pudo guardar el registro. Error: " . $stmt->error;
 			}else{
-				$error = "Ha ocurrido un Error, No se pudo guardar el Usuario.";
+				$typeError = "success";
+				$textError = "Información ha sido guardada exitosamente.";
 			}
-		}else{
-			$error = "El Correo electronico ya existe";	
 		}
-		echo $error;
-		
 	}
-
 ?>
 
 <div class="container" style="padding-bottom: 30px;">
@@ -59,7 +56,7 @@
 			<div class="twelve columns">
 				<div class="box_c">
 					<div class="box_c_heading cf">
-						<p>Nuevo Usuario</p>
+						<p>Nuevo Proveedor</p>
 					</div>
 					<div class="box_c_content form_a">
 						<div class="tab_pane" style="">
@@ -70,15 +67,15 @@
 								</div>
 								<div class="formRow">
 									<label for="nice_text_oversized">Direccion</label>
-									<input type="text" required id="Correo" name="Correo" class="input-text large">
+									<input type="text" required id="Direccion" name="Direccion" class="input-text large">
 								</div>
 								<div class="formRow">
 									<label for="nice_text_oversized">Nit</label>
-									<input type="text" required id="Nit" name=" class="input-text large">
+									<input type="text" required id="Nit" name="Nit" class="input-text large">
 								</div>
 								<div class="formRow">
 									<label for="nice_text_small">Correo</label>
-									<input type="email" required id="Correo" name=""Correo_Confirmacion" class="input-text large">
+									<input type="email" required id="Correo" name="Correo" class="input-text large">
 								</div>
 								<div class="formRow">
 									<label for="nice_text_medium">Telefono</label>
@@ -86,7 +83,7 @@
 								</div>
 								<div class="formRow">
 									<label for="nice_text_medium">Celular</label>
-									<input type="text"  id="Celular" name="Telefono" class="input-text">
+									<input type="text"  id="Celular" name="Celular" class="input-text">
 								</div>
 								
 								<div class="formRow">

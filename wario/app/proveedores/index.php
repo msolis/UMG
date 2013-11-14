@@ -7,7 +7,7 @@
 	    <div class="twelve columns">
 	        <div class="box_c">
 	            <div class="box_c_heading cf">
-	                <p>Usuarios</p>
+	                <p>Proveedores</p>
 	            </div>
 	            <div class="box_c_content">
 	                <div id="dt1_wrapper" class="dataTables_wrapper" role="grid">
@@ -22,7 +22,7 @@
 	                	</script>
 	                	<label>Search: <input type="text" aria-controls="dt1"></label>
 	               	</div>
-	                <table cellpadding="0" cellspacing="0" border="0" class="display mobile_dt1 dt_act dataTable" id="dt1" aria-describedby="dt1_info">
+	                 <table cellpadding="0" cellspacing="0" border="0" class="display mobile_dt1 dt_act dataTable" id="dt1" aria-describedby="dt1_info">
                         <thead>
                             <tr role="row">
                             	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 311px;"></th>
@@ -37,7 +37,7 @@
 	                	
 	                		$clase = "";
 	                		
-		                	$stmt = $db->prepare('select id, nombre, correo, imagen, estatus from usuario where corporacion = ?;');
+		                	$stmt = $db->prepare('select id, nombre,direccion, nit from proveedor where corporacion = ?;');
 		                	$stmt->bind_param('i', $USER_CORPORATION);
 		                	
 		                	$stmt->execute();
@@ -52,13 +52,14 @@
 		                ?>
 		                	<tr class="<?= $clase ?>">
 		                		<td class=""><img src="../data/usuarios/<?php echo $row["imagen"]; ?>" style="height:25px;" /></td>
-	                            <td class=""><?php echo $row["nombre"]; ?></td>
-	                            <td class=""><?php echo $row["correo"]; ?></td>
-	                            <td class=""><?php echo $row["estatus"]; ?></td>
+	                            <td class=""><?php echo $row["Nombre"]; ?></td>
+	                            <td class=""><?php echo $row["Direccion"]; ?></td>
+	                            <td class=""><?php echo $row["Nit"]; ?></td>
 	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["Id"]; ?>">Editar</a></td>
 	                        </tr>
 		                <?php 
 		                	}
+		                	
 	                	?>
 	                		
 						</tbody>
