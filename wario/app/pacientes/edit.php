@@ -42,8 +42,7 @@
 		$Genero = $_POST["Genero"];
 		$Correo = $_POST["Correo"];
 		$Clave = "23";
-
-		$Estatus = "A";
+		$Estatus = $_POST["Estatus"];
 		$Aseguradora = $_POST["Aseguradora"];
 		$Poliza = $_POST["Poliza"];
 		$Poliza_Expiracion = $_POST["Poliza_Expiracion"];
@@ -52,18 +51,14 @@
 			$Poliza_Expiracion  = "1900-01-01";
 		}
 		$Poliza_Observacion = $_POST["Poliza_Observacion"];
-		
-		$stmt = $db->prepare("SELECT ifnull(max(id),0)+1 as id from paciente where corporacion = ?;");
-		$stmt->bind_param('i', $USER_CORPORATION);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$rowArray = mysqli_fetch_array($result);
+		$Id = $_POST["Id"];
 
-		$Id = $rowArray["id"];
-		$qry = "insert into paciente (fecharegistro, corporacion, id, nombre, direccion, dpi, fechanacimiento, pais, departamento, estado_civil, correo, clave, genero, estatus, aseguradora, poliza, poliza_expiracion, poliza_certificado, poliza_observacion) " .
-		 " values (curdate(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+		$qry = "update paciente set nombre = ?, direccion = ?, dpi = ?, fechanacimiento = ?, pais = ?, departamento = ?, estado_civil = ?, correo = ?, clave = ?" . 
+			", genero = ?, estatus = ?, aseguradora = ?, poliza = ?, poliza_expiracion = ?, poliza_certificado = ?, poliza_observacion = ? where corporacion = ? and id  = ?; ";
+
 		$stmt = $db->prepare($qry);
-		$stmt->bind_param('iissssiiissisissss', $USER_CORPORATION, $Id, $Nombre, $Direccion, $Dpi, $FechaNacimiento, $Pais, $Departamento, $EstadoCivil, $Correo, $Clave, $Genero, $Estatus, $Aseguradora, $Poliza, $Poliza_Expiracion, $Poliza_Certificado, $Poliza_Observacion);
+		$stmt->bind_param('ssssiiissisissssii', $Nombre, $Direccion, $Dpi, $FechaNacimiento, $Pais, $Departamento, $EstadoCivil, $Correo, $Clave, $Genero, $Estatus, $Aseguradora, $Poliza, $Poliza_Expiracion, $Poliza_Certificado, $Poliza_Observacion, $USER_CORPORATION, $Id);
+
 		$rc = $stmt->execute();
 		if (!$rc) {
 			$typeError = "error";
@@ -110,11 +105,13 @@
 			<div class="twelve columns">
 				<div class="box_c">
 					<div class="box_c_heading cf">
-						<p>Nueva Paciente</p>
+						<p>Editar Paciente</p>
+						<span class="bAct_toggle"><img src="../images/blank.gif" class="bAct_minus" alt=""></span>
 					</div>
 					<div class="box_c_content form_a">
 						<div class="tab_pane" style="">
 							<form action="" method="post" class="nice custom" style="">
+								<input type="hidden" id="Id" name="Id" value="<?php echo $Id; ?>">
 								<div class="formRow">
 									<label for="nice_text_oversized">Nombre</label>
 									<input type="text" required id="Nombre" name="Nombre" required class="input-text large" value="<?php echo $Nombre; ?>">
@@ -227,7 +224,84 @@
 
 								<div class="formRow">
 									<label for="nice_text_oversized">Correo Electrónico</label>
-									<input type="email" id="Correo" name="Correo" required class="input-text large">
+									<input type="email" id="Correo" name="Correo" required class="input-text large" value="<?php echo $Correo; ?>">
+								</div>
+								<div class="formRow" style="">
+									<label for="nice_select">Estatus</label>
+									<select id="Estatus" name="Estatus" class="custom dropdown medium" >
+										<option value="A" <?php if($Estatus == "A") echo " selected " ?>>Alta</option>
+										<option value="B" <?php if($Estatus == "B") echo " selected " ?>>Baja</option>
+									</select>
+								</div>
+								<div class="formRow">
+                                    <button type="submit" name="boton" class="button small nice blue radius">Guardar</button>
+									<a href="index.php" class="clear_form">Cancelar</a>
+									
+                                </div>
+							</form>
+						</div>
+										
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="twelve columns">
+				<div class="box_c">
+					<div class="box_c_heading cf">
+						<p>Fotografías</p>
+						<span class="bAct_toggle"><img src="../images/blank.gif" class="bAct_minus" alt=""></span>
+					</div>
+					<div class="box_c_content">
+						<div class="gal_scrollable h_scrollable sepH_a sw_resizedEL" style="height: 334px;">
+							<div class="items" style="left: 0px; width: 100%;">
+								<ul class="gallery_list left cf" style="width: 100%;">
+									<?php 
+	                	
+									$stmt = $db->prepare("select id from paciente_foto where corporacion = ? and paciente = ? and estatus = 'A';");
+					                	$stmt->bind_param("ii", $USER_CORPORATION, $Id);
+					                	$stmt->execute();
+					                	
+					                	$result = $stmt->get_result();
+					                	$contador = mysqli_num_rows($result);
+					                	
+					                	while ($row = $result->fetch_assoc()) {
+												
+					                ?>
+									<li style="width: 15%;">
+										<a href="../includes/showimage.php?table=1&paciente=<?php echo $Id; ?>&id=<?php echo $row["id"]; ?>" class="fancybox img_wrapper" rel="gallery">
+											<img style="width: 100%; height: 100%;" src="../includes/showimage.php?table=1&paciente=<?php echo $Id; ?>&id=<?php echo $row["id"]; ?>" alt="">
+										</a>
+									</li>
+									<?php 
+									}
+									?>
+								</ul>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="twelve columns">
+				<div class="box_c">
+					<div class="box_c_heading cf">
+						<p>Agregar Fotografía</p>
+						<span class="bAct_toggle"><img src="../images/blank.gif" class="bAct_minus" alt=""></span>
+					</div>
+					<div class="box_c_content form_a">
+						<div class="tab_pane" style="">
+							<form enctype="multipart/form-data" action="subirfotopaciente.php" method="post" class="nice custom" style="">
+								<input name="MAX_FILE_SIZE" value="102400" type="hidden">
+								<input type="hidden" id="Id" name="Id" value="<?php echo $Id; ?>">
+								<input type="hidden" id="table" name="table" value="1">
+								<div class="formRow">
+									<label for="nice_text_oversized">Imagen</label>
+									<input type="file" required id="image" name="image" accept="image/jpeg" class="input-text large" value="<?php echo $Nombre; ?>">
 								</div>
 								<div class="formRow">
                                     <button type="submit" name="boton" class="button small nice blue radius">Guardar</button>
