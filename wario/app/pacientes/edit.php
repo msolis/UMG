@@ -55,7 +55,7 @@
 
 		$qry = "update paciente set nombre = ?, direccion = ?, dpi = ?, fechanacimiento = ?, pais = ?, departamento = ?, estado_civil = ?, correo = ?, clave = ?" . 
 			", genero = ?, estatus = ?, aseguradora = ?, poliza = ?, poliza_expiracion = ?, poliza_certificado = ?, poliza_observacion = ? where corporacion = ? and id  = ?; ";
-
+		echo $qry;
 		$stmt = $db->prepare($qry);
 		$stmt->bind_param('ssssiiissisissssii', $Nombre, $Direccion, $Dpi, $FechaNacimiento, $Pais, $Departamento, $EstadoCivil, $Correo, $Clave, $Genero, $Estatus, $Aseguradora, $Poliza, $Poliza_Expiracion, $Poliza_Certificado, $Poliza_Observacion, $USER_CORPORATION, $Id);
 
