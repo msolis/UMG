@@ -96,7 +96,7 @@
 				//* filterable list
 				//prth_flist.init();
 				//* smart gallery
-				prth_gallery.init();
+				//prth_gallery.init();
 				//* home page charts resize
 				//prth_charts.charts_resize();
 				//* home page charts
@@ -109,17 +109,6 @@
 			if(jQuery.browser.mobile) {
 				if (top !== self) top.location.href = self.location.href;
 			}
-
-			$(".bAct_toggle").on("click", function(){
-				$(this).parent().parent().find(".box_c_content").slideToggle();
-				$(this).find("img").toggleClass(function() {
-					  if ( $( this ).is( ".bAct_minus" ) ) {
-						    return "bAct_plus";
-						  } else {
-						    return "bAct_minus";
-						  }
-						});
-			});
 		});
 	</script>
 </head>
