@@ -29,7 +29,7 @@
 			$result = $stmt->get_result();
 			$rowArray = mysqli_fetch_array($result);
 			
-			$Id = $rowArray["Id"];
+			$Id = $rowArray["id"];
 			
 			$stmt = $db->prepare("insert into tipo_consulta_medica (corporacion, id, nombre, descripcion, estatus) values (?, ?, ?, ?, ?);");
 			$stmt->bind_param('iisss', $USER_CORPORATION, $Id, $Nombre, $Descripcion, $Estatus);

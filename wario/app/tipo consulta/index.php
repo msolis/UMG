@@ -47,7 +47,7 @@
 									$clase == "odd";
 		                ?>
 		                	<tr class="<?= $clase ?>">
-		                		<td class=""><img src="../data/medicos/<?php echo $row["imagen"]; ?>" style="height:25px;" /></td>
+		                		<td class=""></td>
 	                            <td class=""><?php echo $row["nombre"]; ?></td>
 	                            <td class=""><?php echo $row["descripcion"]; ?></td>
 	                            <td class=""><?php echo $row["estatus"]; ?></td>

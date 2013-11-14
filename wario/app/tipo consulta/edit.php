@@ -16,14 +16,15 @@
 		$Id = $_GET["Id"];
 
 		if (isset($_POST["boton"])){
-			$Descriocion = $_POST["Descriocion"];
+			$Nombre = $_POST["Nombre"];
+			$Descripcion = $_POST["Descripcion"];
 			$Estatus = $_POST["Estatus"];
 			
 			
-			$qryInsert = "update pais set Estatus = ?, Descripcion = ?  where id = ?;";
+			$qryInsert = "update tipo_consulta_medica set Nombre = ?, Descripcion = ? , Estatus = ?  where id = ?;";
 			
 			$stmt = $db->prepare($qryInsert);
-			$stmt->bind_param('ssi',  $Estatus, $Descriocion ,$Id);
+			$stmt->bind_param('sssi', $Nombre , $Estatus, $Descripcion ,$Id);
 			$rc = $stmt->execute();
 			if (!$rc) {
 				$typeError = "error";
@@ -35,7 +36,7 @@
 			mysqli_stmt_close($stmt);
 		}
 
-		$stmt = $db->prepare("select descripcion, estatus from pais where   id = ?;");
+		$stmt = $db->prepare("select nombre , descripcion, estatus from  tipo_consulta_medica  where   id = ?;");
 		$stmt->bind_param('i', $Id);
 		
 		$stmt->execute();
@@ -43,9 +44,9 @@
 		$rowCount = mysqli_num_rows($result);
 		$rowArray = mysqli_fetch_array($result);
 
-		
+		$Nombre = $rowArray["nombre"];
 		$Estatus = $rowArray["estatus"];
-		$Descriocion = $rowArray["descripcion"];
+		$Descripcion = $rowArray["descripcion"];
 
 	}
 
@@ -62,7 +63,7 @@
 			<div class="twelve columns">
 				<div class="box_c">
 					<div class="box_c_heading cf">
-						<p>Editar Pais</p>
+						<p>Editar Tipo de Consulta</p>
 					</div>
 					<div class="box_c_content form_a">
 						<div class="tab_pane" style="">
@@ -70,9 +71,12 @@
 								
 								<div class="formRow">
 									<label for="nice_text">Nombre</label>
-									<input type="text" id="Descriocion" name="Descriocion" class="input-text" value="<?php echo $Descriocion ?>">
+									<input type="text" id="Nombre" name="Nombre" class="input-text" value="<?php echo $Nombre ?>">
 								</div>
-								
+								<div class="formRow">
+									<label for="nice_text">Descripcion</label>
+									<input type="text" id="Descripcion" name="Descripcion" class="input-text" value="<?php echo $Descripcion ?>">
+								</div>
 								<div class="formRow" style="">
 									<label for="nice_select">Estatus</label>
 									<select id="Estatus" name="Estatus" class="custom dropdown medium" >
