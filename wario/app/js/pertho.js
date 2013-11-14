@@ -1718,7 +1718,8 @@
 			$('a.fancybox').attr('rel', 'gallery').fancybox({
 				'overlayOpacity'	: '0.2',
 				'transitionIn'	: 'elastic',
-				'transitionOut'	: 'fade'
+				'transitionOut'	: 'fade',
+				'type': "image"
 			});
 			prth_gallery.gallery_resize();
 		},
