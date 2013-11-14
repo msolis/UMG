@@ -28,6 +28,9 @@ include("../Conexion/valius.php");
 					$umail="";
 					$unit="";
 					$ustatus="";
+					$upais="";
+					$udepartamento="";
+					$umunicipio="";
 					
 					if(isset ($_POST["entrar"])){
 						
@@ -37,8 +40,11 @@ include("../Conexion/valius.php");
 					$umail= $_POST["MAIL"];
 					$unit= $_POST["NIT"];
 					$ustatus= $_POST["ESTATUS"];
+					$upais= $_POST["PAIS"];
+					$udepartamento= $_POST["DEPARTAMENTO"];
+					$umunicipio= $_POST["MUNICIPIO"];
 						
-					$query="UPDATE redhospitalaria.hospital SET NOMBRE='".$unombre."', DIRECCION='".$udireccion."', TELEFONO= '".$utelefono."', MAIL='".$umail."', NIT='".$unit."', ESTATUS='".$ustatus."' WHERE HOSPITAL=".$uhospital;
+					$query="update redhospitalaria.hospital set nombre='".$unombre."', direccion='".$udireccion."', telefono= '".$utelefono."', mail='".$umail."', nit='".$unit."', estatus='".$ustatus."', pais=".$upais.", departamento=".$udepartamento.", municipio=".$umunicipio." where hospital=".$uhospital;
 					
 					mysql_query ($query);
 					
@@ -46,7 +52,7 @@ include("../Conexion/valius.php");
 						
 					if (isset($uhospital))
 					{
-			$result = mysql_query("SELECT HOSPITAL, NOMBRE, DIRECCION, TELEFONO, MAIL, NIT, ESTATUS FROM redhospitalaria.hospital WHERE HOSPITAL = ".$uhospital.";");
+			$result = mysql_query("select hospital, nombre, direccion, telefono, mail, nit, estatus, pais, departamento, municipio from redhospitalaria.hospital where hospital = ".$uhospital.";");
 			echo mysql_error();
 			
 			if ($result ==0)
@@ -63,6 +69,9 @@ include("../Conexion/valius.php");
 			$umail=$row_array[4];
 			$unit=$row_array[5];
 			$ustatus=$row_array[6];
+			$upais=$row_array[7];
+			$udepartamento=$row_array[8];
+			$umunicipio=$row_array[9];
 			
 		}
 	}
@@ -74,29 +83,59 @@ include("../Conexion/valius.php");
 			<h2>Editar Hospital</h2>
 			<tr>
 			<td color="white">Nombre: </td>
-			<td width="800" ><input size="50" name ="NOMBRE" value= "<?php echo $unombre?>"></td>
+			<td><p><input size="50" name ="NOMBRE" value= "<?php echo $unombre?>"></p></td>
 			</tr>
-		
+			
 			<tr>
 			<td color="white">Direccion: </td>
-			<td><input size="50" name ="DIRECCION" value= "<?php echo $udireccion?>"></td>
+			<td><p><input size="50" name ="DIRECCION" value= "<?php echo $udireccion?>"></p></td>
 			</tr>
 		
 			<tr>
 			<td color="white">Telefono: </td>
-			<td><input size="50" name ="TELEFONO" value= "<?php echo $utelefono?>"></td>
+			<td><p><input size="50" name ="TELEFONO" value= "<?php echo $utelefono?>"></p></td>
 			</tr>
 			
 			<tr>
 			<td color="white">Mail: </td>
-			<td><input size="50" name ="MAIL" value= "<?php echo $umail?>"></td>
+			<td><p><input size="50" name ="MAIL" value= "<?php echo $umail?>"></p></td>
 			</tr>
 			
 			<tr>
 			<td color="white">Nit: </td>
-			<td><input size="50" name ="NIT" value= "<?php echo $unit?>"></td>
-			</tr>				
-				<tr>
+			<td><p><input size="50" name ="NIT" value= "<?php echo $unit?>"></p></td>
+			</tr>
+							<tr>
+							<td>Pais</td>
+							<td>
+								<select name = "PAIS">
+<?php
+	nuevoselector("pais", "nombre_pais", "pais",$upais) ;  
+?>
+	        					</select>
+	        				</td>
+	        				</tr>
+	        				<tr>
+	        				<td>Departamento</td>
+							<td>
+								<select name = "DEPARTAMENTO">
+<?php
+	nuevoselector("departamento", "nombre_departamento", "departamento",$udepartamento) ;  
+?>
+	        					</select>
+	        				</td>
+	        				</tr>
+	        				<tr>
+	        				<td>Municipio</td>
+							<td>
+								<select name = "MUNICIPIO">
+<?php
+	nuevoselector("municipio", "nombre_municipio", "municipio",$umunicipio) ;  
+?>
+	        					</select>
+	        				</td>	
+							</tr>		
+							<tr>
 				<td>Status</td>
 							<td>
 								<SELECT name="ESTATUS"> 
@@ -104,7 +143,7 @@ include("../Conexion/valius.php");
 								<OPTION VALUE= "B">Baja
 								</SELECT> 
 							</td>
-				</tr>
+					</tr>
         								<button name="entrar" type="submit" ></button>
 										<button id="borrar" type="reset"></button>
 					</tr>

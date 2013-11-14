@@ -40,7 +40,7 @@ include("../Conexion/valius.php");
                                         <th><?php echo $row[1]; ?></th>
                                         <th><?php echo $row[2]; ?></th>
                                         <th>
-                                                <a href="../Empleados/editEmpleado.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
+                                                <a href="../Consultas/editTipoconsulta.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
                                         </th>
                                 </tr>
                         </form>

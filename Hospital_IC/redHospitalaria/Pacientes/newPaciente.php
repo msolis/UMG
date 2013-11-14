@@ -9,7 +9,7 @@ include("../Conexion/valius.php");
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
-		<title>New pACIENTE</title>
+		<title>New PACIENTE</title>
 				<link rel="stylesheet" href="../css/base.css">
 				<link rel="stylesheet" href="../css/skeleton.css">
 				<link rel="stylesheet" href="../css/layout.css">	
@@ -40,8 +40,8 @@ include("../Conexion/valius.php");
 			$ifecha_nacimiento = $_POST["FECHA_NACIMIENTO"];
 			$ihospital = $_POST["HOSPITAL"];
 		
-		$query = "INSERT INTO redhospitalaria.paciente( NOMBRE, APELLIDO, DPI, DIRECCION, MAIL, TELEFONO, NIT, GENERO, PAIS, DEPARTAMENTO, MUNICIPIO, SEGURO, FECHA_NACIMIENTO, HOSPITAL) VALUES ( '".$inombre."', '".$iapellido."', '".$idpi."', '".$idireccion."', '".$imail."' ,'".$itelefono."', '".$init."', '".$igenero."', ".$ipais.", ".$idepartamento.", ".$imunicipio.", '".$iseguro."', '".$ifecha_nacimiento."', ".$ihospital.");";
-			echo "$query";
+		$query = "insert into redhospitalaria.paciente( nombre, apellido, dpi, direccion, mail, telefono, nit, genero, pais, departamento, municipio, seguro, fecha_nacimiento, hospital) values ( '".$inombre."', '".$iapellido."', '".$idpi."', '".$idireccion."', '".$imail."' ,'".$itelefono."', '".$init."', '".$igenero."', ".$ipais.", ".$idepartamento.", ".$imunicipio.", '".$iseguro."', '".$ifecha_nacimiento."', ".$ihospital.");";
+			
 		mysql_query ($query);
 
 		}
@@ -59,6 +59,13 @@ include("../Conexion/valius.php");
 				<p><input name ="TELEFONO" type="text" placeholder="Telefono" required=""></p>
 				<p><input name ="NIT" type="text" placeholder="NIT" required=""></p>
 				
+				<tr>
+							<td>Fecha de Nacimiento</td>
+							<td>
+									
+									<p><input name ="FECHA_NACIMIENTO" type="date" placeholder="Fecha de Nacimiento yyyymmdd" required=""></p>
+							</td>
+				</tr>	
 					<tr>
 				<td>Genero</td>
 							<td>
@@ -69,12 +76,13 @@ include("../Conexion/valius.php");
 							</td>
 							</tr>	
 				
+				
 					<tr>
 						<td>Pais</td>
 							<td>
 								<select name = "PAIS">
 <?php
-	nuevoSelector("PAIS", "NOMBRE_PAIS", "PAIS", "") ;  
+	nuevoselector("pais", "nombre_pais", "pais", "") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -84,7 +92,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "DEPARTAMENTO">
 <?php
-	nuevoSelector("DEPARTAMENTO", "NOMBRE_DEPARTAMENTO", "DEPARTAMENTO", "") ;  
+	nuevoselector("departamento", "nombre_departamento", "departamento", "") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -94,7 +102,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "MUNICIPIO">
 <?php
-	nuevoSelector("MUNICIPIO", "NOMBRE_MUNICIPIO", "MUNICIPIO", "") ;  
+	nuevoselector("municipio", "nombre_municipio", "municipio", "") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -113,16 +121,12 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "HOSPITAL">
 <?php
-	nuevoSelector("HOSPITAL", "NOMBRE", "HOSPITAL", "") ;  
+	nuevoselector("hospital", "nombre", "hospital", "") ;  
 ?>
 	        					</select>
 	        				</td>
         			</tr>
-        		
-							
-									
-									<p><input name ="FECHA_NACIMIENTO" type="text" placeholder="Fecha Ingreso yyyymmdd" required=""></p>
-										
+        			
 										<button id="entrar" type="submit"></button>
 										<button id="borrar" type="reset"></button>
 		

@@ -39,22 +39,36 @@ include("../Conexion/conexionBD.php");
                 </li>
                  <li><a href="#">Consulta</a>
                         <ul>
-                                <li><a href="../Consultas/consultas.php">Consultas</a></li>
+                                
+                                <li><a href="#">Consultas</a>
+                                         <ul>
+                                         		<li><a href="../Consultas/consultas.php"><h6>Consultas</h6></a></li>
+                                                <li><a href="../Consultas/newConsulta.php"><h6>Nueva Consulta</h6></a></li>
+                                        </ul>       
+                                </li>		
                                 <li><a href="#">Tipos de Consultas</a>
                                          <ul>
                                          		<li><a href="../Consultas/tipoConsultas.php"><h6>Tipo Consulta</h6></a></li>
-                                                <li><a href="../Consultas/newConsulta.php"><h6>Nueva Consulta</h6></a></li>
+                                                <li><a href="../Consultas/newTipoconsulta.php"><h6>Nuevo Tipo de Consulta</h6></a></li>
                                         </ul>       
                                 </li>
                                  <li><a href="#">Enfermedades</a>
                                          <ul>
                                          		<li><a href="../Enfermedad/tipoEnfermedades.php"><h6>Tipos de Enfermedades</h6></a></li>
-                                                <li><a href="../Consultas/newConsulta.php"><h6>Nueva Enfermedad</h6></a></li>
+                                                <li><a href="../Enfermedad/newEnfermedad.php"><h6>Nueva Enfermedad</h6></a></li>
                                         </ul>       
                                 </li>
                         </ul>
                 </li>        
-                <li><a href="#">Ingresos</a></li>
+                <li><a href="#">Ingresos</a>
+                						<ul>
+                                         		<li><a href="../Ingresos/asignacion.php">Ingreso de Consulta</a></li>
+                                                <li><a href="../Ingresos/listadoasignacion.php">Listado de Consultas</a></li>
+                                        </ul>
+                
+                
+                
+                </li>
                 <li><a href="#">Farmacias</a></li>
                 
                 <li><a href="#">Hospitales</a>

@@ -32,8 +32,11 @@ include("../Conexion/valius.php");
 		$umail=$_POST["MAIL"];
 		$unit=$_POST["NIT"];
 		$ustatus=$_POST["ESTATUS"];
+		$upais=$_POST["PAIS"];
+		$udepatamento=$_POST["DEPARTAMENTO"];
+		$umunicipio=$_POST["MUNICIPIO"];
 		
-		$query="INSERT INTO redhospitalaria.hospital( NOMBRE, DIRECCION, TELEFONO, MAIL, NIT, ESTATUS) VALUES( '".$unombre."', '".$udireccion."', '".$utelefono."','".$umail."' ,'".$unit."', '".$ustatus."');";
+		$query="insert into redhospitalaria.hospital( nombre, direccion, telefono, mail, nit, estatus, pais, departamento, municipio) values( '".$unombre."', '".$udireccion."', '".$utelefono."','".$umail."' ,'".$unit."', '".$ustatus."', ".$upais.", ".$udepatamento.", ".$umunicipio.");";
 		mysql_query ($query);
 
 		}
@@ -47,6 +50,36 @@ include("../Conexion/valius.php");
 				<p><input name ="MAIL" type="text" placeholder="Ingrese un Correo" required=""></p>
 				<p><input name ="NIT" type="text" placeholder="Ingrese su Nit" required=""></p>
 				
+				<tr>
+						<td>Pais</td>
+							<td>
+								<select name = "PAIS">
+<?php
+	nuevoselector("pais", "nombre_pais", "pais", "") ;  
+?>
+	        					</select>
+	        				</td>
+        			</tr>
+        			<tr>
+        			<td>Departamento</td>
+							<td>
+								<select name = "DEPARTAMENTO">
+<?php
+	nuevoselector("departamento", "nombre_departamento", "departamento", "") ;  
+?>
+	        					</select>
+	        				</td>
+        			</tr>
+        			<tr>
+        			<td>Municipio</td>
+							<td>
+								<select name = "MUNICIPIO">
+<?php
+	nuevoselector("municipio", "nombre_municipio", "municipio", "") ;  
+?>
+	        					</select>
+	        				</td>
+        			</tr>
 				<tr>
 				<td>Status</td>
 							<td>

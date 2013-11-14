@@ -34,7 +34,7 @@ include("../Conexion/valius.php");
 						$udeptoarea= $_POST["AREA"];
 						$upuesto=$_POST["PUESTO"];
 				
-					$query="UPDATE redhospitalaria.empleado SET DATOS_PERSONALES=".$unombre.", HOSPITAL=".$uhospital.", DEPTO_AREA= ".$udeptoarea.", PUESTO=".$upuesto." WHERE EMPLEADO =".$uempleado;
+					$query="update redhospitalaria.empleado set datos_personales=".$unombre.", hospital=".$uhospital.", depto_area= ".$udeptoarea.", puesto=".$upuesto." where empleado =".$uempleado;
 					
 					mysql_query ($query);
 					
@@ -42,7 +42,7 @@ include("../Conexion/valius.php");
 						
 					if (isset($uempleado))
 					{
-			$result = mysql_query("SELECT EMPLEADO, DATOS_PERSONALES, HOSPITAL, DEPTO_AREA, PUESTO FROM redhospitalaria.empleado WHERE EMPLEADO = ".$uempleado.";");
+			$result = mysql_query("select empleado, datos_personales, hospital, depto_area, puesto from redhospitalaria.empleado where empleado = ".$uempleado.";");
 			echo mysql_error();
 			
 			if ($result ==0)
@@ -72,7 +72,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "HOSPITAL">
 <?php
-	nuevoSelector("HOSPITAL", "NOMBRE", "HOSPITAL", $uhospital) ;  
+	nuevoSelector("hospital", "nombre", "hospital", $uhospital) ;  
 ?>
 	        					</select>
 	        				</td>
@@ -82,7 +82,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "AREA">
 <?php
-	nuevoSelector("DEPTO_AREA", "NOMBRE", "DEPTO_AREA", $udeptoarea) ;  
+	nuevoSelector("depto_area", "nombre", "depto_area", $udeptoarea) ;  
 ?>
 	        					</select>
 	        				</td>
@@ -92,7 +92,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "PUESTO">
 <?php
-	nuevoSelector("PUESTO", "NOMBRE", "PUESTO", $upuesto);  
+	nuevoSelector("puesto", "nombre", "puesto", $upuesto);  
 ?>
 	        					</select>
 	        				</td>

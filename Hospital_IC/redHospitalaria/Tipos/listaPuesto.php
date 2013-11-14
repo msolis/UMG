@@ -30,7 +30,7 @@ include("../Conexion/valius.php");
         </thead>
 
         <?php
-        	$query = "SELECT PUESTO, NOMBRE, STATUS from puesto;";
+        	$query = "select puesto, nombre, status from puesto;";
             $result = mysql_query($query);	
 			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
                                 
@@ -41,7 +41,7 @@ include("../Conexion/valius.php");
         			<th><?php echo $row[1]; ?></th>
         			<th><?php echo $row[2]; ?></th>
         			<th>
-	        		<a href="../Tipos/editDepartamento.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
+	        		<a href="../Tipos/editPuesto.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
 	        		</th>
         		</tr>
         	</form>	

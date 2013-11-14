@@ -14,7 +14,7 @@ include("../Conexion/valius.php");
 				<link rel="stylesheet" href="../css/skeleton.css">
 				<link rel="stylesheet" href="../css/layout.css">	
 				<link rel="stylesheet" href="../css/principal.css">
-				<link rel="stylesheet" href="../css/Boxusuarios.css">
+				
 </head>
 <body>
 	<?php include("../includes/menu.php"); ?>
@@ -30,25 +30,25 @@ include("../Conexion/valius.php");
 		$uhospital = $_POST["HOSPITAL"];
 		$ustatus= $_POST["STATUS"];
 		$upermisos = $_POST["PERMISOS"];
-
-		$query="INSERT INTO redhospitalaria.usuario (usuario.NOMBRE, usuario.CLAVE, usuario.HOSPITAL, usuario.STATUS, usuario.PERMISOS) VALUES( '".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");";
+		
+		$query="insert into redhospitalaria.usuario(nombre, clave, hospital, status, permisos) values( '".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");";
 		mysql_query ($query);
-
+		echo "qry";
 		}
 
 ?>
 
-	<from method= "POST">
+	<form method= "POST">
 		<table width="600">
 			<h2>Nuevo Usuario</h2>
-				<p><input name = "NOMBRE" type = "text" placeholder= "nombre" requierd=""></p>
-				<p><input name = "CLAVE" type= "text" placeholder="clave" required=""></p>
+				<p><input name = "NOMBRE" type = "text" placeholder= "nombre" requierd></p>
+				<p><input name = "CLAVE" type= "password" placeholder="clave" required=""></p>
 					<tr>
 					<td>Hospital</td>
 					<td>
 					<select name = "HOSPITAL">
 <?php
-	nuevoSelector("HOSPITAL", "NOMBRE", "hospital", "") ;  
+	nuevoselector("hospital", "nombre", "hospital", "") ;  
 ?>
 	        		</select>
 	        		</td>
@@ -65,13 +65,13 @@ include("../Conexion/valius.php");
 										<td>
 										<select name = "PERMISOS">
 <?php
-	nuevoSelector("PERMISOS", "NOMBRE_PERMISO", "PERMISOS", "");   
+	nuevoselector("permisos", "nombre_permiso", "permisos", "");   
 ?>
 						        		</select>
-						        		
-										<button id="entrar" type="submit"></button>
-										<button id="borrar" type="reset"></button>
-									</tr>
+						        </tr>		
+								 <button name="entrar" type="submit" ></button>
+								 <button id="borrar" type="reset"></button>
+									
 				</table>
 			</form>
 		</tbody>

@@ -19,8 +19,20 @@ include("../Conexion/valius.php");
 	<?php include("../includes/menu.php"); ?>
 	
 	<tbody>
+	<tr>
+				<td># de Codigo:</td>
+				<td>
+					<select name = "PACIENTE">
+						<?php
+							nuevoselector("paciente", "paciente", "paciente", $ipaciente); 
+						 ?>
+					</select>
+				</td>
+			</tr>
+	
+	
 <?php 
-	$ipaciente = $_GET["Id"];				
+	$ipaciente ="PACIENTE";				
 	$inombre = "";							
 	$iapellido = "";						
 	$idpi = "";								
@@ -36,29 +48,7 @@ include("../Conexion/valius.php");
 	$ifecha_nacimiento = "";
 	$ihospital = "";
 
-		if (isset($_POST["entrar"])) 
-		{
 
-			$inombre = $_POST["NOMBRE"];							
-			$iapellido = $_POST["APELLIDO"];						
-			$idpi = $_POST["DPI"];								
-			$idireccion = $_POST["DIRECCION"];						
-			$imail = $_POST["MAIL"];							
-			$itelefono = $_POST["TELEFONO"];						
-			$init = $_POST["NIT"];								
-			$igenero = $_POST["GENERO"];							
-			$ipais = $_POST["PAIS"];							
-			$idepartamento = $_POST["DEPARTAMENTO"];					
-			$imunicipio = $_POST["MUNICIPIO"];						
-			$iseguro = $_POST["SEGURO"];							
-			$ifecha_nacimiento = $_POST["FECHA_NACIMIENTO"];
-			$ihospital = $_POST["HOSPITAL"];
-					
-					
-				$query="update redhospitalaria.paciente set nombre= '".$inombre."', apellido= '".$iapellido."', dpi= '".$idpi."', direccion= '".$idireccion."', mail= '".$imail."', telefono= '".$itelefono."', nit='".$init."', genero= '".$igenero."', pais= '".$ipais."', departamento= '".$idepartamento."', municipio= '".$imunicipio."', seguro= '".$iseguro."', fecha_nacimiento= '".$ifecha_nacimiento."', hospital= '".$ihospital."' where paciente= ".$ipaciente;	
-
-					mysql_query ($query);	
-		}
 
 				if (isset($ipaciente)) 
 				{
@@ -93,8 +83,8 @@ include("../Conexion/valius.php");
 ?>
 	<form method="POST">
 		<table  width="500"> 
-			<h4>Editar Paciente:</h4>
-			<tr>
+			<h4>Nueva Cita:</h4>
+				<tr>
 				<td>Nombre:</td>
 				<td><p><input name="NOMBRE" value="<?php echo $inombre ?>"></p></td>
 			</tr>

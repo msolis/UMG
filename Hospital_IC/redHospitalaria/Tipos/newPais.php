@@ -26,7 +26,7 @@ include("../Conexion/valius.php");
 		
 		$upais = $_POST["PAIS"];
 				
-		$query="INSERT INTO redhospitalaria.pais( NOMBRE_PAIS) VALUES( '".$upais."');";
+		$query="insert into redhospitalaria.pais( nombre_pais) values( '".$upais."');";
 		mysql_query ($query);
 
 		}

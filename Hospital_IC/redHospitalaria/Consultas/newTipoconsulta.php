@@ -21,27 +21,32 @@ include("../Conexion/valius.php");
 	<tbody>
 <?php 
 
-		if (isset($_POST["NOMBRE_ENFERMEDAD"]))
+		if (isset($_POST["DESCRIPCION"]))
 
 		{
 		
-		$unombre_enfermedad = $_POST["NOMBRE_ENFERMEDAD"];
-		$utratamiento = $_POST["TRATAMIENTO"];
+		$udescripcion = $_POST["DESCRIPCION"];
+		$uestatus = $_POST["ESTATUS"];
 		
-		$query = "INSERT INTO redhospitalaria.enfermedad (NOMBRE_ENFERMEDAD, TRATAMIENTO) VALUES ( '".$unombre_enfermedad."', '".$utratamiento."');";
+		$query = "INSERT INTO redhospitalaria.tipo_consulta( DESCRIPCION, ESTATUS) VALUES ('".$udescripcion."', '".$uestatus."');";
 		mysql_query ($query);
-
+		
 
 		}
 ?>
 	<form method="POST">
 		<table  width="600"> 
-			<h2>Nueva Enfermedad</h2>
+			<h2>Tipo de Consulta Nueva</h2>
 				
-				<p><input name ="NOMBRE_ENFERMEDAD" type="text" placeholder="NOMBRE ENFERMEDAD" required=""></p>
-				<p><input name ="TRATAMIENTO" type="text" placeholder="TRATAMIENTO" required=""></p>
-										
-
+				<p><input name ="DESCRIPCION" type="text" placeholder="Descripcion de Consulta" required=""></p>							
+							<tr>	
+							<td>Estatus</td>
+							<td>
+								<SELECT NAME="ESTATUS"> 
+								<OPTION SELECTED VALUE = "A">Alta
+								<OPTION VALUE= "B">Baja
+								</SELECT> 
+							</td>													
 								</tr>																											
 									<button id="entrar" type="submit"></button>
 									<button id="borrar" type="reset"></button>

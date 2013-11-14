@@ -21,7 +21,7 @@ include("../Conexion/valius.php");
 	<tbody>
 <?php 
 
-					$udatosPersonales = $_GET["Id"];
+					$udatospersonales = $_GET["Id"];
 					$unombre = "";
 					$uapellido = "";
 					$udpi = "";
@@ -50,15 +50,15 @@ include("../Conexion/valius.php");
 					$ufecha_ingreso = $_POST["FECHA_INGRESO"];
 					$ustatus = $_POST["STATUS"];
 								
-					$query="UPDATE redhospitalaria.datos_personales SET NOMBRE= '".$unombre."', APELLIDO= '".$uapellido."', DPI= '".$udpi."',  TELEFONO= '".$utelefono."' , DIRECCION='".$udireccion."', PAIS=".$upais.", DEPARTAMENTO=".$udepartamento.", MUNICIPIO =".$umunicipio.", TITULO=".$utitulo.", GENERO= '".$ugenero."', FECHA_INGRESO= '".$ufecha_ingreso."' , STATUS= '".$ustatus."' where  DATOS_PERSONALES= ".$udatosPersonales;
+					$query="update redhospitalaria.datos_personales set nombre= '".$unombre."', apellido= '".$uapellido."', dpi= '".$udpi."',  telefono= '".$utelefono."' , direccion='".$udireccion."', pais=".$upais.", departamento=".$udepartamento.", municipio =".$umunicipio.", titulo=".$utitulo.", genero= '".$ugenero."', fecha_ingreso= '".$ufecha_ingreso."' , status= '".$ustatus."' where  datos_personales= ".$udatospersonales;
 					
 					mysql_query ($query);
 						
 					}
 					
-			if (isset($udatosPersonales))
+			if (isset($udatospersonales))
 			{   
-			$result = mysql_query("SELECT DATOS_PERSONALES, NOMBRE, APELLIDO, DPI, TELEFONO, DIRECCION, PAIS, DEPARTAMENTO, MUNICIPIO, TITULO, GENERO, FECHA_INGRESO,STATUS FROM redhospitalaria.datos_personales WHERE DATOS_PERSONALES = " .$udatosPersonales. ";");
+			$result = mysql_query("select datos_personales, nombre, apellido, dpi, telefono, direccion, pais, departamento, municipio, titulo, genero, fecha_ingreso,status from redhospitalaria.datos_personales where datos_personales = " .$udatospersonales. ";");
 			echo mysql_error();
 			
 			if ($result ==0)
@@ -69,7 +69,7 @@ include("../Conexion/valius.php");
 			$row_array = mysql_fetch_array($result);
 
 			
-			$udatosPersonales=$row_array[0];
+			$udatospersonales=$row_array[0];
 			$unombre = $row_array[1];
 			$uapellido = $row_array[2];
 			$udpi = $row_array[3];
@@ -91,13 +91,34 @@ include("../Conexion/valius.php");
 	<form method="POST">
 		<table  width="600"> 
 			<h2>Editar Empleado</h2>
-								
-				<p><input name ="NOMBRE"  value= "<?php echo $unombre ?>"></p>
-				<p><input name ="APELLIDO" value= "<?php echo $uapellido ?>"></p>
-				<p><input name ="DPI" value= "<?php echo $udpi ?>"></p>
-				<p><input name ="TELEFONO" value= "<?php echo $utelefono ?>"></p>
-				<p><input name ="DIRECCION" value= "<?php echo $udireccion ?>"></p>
+				<tr>
+					<td>Nombre: </td>				
+					<td><p><input name ="NOMBRE"  value= "<?php echo $unombre ?>"></p></td>
+				</tr>
 				
+				<tr>
+				<td>Apellido: </td>
+				<td><p><input name ="APELLIDO" value= "<?php echo $uapellido ?>"></p></td>
+				</tr>
+				
+				<tr>
+					<td>DPI: </td>
+					<td><p><input name ="DPI" value= "<?php echo $udpi ?>"></p></td>
+				</tr>
+				
+				<tr>
+					<td>Telefono: </td>
+					<td><p><input name ="TELEFONO" value= "<?php echo $utelefono ?>"></p></td>
+				</tr>
+				
+				<tr>
+					<td>Direccion: </td>
+					<td><p><input name ="DIRECCION" value= "<?php echo $udireccion ?>"></p></td>
+				</tr>
+				<tr>
+					<td>Fecha de Ingreso: </td>
+					<td><p><input name= FECHA_INGRESO value= "<?php echo $ufecha_ingreso ?>"></p></td>
+				</tr>
 					<tr>
 						<td>Pais</td>
 							<td>
@@ -138,14 +159,17 @@ include("../Conexion/valius.php");
 	        					</select>
 	        				</td>
         			</tr>
-        		
-				<td>Genero</td>
+				<tr>
+					<td>Genero</td>
+					
 							<td>
 								<SELECT name="GENERO"> 
 								<OPTION SELECTED VALUE = "F">Femenino
 								<OPTION VALUE= "M">Masculino
 								</SELECT> 
 							</td>
+				</tr>
+				<tr>
 							<td>Status</td>
 							<td>
 								<SELECT name="STATUS"> 
@@ -153,12 +177,7 @@ include("../Conexion/valius.php");
 								<OPTION VALUE= "B">Baja
 								</SELECT> 
 							</td>
-										
-				
-							</tr>
-									
-									<p><input name= FECHA_INGRESO value= "<?php echo $ufecha_ingreso ?>"></p>
-										
+				</tr>
 										<button name="entrar" type="submit" ></button>
 										<button id="borrar" type="reset"></button>
 		

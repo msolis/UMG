@@ -29,7 +29,7 @@ include("../Conexion/valius.php");
 		$upais = $_POST["PAIS"];
 		
 				
-		$query="INSERT INTO redhospitalaria.departamento( NOMBRE_DEPARTAMENTO, PAIS) VALUES( '".$udepartamento."', ".$upais.");";
+		$query="insert into redhospitalaria.departamento( nombre_departamento, pais) values( '".$udepartamento."', ".$upais.");";
 		mysql_query ($query);
 
 		}
@@ -43,7 +43,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "PAIS">
 <?php
-	nuevoSelector("PAIS", "NOMBRE_PAIS", "PAIS","") ;  
+	nuevoselector("pais", "nombre_pais", "pais","") ;  
 ?>
 	        					</select>
 	        				</td>
