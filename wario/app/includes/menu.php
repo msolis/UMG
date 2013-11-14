@@ -135,6 +135,13 @@
                     </ul>
                 </li>
                 <li style="z-index: 99;">
+                    <a class="mb_parent" style="padding-right: 23px;">Tipo de Consultas<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../tipo consulta/new.php">Crear Tipo de Consulta</a></li>
+                        <li><a href="../tipo consulta/">Listado de Tipos de Consultas</a></li>
+                    </ul>
+                </li>
+                <li style="z-index: 99;">
                     <a href="../corporation/view.php" class="mb_parent" style="padding-right: 23px;">Corporacion<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                 </li>
                 <li style="z-index: 97;">
