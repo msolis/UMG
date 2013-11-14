@@ -32,7 +32,7 @@ include("../Conexion/valius.php");
         	</thead>
         	<tbody >
         		<?php
-        			$query = "SELECT EMPLEADO, b.NOMBRE, f.APELLIDO, c.NOMBRE, d.NOMBRE, e.NOMBRE from empleado a, datos_personales b, hospital c, depto_area d, puesto e, datos_personales f where a.datos_personales = b.datos_personales and a.datos_personales = f.datos_personales  and a.hospital = c.hospital and a.depto_area = d.depto_area and a.puesto= e.puesto;";
+        			$query = "select empleado, b.nombre, f.apellido, c.nombre, d.nombre, e.nombre from empleado a, datos_personales b, hospital c, depto_area d, puesto e, datos_personales f where a.datos_personales = b.datos_personales and a.datos_personales = f.datos_personales  and a.hospital = c.hospital and a.depto_area = d.depto_area and a.puesto= e.puesto;";
         			$result = mysql_query($query);
         			
         			while ($row = mysql_fetch_array($result, MYSQL_NUM)){

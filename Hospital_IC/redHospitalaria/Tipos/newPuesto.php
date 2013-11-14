@@ -9,7 +9,7 @@ include("../Conexion/valius.php");
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
-		<title>New Departamento</title>
+		<title>New Puesto</title>
 				<link rel="stylesheet" href="../css/base.css">
 				<link rel="stylesheet" href="../css/skeleton.css">
 				<link rel="stylesheet" href="../css/layout.css">	
@@ -21,32 +21,32 @@ include("../Conexion/valius.php");
 	
 <?php 
 
-		if (isset($_POST["DEPARTAMENTO"]))
+		if (isset($_POST["NOMBRE"]))
 
 		{
 		
-		$udepartamento = $_POST["DEPARTAMENTO"];
-		$upais = $_POST["PAIS"];
-		
+		$unombre = $_POST["NOMBRE"];
+		$ustatus = $_POST["STATUS"];
 				
-		$query="INSERT INTO redhospitalaria.departamento( NOMBRE_DEPARTAMENTO, PAIS) VALUES( '".$udepartamento."', ".$upais.");";
+		$query="insert into redhospitalaria.puesto( nombre, status) values( '".$unombre."', '".$ustatus."');";
 		mysql_query ($query);
 
 		}
 ?>
 	<form method="POST">
 		<table  width="600"> 
-			<h2>Nombre del Departamento</h2>
-				<p><input name ="DEPARTAMENTO" type="text" placeholder="Nombre Del Departamento" required=""></p>
+			<h2>Nombre del Puesto</h2>
+				<p><input name ="NOMBRE" type="text" placeholder="Nombre Del Puesto" required=""></p>
 				
-				<td>Pais</td>
+				<tr>
+				<td>Status</td>
 							<td>
-								<select name = "PAIS">
-<?php
-	nuevoSelector("PAIS", "NOMBRE_PAIS", "PAIS","") ;  
-?>
-	        					</select>
-	        				</td>
+								<SELECT name="STATUS"> 
+								<OPTION SELECTED VALUE = "A">Alta
+								<OPTION VALUE= "B">Baja
+								</SELECT> 
+							</td>
+				</tr>
         			</tr>
 				
 										<button name="entrar" type="submit" ></button>

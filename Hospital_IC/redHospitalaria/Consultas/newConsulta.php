@@ -21,39 +21,82 @@ include("../Conexion/valius.php");
 	<tbody>
 <?php 
 
-		if (isset($_POST["DESCRIPCION"]))
+		if (isset($_POST["FECHA_CONSULTA"]))
 
 		{
 		
-		$udescripcion = $_POST["DESCRIPCION"];
-		$uestatus = $_POST["ESTATUS"];
-		
-		$query = "INSERT INTO redhospitalaria.tipo_consulta( DESCRIPCION, ESTATUS) VALUES ('".$udescripcion."', '".$uestatus."');";
+			$ifecha_consulta = $_POST["FECHA_CONSULTA"];
+			$ifecha_proxima_consulta = $_POST["FECHA_PROXIMA_CONSULTA"];						
+			$ipaciente = $_POST["PACIENTE"];								
+			$itipo_consulta = $_POST["TIPO_CONSULTA"];						
+			$ienfermedad = $_POST["ENFERMEDAD"];							
+			
+		$query = "insert into redhospitalaria.consulta (fecha_consulta, fecha_proxima_consulta, paciente, tipo_consulta, enfermedad) values ('".$ifecha_consulta."', '".$ifecha_proxima_consulta."', ".$ipaciente.", ".$itipo_consulta.",".$ienfermedad.");";
+
+			
 		mysql_query ($query);
-		echo "$query";
 
 		}
 ?>
 	<form method="POST">
 		<table  width="600"> 
-			<h2>Tipo de Consulta Nueva</h2>
-				
-				<p><input name ="DESCRIPCION" type="text" placeholder="Descripcion de Consulta" required=""></p>							
-							<tr>	
-							<td>Estatus</td>
+			<h2>Nueva Consulta</h2>
+			<tr>
+							<td>Fecha de la Consulta</td>
 							<td>
-								<SELECT NAME="ESTATUS"> 
-								<OPTION SELECTED VALUE = "A">Alta
-								<OPTION VALUE= "B">Baja
-								</SELECT> 
-							</td>													
-								</tr>																											
-									<button id="entrar" type="submit"></button>
-									<button id="borrar" type="reset"></button>
+									
+									<p><input name ="FECHA_CONSULTA" type="date" required=""></p>
+							</td>
+				</tr>
+				<tr>
+							<td>Fecha de Nueva Consulta</td>
+							<td>
+									
+									<p><input name ="FECHA_PROXIMA_CONSULTA" type="date" required=""></p>
+							</td>
+				</tr>
+							
+					
+					<tr>
+						<td>Paciente</td>
+							<td>
+								<select name = "PACIENTE">
+<?php
+	nuevoSelector("PACIENTE", "NOMBRE", "PACIENTE", "") ;  
+?>
+	        					</select>
+	        				</td>
+        			</tr>
+        			<tr>
+        			<td>TIPO CONSULTA</td>
+							<td>
+								<select name = "TIPO_CONSULTA">
+<?php
+	nuevoSelector("TIPO_CONSULTA", "DESCRIPCION", "TIPO_CONSULTA", "") ;  
+?>
+	        					</select>
+	        				</td>
+        			</tr>
+        			<tr>
+        			<td>ENFERMEDAD</td>
+							<td>
+								<select name = "ENFERMEDAD">
+<?php
+	nuevoSelector("ENFERMEDAD", "NOMBRE_ENFERMEDAD", "ENFERMEDAD", "") ;  
+?>
+	        					</select>
+	        				</td>
+        			</tr>
+        			
+										
+										<button id="entrar" type="submit"></button>
+										<button id="borrar" type="reset"></button>
 		
 		</table>
 			</form>
 		</tbody>
 	</body>
 </html>
+
+
 

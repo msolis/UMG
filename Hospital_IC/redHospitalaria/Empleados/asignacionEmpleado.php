@@ -23,14 +23,14 @@ include("../Conexion/valius.php");
 		if (isset($_POST["EMPLEADO"]))
 
 		{
-		$udatosPersonales = $_POST["EMPLEADO"];
+		$udatospersonales = $_POST["EMPLEADO"];
 		$uhospital= $_POST["HOSPITAL"];
 		$udeptoarea= $_POST["AREA"];
 		$upuesto=$_POST["PUESTO"];
 		
-		$query="INSERT INTO redhospitalaria.empleado(DATOS_PERSONALES, HOSPITAL, DEPTO_AREA,PUESTO) VALUES( ".$udatosPersonales.", ".$uhospital.", ".$udeptoarea.",".$upuesto.");";
+		$query="insert into redhospitalaria.empleado(datos_personales, hospital, depto_area, puesto) values( ".$udatospersonales.", ".$uhospital.", ".$udeptoarea.",".$upuesto.");";
 		mysql_query ($query);
-
+		
 		}
 
 ?>
@@ -38,14 +38,15 @@ include("../Conexion/valius.php");
 		<table  width="600"> 
 			<h2>Asignacion de Puesto a Empleado</h2>
 				
-				
-				<p><input name ="EMPLEADO" type="text" placeholder="#de dato_Personal" required=""></p>
+				<tr>
+				<td>Ingrese su Codigo</td>
+				<td><p><input name ="EMPLEADO" type="text" placeholder="#de dato_Personal" required=""></p></td>
 				<tr>
 				<td>HOSPITAL</td>
 							<td>
 								<select name = "HOSPITAL">
 <?php
-	nuevoSelector("HOSPITAL", "NOMBRE", "HOSPITAL", "") ;  
+	nuevoSelector("hospital", "nombre", "hospital", "") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -55,7 +56,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "AREA">
 <?php
-	nuevoSelector("DEPTO_AREA", "NOMBRE", "DEPTO_AREA", "") ;  
+	nuevoSelector("depto_area", "nombre", "depto_area", "") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -65,7 +66,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "PUESTO">
 <?php
-	nuevoSelector("PUESTO", "NOMBRE", "PUESTO", "") ;  
+	nuevoSelector("puesto", "nombre", "puesto", "") ;  
 ?>
 	        					</select>
 	        				</td>

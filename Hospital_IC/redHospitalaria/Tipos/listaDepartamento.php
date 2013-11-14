@@ -30,7 +30,7 @@ include("../Conexion/valius.php");
         </thead>
 
         <?php
-        	$query = "SELECT DEPARTAMENTO, NOMBRE_DEPARTAMENTO, b.NOMBRE_PAIS from departamento a, pais b where a.pais= b.pais;";
+        	$query = "select departamento, nombre_departamento, b.nombre_pais from departamento a, pais b where a.pais= b.pais;";
             $result = mysql_query($query);	
 			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
                                 

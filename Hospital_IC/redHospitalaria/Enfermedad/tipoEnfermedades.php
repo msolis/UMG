@@ -22,15 +22,17 @@ include("../Conexion/valius.php");
 <table width="1000">
         <thead>
                 <tr>
+                        <th>Enfermedad</th>
                         <th>Nombre_Enfermedad</th>
                         <th>Tratamiento</th>    
-                        <th>Ingreso_Sala</th>
+                        
                         
                 </tr>
         </thead>
         <tbody >
                 <?php 
-                        $query = "SELECT TIPO_CONSULTA, TIPO_CONSULTA, DESCRIPCION, ESTATUS from tipo_consulta;";
+                        $query = "SELECT ENFERMEDAD, NOMBRE_ENFERMEDAD, TRATAMIENTO from enfermedad;";
+                        #$query = "SELECT TIPO_CONSULTA, DESCRIPCION, ESTATUS from tipo_consulta;";
                         #$query = "SELECT CONSULTA, CONSULTA, FECHA_CONSULTA, FECHA_PROXIMA_CONSULTA, PACIENTE, TIPO_CONSULTA, ENFERMEDAD from consulta;";
                         $result = mysql_query($query);
                         while ($row = mysql_fetch_array($result, MYSQL_NUM)){
@@ -42,7 +44,7 @@ include("../Conexion/valius.php");
                                         <th><?php echo $row[1]; ?></th>
                                         <th><?php echo $row[2]; ?></th>
                                         <th>
-                                                <a href="../Empleados/editEmpleado.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
+                                                <a href="../Enfermedad/editEnfermedad.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
                                         </th>
                                 </tr>
                         </form>

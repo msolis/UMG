@@ -32,7 +32,10 @@ include("../Conexion/valius.php");
         </thead>
         <tbody >
                 <?php 
-                        $query ="SELECT CONSULTA, CONSULTA, FECHA_CONSULTA, FECHA_PROXIMA_CONSULTA, PACIENTE, TIPO_CONSULTA, ENFERMEDAD from consulta;";
+                        $query ="SELECT CONSULTA, FECHA_CONSULTA, FECHA_PROXIMA_CONSULTA, b.NOMBRE, c.DESCRIPCION, d.NOMBRE_ENFERMEDAD from consulta a, paciente b, tipo_consulta c, enfermedad d where a.paciente = b.paciente and a.tipo_consulta = c.tipo_consulta and a.enfermedad= d.enfermedad;";
+
+                       # $query = "SELECT a.PACIENTE, a.NOMBRE, a.APELLIDO, a.DPI, a.DIRECCION, a.MAIL, a.TELEFONO, a.GENERO, a.NIT, b.NOMBRE_PAIS, c.NOMBRE_DEPARTAMENTO, d.NOMBRE_MUNICIPIO, a.SEGURO, a.FECHA_NACIMIENTO, e.NOMBRE from paciente a, pais b, departamento c, municipio d, hospital e where a.pais= b.pais and a.departamento= c.departamento and a.municipio= d.municipio and a.hospital= e.hospital;";
+
                         $result = mysql_query($query);
                         while ($row = mysql_fetch_array($result, MYSQL_NUM)){
 
@@ -46,7 +49,7 @@ include("../Conexion/valius.php");
         				<th><?php echo $row[4]; ?></th>
 	        			<th><?php echo $row[5]; ?></th>	        				             			
 	        			<th>
-	        				<a href="../Empleados/editEmpleado.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
+	        				<a href="../Consultas/editConsulta.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
 	        			</th>
         			</tr>
         		</form>

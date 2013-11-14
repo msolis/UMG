@@ -29,7 +29,7 @@ include("../Conexion/valius.php");
 		$unombre = $_POST["NOMBRE"];
 		
 				
-		$query="INSERT INTO redhospitalaria.titulo( NOMBRE_TITULO) VALUES( '".$unombre."');";
+		$query="insert into redhospitalaria.titulo( nombre_titulo) values( '".$unombre."');";
 		mysql_query ($query);
 
 		}

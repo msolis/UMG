@@ -30,7 +30,7 @@ include("../Conexion/valius.php");
 					$unombre= $_POST["NOMBRE"];
 					$upais= $_POST["PAIS"];
 						
-					$query="UPDATE redhospitalaria.departamento SET NOMBRE_DEPARTAMENTO='".$unombre."', PAIS= ".$upais." WHERE DEPARTAMENTO=".$udepartamento;
+					$query="update redhospitalaria.departamento set nombre_departamento='".$unombre."', pais= ".$upais." where departamento=".$udepartamento;
 					
 					mysql_query ($query);
 					
@@ -38,7 +38,7 @@ include("../Conexion/valius.php");
 						
 					if (isset($udepartamento))
 					{
-			$result = mysql_query("SELECT DEPARTAMENTO, NOMBRE_DEPARTAMENTO, PAIS FROM redhospitalaria.departamento WHERE DEPARTAMENTO = ".$udepartamento.";");
+			$result = mysql_query("select departamento, nombre_departamento, pais from redhospitalaria.departamento where departamento = ".$udepartamento.";");
 			echo mysql_error();
 			
 			if ($result ==0)
@@ -66,7 +66,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "PAIS">
 <?php
-	nuevoSelector("PAIS", "NOMBRE_PAIS", "PAIS",$upais) ;  
+	nuevoselector("pais", "nombre_pais", "pais",$upais) ;  
 ?>
 	        					</select>
 	        				</td>

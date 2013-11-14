@@ -30,7 +30,7 @@ include("../Conexion/valius.php");
         </thead>
 
         <?php
-        	$query = "SELECT TITULO, NOMBRE_TITULO from titulo;";
+        	$query = "select titulo, nombre_titulo from titulo;";
             $result = mysql_query($query);	
 			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
                                 

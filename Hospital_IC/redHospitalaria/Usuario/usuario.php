@@ -31,8 +31,8 @@ include("../Conexion/valius.php");
         	</thead>
         	<tbody >
         		<?php
-        			$qry = "SELECT usuario, nombre, hospital, status, permisos from usuario;";
-
+        			$qry = "select a.usuario, a.nombre, b.nombre, a.status, c.nombre_permiso from usuario a, hospital b, permisos c where a.hospital=b.hospital and a.permisos= c.permisos ;";
+					
         			$result = mysql_query($qry);
         			
         			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {

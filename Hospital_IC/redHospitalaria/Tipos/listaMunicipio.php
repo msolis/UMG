@@ -9,7 +9,7 @@ include("../Conexion/valius.php");
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
-		<title>Usuarios</title>
+		<title>Lista Municipios</title>
 				<link rel="stylesheet" href="../css/base.css">
 				<link rel="stylesheet" href="../css/skeleton.css">
 				<link rel="stylesheet" href="../css/layout.css">	
@@ -30,7 +30,7 @@ include("../Conexion/valius.php");
         </thead>
 
         <?php
-        	$query = "SELECT MUNICIPIO, NOMBRE_MUNICIPIO, b.NOMBRE_DEPARTAMENTO from municipio a, departamento b where a.departamento= b.departamento;";
+        	$query = "select municipio, nombre_municipio, b.nombre_departamento from municipio a, departamento b where a.departamento= b.departamento;";
             $result = mysql_query($query);	
 			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
                                 

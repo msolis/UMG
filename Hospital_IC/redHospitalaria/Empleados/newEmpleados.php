@@ -39,7 +39,7 @@ include("../Conexion/valius.php");
 		$ustatus = $_POST["STATUS"];
 		
 		
-		$query="INSERT INTO redhospitalaria.datos_personales( NOMBRE, APELLIDO, DPI, TELEFONO, DIRECCION, PAIS, DEPARTAMENTO, MUNICIPIO,TITULO, GENERO, FECHA_INGRESO, STATUS) VALUES( '".$unombre."', '".$uapellido."', '".$udpi."', '".$utelefono."','".$udireccion."',".$upais.", ".$udepartamento.", ".$umunicipio.", ".$utitulo.", '".$ugenero."', '".$ufecha_ingreso."','".$ustatus."');";
+		$query="insert into redhospitalaria.datos_personales( nombre, apellido, dpi, telefono, direccion, pais, departamento, municipio,titulo, genero, fecha_ingreso, status) values( '".$unombre."', '".$uapellido."', '".$udpi."', '".$utelefono."','".$udireccion."',".$upais.", ".$udepartamento.", ".$umunicipio.", ".$utitulo.", '".$ugenero."', '".$ufecha_ingreso."','".$ustatus."');";
 		mysql_query ($query);
 
 		}
@@ -55,12 +55,19 @@ include("../Conexion/valius.php");
 				<p><input name ="TELEFONO" type="text" placeholder="Telefono" required=""></p>
 				<p><input name ="DIRECCION" type="text" placeholder="Direccion" required=""></p>
 				
+				<tr>
+							<td>Fecha de Nacimiento</td>
+							<td>
+									
+									<p><input name ="FECHA_INGRESO" type="date" required=""></p>
+							</td>
+				</tr>
 					<tr>
 						<td>Pais</td>
 							<td>
 								<select name = "PAIS">
 <?php
-	nuevoSelector("PAIS", "NOMBRE_PAIS", "PAIS", "") ;  
+	nuevoselector("pais", "nombre_pais", "pais", "") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -70,7 +77,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "DEPARTAMENTO">
 <?php
-	nuevoSelector("DEPARTAMENTO", "NOMBRE_DEPARTAMENTO", "DEPARTAMENTO", "") ;  
+	nuevoselector("departamento", "nombre_departamento", "departamento", "") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -80,7 +87,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "MUNICIPIO">
 <?php
-	nuevoSelector("MUNICIPIO", "NOMBRE_MUNICIPIO", "MUNICIPIO", "") ;  
+	nuevoselector("municipio", "nombre_municipio", "municipio", "") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -90,7 +97,7 @@ include("../Conexion/valius.php");
 							<td>
 								<select name = "TITULO">
 <?php
-	nuevoSelector("TITULO", "NOMBRE_TITULO", "TITULO", "") ;  
+	nuevoselector("titulo", "nombre_titulo", "titulo", "") ;  
 ?>
 	        					</select>
 	        				</td>
@@ -116,7 +123,6 @@ include("../Conexion/valius.php");
 				
 									</tr>
 									
-									<p><input name ="FECHA_INGRESO" type="text" placeholder="Fecha Ingreso yyyymmdd" required=""></p>
 										
 										<button name="entrar" type="submit" ></button>
 										<button id="borrar" type="reset"></button>

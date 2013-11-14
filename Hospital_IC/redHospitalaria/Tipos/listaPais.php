@@ -29,7 +29,7 @@ include("../Conexion/valius.php");
         </thead>
 
         <?php
-        	$query = "SELECT PAIS, NOMBRE_PAIS from pais;";
+        	$query = "select pais, nombre_pais from pais;";
             $result = mysql_query($query);	
 			while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
                                 

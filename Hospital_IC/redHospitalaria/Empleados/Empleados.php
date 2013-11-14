@@ -40,7 +40,7 @@ include("../Conexion/valius.php");
         	</thead>
         	<tbody >
         		<?php
-        			$query = "SELECT DATOS_PERSONALES, NOMBRE, APELLIDO, DPI, TELEFONO, DIRECCION, b.NOMBRE_PAIS, c.NOMBRE_DEPARTAMENTO , d.NOMBRE_MUNICIPIO, e.NOMBRE_TITULO, GENERO, FECHA_INGRESO, STATUS 
+        			$query = "select datos_personales, nombre, apellido, dpi, telefono, direccion, b.nombre_pais, c.nombre_departamento , d.nombre_municipio, e.nombre_titulo, genero, fecha_ingreso, status 
 								from datos_personales a, pais b, departamento c, municipio d, titulo e
 								where a.pais = b.pais and a.departamento = c.departamento and a.municipio = d.municipio and a.titulo= e.titulo;";
         			

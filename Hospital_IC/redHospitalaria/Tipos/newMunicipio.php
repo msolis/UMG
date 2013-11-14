@@ -21,28 +21,28 @@ include("../Conexion/valius.php");
 	
 <?php 
 
-		if (isset($_POST["DEPARTAMENTO"]))
+		if (isset($_POST["MUNICIPIO"]))
 		{
 		
+		$umunicipio = $_POST["MUNICIPIO"];
 		$udepartamento = $_POST["DEPARTAMENTO"];
-		$upais = $_POST["PAIS"];
 		
 				
-		$query="INSERT INTO redhospitalaria.departamento( NOMBRE_DEPARTAMENTO, PAIS) VALUES( '".$udepartamento."', ".$upais.");";
+		$query="insert into redhospitalaria.municipio( nombre_municipio, departamento) values( '".$umunicipio."', ".$udepartamento.");";
 		mysql_query ($query);
 
 		}
 ?>
 	<form method="POST">
 		<table  width="600"> 
-			<h2>Nombre del Departamento</h2>
-				<p><input name ="DEPARTAMENTO" type="text" placeholder="Nombre Del Departamento" required=""></p>
+			<h2>Nombre del Municipio</h2>
+				<p><input name ="MUNICIPIO" type="text" placeholder="Nombre Del Municipio" required=""></p>
 				
-				<td>Pais</td>
+				<td>Departamento</td>
 							<td>
-								<select name = "PAIS">
+								<select name = "DEPARTAMENTO">
 <?php
-	nuevoSelector("PAIS", "NOMBRE_PAIS", "PAIS","") ;  
+	nuevoselector("departamento", "nombre_departamento", "departamento","") ;  
 ?>
 	        					</select>
 	        				</td>

@@ -28,7 +28,7 @@ include("../Conexion/valius.php");
 						
 					$unombre= $_POST["NOMBRE"];
 						
-					$query="UPDATE redhospitalaria.pais SET NOMBRE_PAIS='".$unombre."' WHERE PAIS=".$upais;
+					$query="update redhospitalaria.pais set nombre_pais='".$unombre."' where pais=".$upais;
 					
 					mysql_query ($query);
 					
@@ -36,7 +36,7 @@ include("../Conexion/valius.php");
 						
 					if (isset($upais))
 					{
-			$result = mysql_query("SELECT PAIS, NOMBRE_PAIS FROM redhospitalaria.pais WHERE PAIS = ".$upais.";");
+			$result = mysql_query("select pais, nombre_pais from redhospitalaria.pais where pais = ".$upais.";");
 			echo mysql_error();
 			
 			if ($result ==0)

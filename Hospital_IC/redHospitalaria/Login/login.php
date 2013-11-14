@@ -24,7 +24,7 @@ include("../Conexion/conexionBD.php");
             if (($password !="") && ($username !=""))
             {
                 
-                $result = mysql_query ("SELECT nombre, clave, status, hospital  from redHospitalaria.usuario where nombre = '".$username."' and clave = '".$password."';");
+                $result = mysql_query ("select nombre, clave, status, hospital  from redhospitalaria.usuario where nombre = '".$username."' and clave = '".$password."';");
                 
                 
                 if ($result == 0)

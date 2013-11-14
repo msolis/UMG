@@ -37,15 +37,15 @@ $uhospital = $_POST["HOSPITAL"];
 $ustatus= $_POST["STATUS"];
 $upermisos = $_POST["PERMISOS"];
                                         
-$query="UPDATE redhospitalaria.usuario SET NOMBRE='".$unombre."', CLAVE= '".$password."', HOSPITAL= ".$uhospital.",
-	    STATUS= '".$ustatus."', PERMISOS= ".$upermisos."  where  USUARIO= ".$usuario;
+$query="update redhospitalaria.usuario set nombre='".$unombre."', clave= '".$password."', hospital= ".$uhospital.",
+	    status= '".$ustatus."', permisos= ".$upermisos."  where  usuario= ".$usuario;
 mysql_query ($query);
                                                 
                                         }
                                         
         if (isset($usuario))
         {   
-        $result = mysql_query("SELECT USUARIO, NOMBRE, CLAVE, HOSPITAL, STATUS, PERMISOS FROM redhospitalaria.usuario WHERE USUARIO = " . $usuario . ";");
+        $result = mysql_query("select usuario, nombre, clave, hospital, status, permisos from redhospitalaria.usuario where usuario = " . $usuario . ";");
         echo mysql_error();
                         
         if ($result ==0)
@@ -68,14 +68,20 @@ mysql_query ($query);
         <form method="POST">
                 <table  width="600">
                         <h2>EDITAR USUARIO</h2>
-                                <p><input name="NOMBRE"  value="<?php echo $unombre; ?>" /></p>
-                                <p><input name = "CLAVE"  value= "<?php echo $password; ?>"></p>
+                        <tr>
+                        	<td>Nombre: </td>
+                                <td><p><input name="NOMBRE"  value="<?php echo $unombre; ?>" /></p></td>
+                        </tr> 
+                        <tr>    
+                        	<td>Pasword</td>
+                            	<td width="10"><p><input name = "CLAVE" type="password" value= "<?php echo $password; ?>"></p></td>
+                        </tr>    
                                 <tr>
                <td>Hospital</td>
                         <td>
                         	     <select name = "HOSPITAL">
 <?php
-        nuevoSelector("HOSPITAL", "NOMBRE", "HOSPITAL", $uhospital);   
+        nuevoselector("hospital", "nombre", "hospital", $uhospital);   
 ?>
                                  </select>
                        </td>
@@ -92,7 +98,7 @@ mysql_query ($query);
                        <td>
                                  <select name = "PERMISOS">
 <?php
-          nuevoSelector("PERMISOS", "NOMBRE_PERMISO", "PERMISOS", $upermisos);   
+          nuevoselector("permisos", "nombre_permiso", "permisos", $upermisos);   
 ?>
                                  </select>
                                  <button name="entrar" type="submit"></button>
