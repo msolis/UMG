@@ -13,9 +13,9 @@
 	}else{
 
 		if (isset($_POST["boton"])){
-			$Clave_Actual = $_POST["$Clave_Actual"];
-			$Clave = $_POST["$Clave"];
-			$Clave_Confirmacion = $_POST["$Clave_Confirmacion"];
+			$Clave_Actual =md5($_POST["Clave_Actual"]);
+			$Clave = md5($_POST["Clave"]);
+			$Clave_Confirmacion = md5($_POST["Clave_Confirmacion"]);
 			
 			$stmt = $db->prepare("select id from usuario where corporacion = ? and id = ? and clave = ?;");
 			$stmt->bind_param('iis', $USER_CORPORATION, $Id, $Clave_Actual);
