@@ -74,7 +74,7 @@
 								</div>
 								<div class="formRow">
 									<label for="nice_text_oversized">Nit</label>
-									<input type="text" required id="Nit" name=" class="input-text large">
+									<input type="text" required id="Nit" name="Nit" class="input-text large">
 								</div>
 								<div class="formRow">
 									<label for="nice_text_small">Correo</label>
