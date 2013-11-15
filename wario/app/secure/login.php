@@ -11,14 +11,16 @@
 		
 		$result = $stmt->get_result();
 		
-		$rowCount = mysqli_num_fields($result);
-		$rowArray = mysqli_fetch_array($result);
+		$rowCount = mysqli_num_rows($result);
+		$rowArray = mysqli_fetch_assoc($result);
 		
 		//variables del usuario
-		$corporacion = $rowArray[0];
-		$id = $rowArray[1];
-		echo $rowCount;
-		if ($rowCount == 0){
+		$corporacion = $rowArray["corporacion"];
+		$id = $rowArray["id"];
+		echo "coporacion = " . $corporacion;
+		echo "id= " . $id;
+		echo "count = " . $rowCount;
+		if ($rowCount != 1){
 			header("Location: index.php?Error=NO se pudo autenticar el Usuario.");
 		}else{
 			session_start();
