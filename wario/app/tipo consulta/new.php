@@ -9,15 +9,12 @@
 	$success = "";
 	if (isset($_POST["boton"])){
 		$Nombre = $_POST["Nombre"];
-		$Correo = $_POST["Correo"];
-		$Telefono = $_POST["Telefono"];
-		$Celular = $_POST["Celular"];
-		$Direccion = $_POST["Direccion"];
-		$Nit = $_POST["Nit"];
-		$error = "";
+		$Descripcion = $_POST["Descripcion"];
+		$Estatus = $_POST["Estatus"];
 		
-		$stmt = $db->prepare("select corporacion, id from proveedor where corporacion = ? and id = ?;");
-		$stmt->bind_param('is', $USER_CORPORATION, $id);
+		
+		$stmt = $db->prepare("select corporacion, id from tipo_consulta_medica where corporacion = ? and id = ?;");
+		$stmt->bind_param('ii', $USER_CORPORATION, $Id);
 		
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -26,17 +23,16 @@
 		
 		if ($rowCount == 0){
 			
-			/// get new usuer id
-			$stmt = $db->prepare("select ifnull(max(id),0)+1 as id from proveedor where corporacion = ? ;");
+			$stmt = $db->prepare("select ifnull(max(id),0)+1 as id from tipo_consulta_medica where corporacion = ?;");
 			$stmt->bind_param('i', $USER_CORPORATION);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$rowArray = mysqli_fetch_array($result);
 			
-			$Id = $rowArray["Id"];
+			$Id = $rowArray["id"];
 			
-			$stmt = $db->prepare("insert into proveedor (corporacion, id, nombre, direccion, nit,correo,telefono,celucar) values (?,?, ?, ?, ?, ?, ?, ?);");
-			$stmt->bind_param('iissssss' , $USER_CORPORATION, $Id, $Nombre, $Direccion, $Nit, $Correo,$Telefono,$Celular);
+			$stmt = $db->prepare("insert into tipo_consulta_medica (corporacion, id, nombre, descripcion, estatus) values (?, ?, ?, ?, ?);");
+			$stmt->bind_param('iisss', $USER_CORPORATION, $Id, $Nombre, $Descripcion, $Estatus);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			if ($result == 0){
@@ -45,7 +41,7 @@
 				$error = "Ha ocurrido un Error, No se pudo guardar el Usuario.";
 			}
 		}else{
-			$error = "El Correo electronico ya existe";	
+			$error = "La Consulta Ya Existe";	
 		}
 		echo $error;
 		
@@ -59,7 +55,7 @@
 			<div class="twelve columns">
 				<div class="box_c">
 					<div class="box_c_heading cf">
-						<p>Nuevo Usuario</p>
+						<p>Nuevo Tipo de  Consulta</p>
 					</div>
 					<div class="box_c_content form_a">
 						<div class="tab_pane" style="">
@@ -69,26 +65,16 @@
 									<input type="text" required id="Nombre" name="Nombre" class="input-text">
 								</div>
 								<div class="formRow">
-									<label for="nice_text_oversized">Direccion</label>
-									<input type="text" required id="Correo" name="Correo" class="input-text large">
+									<label for="nice_text_small">Descripcion</label>
+									<input type="text" id="Descripcion" name="Descripcion" class="input-text large">
 								</div>
-								<div class="formRow">
-									<label for="nice_text_oversized">Nit</label>
-									<input type="text" required id="Nit" name="Nit" class="input-text large">
+									<div class="formRow" style="">
+									<label for="nice_select">Estatus</label>
+									<select id="Estatus" name="Estatus" class="custom dropdown medium" >
+										<option value="A">Alta</option>
+										<option value="B">Baja</option>
+									</select>
 								</div>
-								<div class="formRow">
-									<label for="nice_text_small">Correo</label>
-									<input type="email" required id="Correo" name=""Correo_Confirmacion" class="input-text large">
-								</div>
-								<div class="formRow">
-									<label for="nice_text_medium">Telefono</label>
-									<input type="text"  id="Telefono" name="Telefono" class="input-text">
-								</div>
-								<div class="formRow">
-									<label for="nice_text_medium">Celular</label>
-									<input type="text"  id="Celular" name="Telefono" class="input-text">
-								</div>
-								
 								<div class="formRow">
                                     <button type="submit" name="boton" class="button small nice blue radius">Guardar</button>
 									<a href="index.php" class="clear_form">Cancelar</a>

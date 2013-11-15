@@ -7,7 +7,7 @@
 	    <div class="twelve columns">
 	        <div class="box_c">
 	            <div class="box_c_heading cf">
-	                <p>Medicos</p>
+	                <p>Tipo de Consulta</p>
 
 	            </div>
 	            <div class="box_c_content">
@@ -15,12 +15,7 @@
 	                <div id="dt1_length" class="dataTables_length">
 	                </div>
 	                <div class="dataTables_filter" id="dt1_filter">
-	                	<button type="button" id="nuevo" class="button small nice blue radius">Nuevo</button>
-	                	<script type="text/javascript">
-	                		$("#nuevo").on("click", function(){
-	                			window.location.href = "new.php";
-	                		});
-	                	</script>
+	                	<button type="button" name="boton" class="button small nice blue radius">Nuevo</button>
 	                	<label>Buscar: <input type="text" aria-controls="dt1"></label>
 	               	</div>
 	                <table cellpadding="0" cellspacing="0" border="0" class="display mobile_dt1 dt_act dataTable" id="dt1" aria-describedby="dt1_info">
@@ -28,8 +23,7 @@
                             <tr role="row">
                             	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 35px;">#</th>
                             	<th class="essential sorting_asc" role="columnheader" style="width: text-aling:center;" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 311px;">Nombre</th>
-                            	<th class="essential" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Capital: activate to sort column ascending" style="width: 206px;">Correo</th>
-                            	<th class="essential" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Capital: activate to sort column ascending" style="width: 100px;">Telefono</th>
+                            	<th class="essential" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Capital: activate to sort column ascending" style="width: 206px;">Descripcion</th>
                             	<th class="sorting" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Population: activate to sort column ascending" style="width: 170px;">Estatus</th>
                             	<th style="width: 10px;"></th>
                             </tr>
@@ -39,7 +33,7 @@
 	                	
 	                		$clase = "";
 	                		
-		                	$stmt = $db->prepare('select id, nombre, correo, telefono, imagen, estatus from medico where corporacion = ?;');
+		                	$stmt = $db->prepare('select id, nombre, descripcion, estatus from tipo_consulta_medica where corporacion = ?;');
 		                	$stmt->bind_param('i', $USER_CORPORATION);
 		                	
 		                	$stmt->execute();
@@ -53,12 +47,11 @@
 									$clase == "odd";
 		                ?>
 		                	<tr class="<?= $clase ?>">
-		                		<td style="text-align:center;" class=""><img src="../includes/showimage.php?table=2&id=<?php echo $row["id"]; ?>" style="height:45px;" /></td>
+		                		<td class=""></td>
 	                            <td class=""><?php echo $row["nombre"]; ?></td>
-	                            <td class=""><?php echo $row["correo"]; ?></td>
-	                            <td class=""><?php echo $row["telefono"]; ?></td>
+	                            <td class=""><?php echo $row["descripcion"]; ?></td>
 	                            <td class=""><?php echo $row["estatus"]; ?></td>
-	                            <td class="" style="text-aling:center;"><a href="edit.php?id=<?php echo $row["id"]; ?>">Editar</a></td>
+	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                        </tr>
 		                <?php 
 		                	}

@@ -20,9 +20,7 @@
 		//variables del usuario
 		$corporacion = $rowArray["corporacion"];
 		$id = $rowArray["id"];
-		echo "coporacion = " . $corporacion;
-		echo "id= " . $id;
-		echo "count = " . $rowCount;
+		
 		if ($rowCount != 1){
 			header("Location: index.php?Error=NO se pudo autenticar el Usuario.");
 		}else{
