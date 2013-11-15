@@ -7,6 +7,7 @@
 
 	$error = "";
 	$success = "";
+	$typeError = "";
 	if (isset($_POST["boton"])){
 		$Nombre = $_POST["Nombre"];
 		$Descripcion = $_POST["Descripcion"];
