@@ -15,12 +15,7 @@
 	                <div id="dt1_length" class="dataTables_length">
 	                </div>
 	                <div class="dataTables_filter" id="dt1_filter">
-	                	<button type="button" id="nuevo" class="button small nice blue radius">Nuevo</button>
-	                	<script type="text/javascript">
-	                		$("#nuevo").on("click", function(){
-	                			window.location.href = "new.php";
-	                		});
-	                	</script>
+	                	<button type="button" name="boton" class="button small nice blue radius">Nuevo</button>
 	                	<label>Buscar: <input type="text" aria-controls="dt1"></label>
 	               	</div>
 	                <table cellpadding="0" cellspacing="0" border="0" class="display mobile_dt1 dt_act dataTable" id="dt1" aria-describedby="dt1_info">
@@ -53,12 +48,12 @@
 									$clase == "odd";
 		                ?>
 		                	<tr class="<?= $clase ?>">
-		                		<td style="text-align:center;" class=""><img src="../includes/showimage.php?table=2&id=<?php echo $row["id"]; ?>" style="height:45px;" /></td>
+		                		<td class=""><img src="../data/medicos/<?php echo $row["imagen"]; ?>" style="height:25px;" /></td>
 	                            <td class=""><?php echo $row["nombre"]; ?></td>
 	                            <td class=""><?php echo $row["correo"]; ?></td>
 	                            <td class=""><?php echo $row["telefono"]; ?></td>
 	                            <td class=""><?php echo $row["estatus"]; ?></td>
-	                            <td class="" style="text-aling:center;"><a href="edit.php?id=<?php echo $row["id"]; ?>">Editar</a></td>
+	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                        </tr>
 		                <?php 
 		                	}

@@ -15,13 +15,6 @@
 			$qry .= " foto from paciente_foto where corporacion = $USER_CORPORATION and paciente = $paciente  and id = $Id";
 			break;
 		}
-		case 2:{
-			// pacientes
-			$Id = $_GET["id"];
-			$campo = "imagen";
-			$qry .= " imagen from medico where corporacion = $USER_CORPORATION and id = $Id";
-			break;
-		}
 	}
 	$stmt = $db->prepare($qry);
 	$stmt->execute();
