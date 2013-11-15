@@ -3,51 +3,28 @@
 	include("../includes/menu.php");
 ?>
 <div class="container" style="padding-bottom: 30px;">
-	<?php if(isset($_GET["error"])) { ?>
-	<div class="row" id="alerta">
-        <div class="twelve columns">
-            <div class="box_c">
-                <div class="box_c_heading cf">
-                    <p>Alerta</p>
-                </div>
-                <div class="box_c_content">
-                    <div class="alert-box warning">
-                        <?php echo $_GET["error"]; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php } ?>
-    <script type="text/javascript">
-    	$("#alerta").delay(60000).slideUp(1000);
-    </script>
 	<div class="row">
 	    <div class="twelve columns">
 	        <div class="box_c">
 	            <div class="box_c_heading cf">
-	                <p>Clientes</p>
+	                <p>Tipo de Consulta</p>
+
 	            </div>
 	            <div class="box_c_content">
 	                <div id="dt1_wrapper" class="dataTables_wrapper" role="grid">
 	                <div id="dt1_length" class="dataTables_length">
 	                </div>
 	                <div class="dataTables_filter" id="dt1_filter">
-	                	<button type="button" id="nuevo" class="button small nice blue radius">Nuevo</button>
-	                	<script type="text/javascript">
-	                		$("#nuevo").on("click", function(){
-	                			window.location.href = "new.php";
-	                		});
-	                	</script>
-	                	<label>Search: <input type="text" aria-controls="dt1"></label>
+	                	<button type="button" name="boton" class="button small nice blue radius">Nuevo</button>
+	                	<label>Buscar: <input type="text" aria-controls="dt1"></label>
 	               	</div>
 	                <table cellpadding="0" cellspacing="0" border="0" class="display mobile_dt1 dt_act dataTable" id="dt1" aria-describedby="dt1_info">
                         <thead>
                             <tr role="row">
-                            	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" style="width: 311px;">#</th>
-                            	<th class="essential sorting" role="columnheader" style="">Nombre</th>
-                            	<th class="essential sorting" role="columnheader" style="">Descripcion</th>
-                            	<th class="sorting"style="width: 170px;">Estatus</th>
+                            	<th class="essential sorting_asc" role="columnheader" style="width: 35px; text-aling:center;" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 35px;">#</th>
+                            	<th class="essential sorting_asc" role="columnheader" style="width: text-aling:center;" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 311px;">Nombre</th>
+                            	<th class="essential" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Capital: activate to sort column ascending" style="width: 206px;">Observacion</th>
+                            	<th class="sorting" role="columnheader" tabindex="0" aria-controls="dt1" rowspan="1" colspan="1" aria-label="Population: activate to sort column ascending" style="width: 170px;">Estatus</th>
                             	<th style="width: 10px;"></th>
                             </tr>
                         </thead>
@@ -56,8 +33,9 @@
 	                	
 	                		$clase = "";
 	                		
-		                	$stmt = $db->prepare('select id, nombre, descripcion, estatus from especialidad where corporacion = ?;');
-		                	$stmt->bind_param("i", $USER_CORPORATION);
+		                	$stmt = $db->prepare('select id, nombre, observacion, estatus from aseguradora where corporacion = ?;');
+		                	$stmt->bind_param('i', $USER_CORPORATION);
+		                	
 		                	$stmt->execute();
 		                	
 		                	$result = $stmt->get_result();
@@ -69,11 +47,11 @@
 									$clase == "odd";
 		                ?>
 		                	<tr class="<?= $clase ?>">
-	                            <td class=""><?php echo $row["id"]; ?></td>
+		                		<td class=""></td>
 	                            <td class=""><?php echo $row["nombre"]; ?></td>
-	                                   <td class=""><?php echo $row["descripcion"]; ?></td>
+	                            <td class=""><?php echo $row["observacion"]; ?></td>
 	                            <td class=""><?php echo $row["estatus"]; ?></td>
-	                            <td class="" style="text-aling:center;"><a href="edit.php?id=<?php echo $row["id"]; ?>">Editar</a></td>
+	                            <td class="" style="text-aling:center;"><a href="edit.php?Id=<?php echo $row["id"]; ?>">Editar</a></td>
 	                        </tr>
 		                <?php 
 		                	}

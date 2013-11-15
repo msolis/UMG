@@ -86,6 +86,13 @@
                         <li><a href="../clientes/">Lista de Clientes</a></li>
                     </ul>
                 </li>
+                 <li style="z-index: 99;">
+                    <a href="" class="mb_parent" style="padding-right: 23px;">Aseguradoras<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
+                    <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
+                        <li><a href="../aseguradoras/new.php">Crear Aseguradora</a></li>
+                        <li><a href="../aseguradoras/">Lista de Aseguradoras</a></li>
+                    </ul>
+                </li>
                 <li style="z-index: 99;">
                     <a href="" class="mb_parent" style="padding-right: 23px;">Paises<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
