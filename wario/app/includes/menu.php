@@ -201,9 +201,9 @@
                     <a href="index.php?uid=1&amp;page=documentation" class="mb_parent">Documentation</a>
                 </li>
             </ul>
-            <select class="tinynav tinynav1">
+            <select id="menunavegacion" class="tinynav tinynav1">
                 <option>-- Menu --</option>
-				<option value="../medicos/index.php">Medicos</option>
+				<option value="../medicos/">Medicos</option>
 				<option value="../users/">Usuarios</option>
 				<option value="../clientes/">Clientes</option>
 				<option value="../pais/">Paises</option>
