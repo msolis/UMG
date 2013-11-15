@@ -31,7 +31,7 @@ include("../Conexion/valius.php");
         	</thead>
         	<tbody >
         		<?php
-        			$qry = "select a.usuario, a.nombre, b.nombre, a.status, c.nombre_permiso from usuario a, hospital b, permisos c where a.hospital=b.hospital and a.permisos= c.permisos ;";
+        			$qry = "select a.usuario, a.nombre, b.nombre, a.status, c.nombre_permiso from usuario a, hospital b, permisos c   where a.hospital=b.hospital and a.permisos= c.permisos ORDER BY a.usuario; ";
 					
         			$result = mysql_query($qry);
         			

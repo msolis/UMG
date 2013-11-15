@@ -20,11 +20,12 @@ include("../Conexion/conexionBD.php");
         if (isset($_POST["nombre"])){
             $username = $_POST["nombre"];
             $password = $_POST["CLAVE"];
-
+			$contra= md5($password);
+            
             if (($password !="") && ($username !=""))
             {
                 
-                $result = mysql_query ("select nombre, clave, status, hospital  from redhospitalaria.usuario where nombre = '".$username."' and clave = '".$password."';");
+                $result = mysql_query ("select nombre, clave, status, hospital  from redhospitalaria.usuario where nombre = '".$username."' and clave = '".$contra."';");
                 
                 
                 if ($result == 0)

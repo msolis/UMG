@@ -13,26 +13,23 @@ include("../Conexion/valius.php");
 				<link rel="stylesheet" href="../css/skeleton.css">
 				<link rel="stylesheet" href="../css/layout.css">	
 				<link rel="stylesheet" href="../css/principal.css">
-				
+				<script type="text/javascript" src="../js/jquery.1.10.2.js"></script>
+				<script type="text/javascript">
+					$(document).on("ready", function(){
+						$("[name=PACIENTE]").on("change", function(){
+							window.location.href="asignacion.php?id=" + $(this).val();
+						});
+					});
+				</script>
 </head>
 <body>
 	<?php include("../includes/menu.php"); ?>
 	
 	<tbody>
-	<tr>
-				<td># de Codigo:</td>
-				<td>
-					<select name = "PACIENTE">
-						<?php
-							nuevoselector("paciente", "paciente", "paciente", $ipaciente); 
-						 ?>
-					</select>
-				</td>
-			</tr>
 	
 	
 <?php 
-	$ipaciente ="PACIENTE";				
+	$ipaciente = "";				
 	$inombre = "";							
 	$iapellido = "";						
 	$idpi = "";								
@@ -48,8 +45,9 @@ include("../Conexion/valius.php");
 	$ifecha_nacimiento = "";
 	$ihospital = "";
 
-
-
+	if (isset($_GET["id"])){
+		$ipaciente = $_GET["id"];
+	}
 				if (isset($ipaciente)) 
 				{
 				$result = mysql_query("select paciente, nombre, apellido, dpi, direccion, mail, telefono, nit, genero, pais, departamento, municipio, seguro, fecha_nacimiento, hospital from redhospitalaria.paciente where paciente =" .$ipaciente. ";");			
@@ -84,6 +82,21 @@ include("../Conexion/valius.php");
 	<form method="POST">
 		<table  width="500"> 
 			<h4>Nueva Cita:</h4>
+		<tr>
+				<td># de Codigo:</td>
+				<td>
+					<select name= "PACIENTE">
+						<?php
+							nuevoselector("paciente", "paciente", "paciente", $ipaciente); 
+						 ?>
+					</select>
+				</td>
+			</tr>
+	
+			
+			
+			
+			
 				<tr>
 				<td>Nombre:</td>
 				<td><p><input name="NOMBRE" value="<?php echo $inombre ?>"></p></td>

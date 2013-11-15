@@ -22,26 +22,20 @@ include("../Conexion/valius.php");
 <table width="1100">
         <thead>
         	<tr>
-			     <th>ID.Paciente.</th>
+			    <th>ID.Paciente.</th>
         		<th>Nombre</th>
         		<th>Apellido</th>
         		<th>DPI</th>
-			     <th>Direccion</th>
-        		<th>Mail</th>
-        		<th>Telefono</th>
+			    <th>Direccion</th>
         		<th>Genero</th>
-        		<th>NIT</th>
-        	   <th>Pais</th>
-        		<th>Departamento</th>
         		<th>Municipio</th>
         		<th>Seguro</th>
-        		<th>Fecha de Nacimiento</th>
         		<th>Hospital</th>	       			
         	</tr>
         </thead>
 
         <?php
-        	$query = "select a.paciente, a.nombre, a.apellido, a.dpi, a.direccion, a.mail, a.telefono, a.genero, a.nit, b.nombre_pais, c.nombre_departamento, d.nombre_municipio, a.seguro, a.fecha_nacimiento, e.nombre from paciente a, pais b, departamento c, municipio d, hospital e where a.pais= b.pais and a.departamento= c.departamento and a.municipio= d.municipio and a.hospital= e.hospital;";
+        	$query = "select a.paciente, a.nombre, a.apellido, a.dpi, a.direccion, a.genero, d.nombre_municipio, a.seguro, e.nombre from paciente a,   municipio d, hospital e where  a.municipio= d.municipio and a.hospital= e.hospital;";
             
                 	$result = mysql_query($query);	
 
@@ -59,12 +53,6 @@ include("../Conexion/valius.php");
 	        		<th><?php echo $row[6]; ?></th>
 	        		<th><?php echo $row[7]; ?></th>
 	        		<th><?php echo $row[8]; ?></th>
-	        		<th><?php echo $row[9]; ?></th>
-	        		<th><?php echo $row[10]; ?></th>
-	        		<th><?php echo $row[11]; ?></th>
-	        		<th><?php echo $row[12]; ?></th>
-                    <th><?php echo $row[13]; ?></th>      			
-                    <th><?php echo $row[14]; ?></th>
 	        		<th>
 	        		<a href="../Pacientes/editPaciente.php?Id=<?php echo $row[0] ?>" style="color:white">Modificar</a>
 	        		</th>

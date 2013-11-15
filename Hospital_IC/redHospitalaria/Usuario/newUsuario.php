@@ -31,7 +31,9 @@ include("../Conexion/valius.php");
 		$ustatus= $_POST["STATUS"];
 		$upermisos = $_POST["PERMISOS"];
 		
-		$query="insert into redhospitalaria.usuario(nombre, clave, hospital, status, permisos) values( '".$unombre."', '".$password."', ".$uhospital.", '".$ustatus."', ".$upermisos.");";
+		$contra= md5 ($password);
+			
+		$query="insert into redhospitalaria.usuario(nombre, clave, hospital, status, permisos) values( '".$unombre."', '".$contra."', ".$uhospital.", '".$ustatus."', ".$upermisos.");";
 		mysql_query ($query);
 		echo "qry";
 		}

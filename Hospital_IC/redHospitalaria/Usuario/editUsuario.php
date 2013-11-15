@@ -29,6 +29,7 @@ $uhospital = "";
 $ustatus= "";
 $upermisos ="";
 
+
 if(isset ($_POST ["entrar"])){
                                                 
 $unombre = $_POST["NOMBRE"];
@@ -36,8 +37,9 @@ $password = $_POST["CLAVE"];
 $uhospital = $_POST["HOSPITAL"];
 $ustatus= $_POST["STATUS"];
 $upermisos = $_POST["PERMISOS"];
-                                        
-$query="update redhospitalaria.usuario set nombre='".$unombre."', clave= '".$password."', hospital= ".$uhospital.",
+$contra= md5($password);
+
+$query="update redhospitalaria.usuario set nombre='".$unombre."', clave= '".$contra."', hospital= ".$uhospital.",
 	    status= '".$ustatus."', permisos= ".$upermisos."  where  usuario= ".$usuario;
 mysql_query ($query);
                                                 
