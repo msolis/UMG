@@ -24,14 +24,14 @@
 		echo "id= " . $id;
 		echo "count = " . $rowCount;
 		if ($rowCount != 1){
-			//header("Location: index.php?Error=NO se pudo autenticar el Usuario.");
+			header("Location: index.php?Error=NO se pudo autenticar el Usuario.");
 		}else{
 			session_start();
 			//save important variables user
 			
 			$_SESSION['hospital_user'] = $id;
 			$_SESSION['hospital_corporacion'] = $corporacion;
-			//header("Location: ../home/index.php");
+			header("Location: ../home/index.php");
 		}
 		
 	}
