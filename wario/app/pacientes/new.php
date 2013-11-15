@@ -29,7 +29,7 @@
 		}
 		$Poliza_Observacion = $_POST["Poliza_Observacion"];
 		
-		$stmt = $db->prepare("SELECT ifnull(max(id),0)+1 as id from paciente where corporacion = ?;");
+		$stmt = $db->prepare("select ifnull(max(id),0)+1 as id from paciente where corporacion = ?;");
 		$stmt->bind_param('i', $USER_CORPORATION);
 		$stmt->execute();
 		$result = $stmt->get_result();
