@@ -203,7 +203,7 @@
             </ul>
             <select class="tinynav tinynav1">
                 <option>-- Menu --</option>
-				<option value="../medicos/">Medicos</option>
+				<option value="../medicos/index.php">Medicos</option>
 				<option value="../users/">Usuarios</option>
 				<option value="../clientes/">Clientes</option>
 				<option value="../pais/">Paises</option>
