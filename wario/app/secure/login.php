@@ -3,9 +3,9 @@
 	if(isset($_POST["usuario"])){
 		$usuario = $_POST["usuario"];
 		$clave = $_POST["clave"];
-		
+		$contra =md5($clave);
 		$stmt = $db->prepare("select corporacion, id from usuario where correo = ? and clave = ?;");
-		$stmt->bind_param('ss', $usuario, $clave);
+		$stmt->bind_param('ss', $usuario, $contra);
 		
 		$stmt->execute();
 		

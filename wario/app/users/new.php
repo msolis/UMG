@@ -13,7 +13,9 @@
 		$Estatus = $_POST["Estatus"];
 		$Telefono = $_POST["Telefono"];
 		$Direccion = $_POST["Direccion"];
+		
 		$Clave = "12345";
+		$Contra = md5($Clave);
 		$error = "";
 		
 		$stmt = $db->prepare("SELECT corporacion, id from usuario where corporacion = ? and correo = ?;");
@@ -36,7 +38,7 @@
 			$Id = $rowArray["Id"];
 			
 			$stmt = $db->prepare("INSERT INTO usuario (corporacion, id, correo, clave, estatus, nombre, imagen, telefono, direccion) values (?, ?, ?, ?, ?, ?, ?, ?, ?);");
-			$stmt->bind_param('iisssssss', $USER_CORPORATION, $Id, $Correo, $Clave, $Estatus, $Nombre, $Imagen, $Telefono, $Direccion);
+			$stmt->bind_param('iisssssss', $USER_CORPORATION, $Id, $Correo, $Contra, $Estatus, $Nombre, $Imagen, $Telefono, $Direccion);
 			$rc = $stmt->execute();
 			if (!$rc) {
 				$typeError = "error";
