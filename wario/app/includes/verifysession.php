@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION["hospital_user"])){
-		header("Location: ../secure/");
+		header("Location: ../secure/index.php?error=test");
 	}
 	else{
 		
