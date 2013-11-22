@@ -39,7 +39,6 @@
 	                			window.location.href = "new.php";
 	                		});
 	                	</script>
-	                	<label>Search: <input type="text" ></label>
 	               	</div>
 	                <table class="display mobile_dt1 dt_act dataTable" id="dt1">
                         <thead>

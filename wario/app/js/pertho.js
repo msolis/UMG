@@ -2083,7 +2083,7 @@
 	prth_wizard = {
 		simple: function(){
 			$('#simple_wizard').stepy({
-				titleClick	: true
+				titleClick	: false
 			});
 		},
 		validation: function(){

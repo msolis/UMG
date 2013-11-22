@@ -151,7 +151,7 @@
                 <li style="z-index: 99;">
                     <a class="mb_parent" style="padding-right: 23px;">Consultas<img src="../images/blank.gif" class="downarrowclass" style="border:0;"></a>
                     <ul style="top: 32px; visibility: visible; left: 0px; width: 146px; display: none;">
-                        <li><a href="../consulta/new.php">Realizar Consulta</a></li>
+                        <li><a href="../consulta/paciente.php">Realizar Consulta</a></li>
                         <li><a href="../consulta/">Mis Consultas</a></li>
                     </ul>
                 </li>

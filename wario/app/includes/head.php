@@ -79,6 +79,13 @@
 	<script src="../js/pertho.js"></script>
 	<script src="../js/ui.spinner.js"></script>
 	
+	<script src="../js/jquery.rwd-table.js"></script>
+	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/dataTables.plugins.js"></script>
+	<script src="../js/ColVis.min.js"></script>
+	<script src="../js/jquery.stepy.min.js"></script>
+	
+	
 	
 	
 
@@ -102,7 +109,18 @@
 				//* home page charts
 				//prth_charts.ds_plot1();
 				//prth_charts.ds_plot2();
+				prth_datatable.dt1();
+				prth_datatable.dt2();
+				prth_datatable.ct();
+				//prth_datatable.dt_actions();
+				prth_datatable.dte_1();
+				prth_datatable.dte_2();
+
+				prth_wizard.simple();
+				prth_wizard.validation();
+				prth_wizard.steps_nb();
 				
+			
 				//* horizontal scrollable (charts)
 				prth_h_scrollable.init();
 						//replace themeforest iframe

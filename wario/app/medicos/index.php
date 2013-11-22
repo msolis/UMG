@@ -21,7 +21,6 @@
 	                			window.location.href = "new.php";
 	                		});
 	                	</script>
-	                	<label>Buscar: <input type="text" aria-controls="dt1"></label>
 	               	</div>
 	                <table cellpadding="0" cellspacing="0" border="0" class="display mobile_dt1 dt_act dataTable" id="dt1" aria-describedby="dt1_info">
                         <thead>
