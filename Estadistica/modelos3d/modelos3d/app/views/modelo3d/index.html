@@ -1,0 +1,270 @@
+#{extends 'main.html' /}
+#{set title:'Modelo 3D' /}
+
+<br />
+<h1 class="page-header" style="width: 40%; margin: 0 auto;">Valores para Realizar el Modelo</h1>
+<br />
+
+<div class="overflow">
+	#{form @Procesar(), class:"well form-inline"}
+	<table class="fixedLayout table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0" style="width: 40%; margin: 0 auto;">
+		<thead>
+			<tr class="table-head">
+				<th>Z</th>
+				<th>x1</th>
+				<th>X2</th>
+				<th></th>
+			</tr>
+			<tr>
+				<th>
+					<input id="z" name="z" type="number" value="" style="width: 90%;">
+				</th>
+				<th>
+					<input id="x1" name="x1" type="number" value="" style="width: 90%;">
+				</th>
+				<th>
+					<input id="x2" name="x2" type="number" value="" style="width: 90%;">
+				</th>
+				<th>
+					<input id="agregar" name="agregar" type="button"  class="btn" value="Agregar" style="width: 90%;">
+				</th>
+			</tr>
+		</thead>
+		
+		<tbody id="valores">
+			<tbody id="valores">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		<tr><td><input type="hidden" name="d.z" value="1">1</td><td><input type="hidden" name="d.x1" value="1">1</td><td><input type="hidden" name="d.x2" value="7">7</td><td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar"></td></tr><tr><td><input type="hidden" name="d.z" value="3">3</td><td><input type="hidden" name="d.x1" value="2">2</td><td><input type="hidden" name="d.x2" value="5">5</td><td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar"></td></tr><tr><td><input type="hidden" name="d.z" value="4">4</td><td><input type="hidden" name="d.x1" value="4">4</td><td><input type="hidden" name="d.x2" value="6">6</td><td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar"></td></tr><tr><td><input type="hidden" name="d.z" value="6">6</td><td><input type="hidden" name="d.x1" value="4">4</td><td><input type="hidden" name="d.x2" value="4">4</td><td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar"></td></tr><tr><td><input type="hidden" name="d.z" value="8">8</td><td><input type="hidden" name="d.x1" value="5">5</td><td><input type="hidden" name="d.x2" value="3">3</td><td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar"></td></tr><tr><td><input type="hidden" name="d.z" value="9">9</td><td><input type="hidden" name="d.x1" value="7">7</td><td><input type="hidden" name="d.x2" value="2">2</td><td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar"></td></tr><tr><td><input type="hidden" name="d.z" value="11">11</td><td><input type="hidden" name="d.x1" value="8">8</td><td><input type="hidden" name="d.x2" value="3">3</td><td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar"></td></tr><tr><td><input type="hidden" name="d.z" value="14">14</td><td><input type="hidden" name="d.x1" value="9">9</td><td><input type="hidden" name="d.x2" value="4">4</td><td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar"></td></tr></tbody>
+		</tbody>
+	</table>
+	<br>
+	<h1 class="page-header" style="width: 70%; margin: 0 auto;">Parametros</h1>
+	<br>
+	<table class="table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0"  style="width: 70%; margin: 0 auto;">
+		<thead>
+			<tr class="table-head">
+				<th>Lineales</th>
+				<th>Cuadr&aacute;ticos</th>
+			</tr>
+		</thead>
+		
+		<tbody >
+			<tr>
+				<td style="width: 50%;">
+					<table class="table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0"  style="margin: 0 auto;">
+						<thead>
+							<tr>
+								<th>Z</th>
+								<th>X1</th>
+								<th>X2</th>
+								<th></th>
+							</tr>
+							<tr>
+								<th>
+									<input id="L_z" name="L_z" disabled type="number" value="" style="width: 90%;">
+								</th>
+								<th>
+									<input id="L_x1" name="L_x1" type="number" value="" style="width: 90%;">
+								</th>
+								<th>
+									<input id="L_x2" name="L_x2" type="number" value="" style="width: 90%;">
+								</th>
+								<th>
+									<input id="L_agregar" name="L_agregar" type="button"  class="btn" value="Agregar" style="width: 90%;">
+								</th>
+							</tr>
+						</thead>
+						
+						<tbody id="L_valores">
+						</tbody>
+					</table>
+				</td>
+				<td>
+
+					<table class="table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0"  style="margin: 0 auto;">
+						<thead>
+							<tr>
+								<th>Z</th>
+								<th>X1</th>
+								<th>X2</th>
+								<th></th>
+							</tr>
+							<tr>
+								<th>
+									<input id="C_z" name="L_z" disabled type="number" value="" style="width: 90%;">
+								</th>
+								<th>
+									<input id="C_x1" name="C_x1" type="number" value="" style="width: 90%;">
+								</th>
+								<th>
+									<input id="C_x2" name="C_x2" type="number" value="" style="width: 90%;">
+								</th>
+								<th>
+									<input id="C_agregar" name="C_agregar" type="button"  class="btn" value="Agregar" style="width: 90%;">
+								</th>
+							</tr>
+						</thead>
+						
+						<tbody id="C_valores">
+						</tbody>
+					</table>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<div style="width: 40%; margin: 0 auto; text-align: right;">
+		<input type="submit" class="btn" value="Procesar" />
+	</div>
+
+	#{/form}
+
+	<script type="text/javascript">
+		$(document).on("ready", function(){
+			var agregar = $("#agregar");
+			var valores = $("#valores");
+			var x1 = $("#x1");
+			var x2 = $("#x2");
+			var z = $("#z");
+
+			var modelo3d = {
+
+				creartr : function(x1, x2, z){
+					/*var _tr = $("tr").append(
+								$("td").append($('<input id="x1" name="x1" />')
+							        .val(x1))
+								);*/
+					$("#valores").append('<tr>' +
+						'<td>1</td>' +
+						'<td>1</td>' +
+						'<td>1</td>' +
+						'<td>1</td>' +
+						'</tr>');
+
+
+				},
+
+				agregarvalor : function(x1, x2, z){
+					modelo3d.creartr(x1, x2, z);
+
+				}
+
+			}
+
+			agregar.on("click", function(){
+				//modelo3d.agregarvalor(x1.val(), x2.val(), z.val());
+
+			});
+
+			$("#agregar").on("click", function(){
+
+				if (
+					(x1.val() == "")
+					|| (x2.val() == "")
+					|| (z.val() == "")
+					)
+				{
+					alert("Todos los valores son requeridos");
+					return;
+				}
+
+
+				$("#valores").append('<tr>' +
+						'<td><input type="hidden" name="d.z" value="' + z.val() + '" />' + z.val() + '</td>' +
+						'<td><input type="hidden" name="d.x1" value="' + x1.val() + '" />' + x1.val() + '</td>' +
+						'<td><input type="hidden" name="d.x2" value="' + x2.val() + '" />' + x2.val() + '</td>' +
+						'<td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar" /></td>' +
+						'</tr>');
+
+				x1.val("");
+				x2.val("");
+				z.val("");
+				z.focus();
+
+			});
+
+
+			$("#L_agregar").on("click", function(){
+
+				var L_x1 = $("#L_x1");
+				var L_x2 = $("#L_x2");
+				var L_z = $("#L_z");
+
+				if (
+					(L_x1.val() == "")
+					|| (L_x2.val() == "")
+					)
+				{
+					alert("Todos los valores son requeridos");
+					return;
+				}
+
+
+				$("#L_valores").append('<tr>' +
+						'<td>?</td>' +
+						'<td><input type="hidden" name="d.LINEAL_param_X1" value="' + L_x1.val() + '" />' + L_x1.val() + '</td>' +
+						'<td><input type="hidden" name="d.LINEAL_param_X2" value="' + L_x2.val() + '" />' + L_x2.val() + '</td>' +
+						'<td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar" /></td>' +
+						'</tr>');
+
+				L_x1.val("");
+				L_x2.val("");
+				L_z.val("");
+				L_z.focus();
+
+			});
+
+			$("#C_agregar").on("click", function(){
+
+				var C_x1 = $("#C_x1");
+				var C_x2 = $("#C_x2");
+				var C_z = $("#C_z");
+
+				if (
+					(C_x1.val() == "")
+					|| (C_x2.val() == "")
+					)
+				{
+					alert("Todos los valores son requeridos");
+					return;
+				}
+
+
+				$("#C_valores").append('<tr>' +
+						'<td>?</td>' +
+						'<td><input type="hidden" name="d.CUADRATICO_param_X1" value="' + C_x1.val() + '" />' + C_x1.val() + '</td>' +
+						'<td><input type="hidden" name="d.CUADRATICO_param_X2" value="' + C_x2.val() + '" />' + C_x2.val() + '</td>' +
+						'<td><input type="button" class="btn" id="eliminar" name="eliminar" value="Eliminar" /></td>' +
+						'</tr>');
+
+				C_x1.val("");
+				C_x2.val("");
+				C_z.val("");
+				C_z.focus();
+
+			});
+
+			$("body").delegate("table #eliminar", "click", function(){
+				var r=confirm("¿Deseas eliminar este dato?");
+				if (r==true)
+				{
+					$(this).parent().parent().remove();
+				}
+				
+			});
+		});
+	</script>
+
+	<div class="divright">
+		
+	</div>
+</div>

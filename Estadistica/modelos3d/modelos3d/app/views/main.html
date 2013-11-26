@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>#{get 'title' /}</title>     
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        #{get 'moreStyles' /}       
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/bootstrap.min.css'}" />
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/style.css'}" />
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}" />
+        <script src="@{'/public/javascripts/jquery.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>       
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/plugin/jquery/css/smoothness/jquery-ui-1.9.1.custom.min.css'}" />
+        <script src="@{'/public//plugin/jquery/js/jquery-1.8.2.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public//plugin/jquery/js/jquery-ui-1.9.1.custom.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                if ($('.expand-form')[0]) { 
+                    var $expand = $('.expand-form');
+                    var $collapse = $('.close-form');
+                    var $form = $expand.parent().children(".form-inline");
+                    
+                    $expand.hide();
+
+                    $expand.click(function(){
+                        $expand.fadeOut();
+                        $form.fadeIn();
+                        $collapse.fadeIn();
+                    })
+                    $collapse.click(function(){
+                        $collapse.fadeOut();
+                        $form.fadeOut();
+                        $expand.fadeIn();
+                    })
+                };
+             });
+        </script>
+    </head>
+        
+    <body>
+        <div class="main-content">
+            <div id="wrapper">
+                <div id="header-wrapper" class="container-fluid">
+                    <div id="header">
+                        
+                        <div id="menu" class="navbar">
+                            <div class="navbar-inner">  
+                                <div class="">
+                                    
+                                    <ul class="nav nav-pills">
+                                        <li>
+                                            <a class="" data-toggle="" href="@{modelo3d.index()}">Modelo 3D&nbsp;&nbsp;</a>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="page" class="container-fluid">
+                    <div id="row-fluid">
+                        #{doLayout /} 
+                    </div>
+                </div>
+            </div>
+            
+            <div id="footer" class="container-fluid" align="center">
+                <div class="row-fluid">
+                </div>
+            </div>
+            <!-- end #footer -->
+        </div>              
+    </body>
+    
+</html>

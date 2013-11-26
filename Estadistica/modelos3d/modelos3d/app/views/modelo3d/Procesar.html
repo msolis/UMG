@@ -1,0 +1,252 @@
+#{extends 'main.html' /}
+#{set title:'Modelo 3D' /}
+
+<br />
+<h1 class="page-header" style="width: 40%; margin: 0 auto;">Proceso Completo</h1>
+<br />
+
+<div class="overflow">
+	<table class="fixedLayout table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0" style="width: 40%; margin: 0 auto;">
+		<thead>
+			<tr class="table-head">
+				<th>Z</th>
+				<th>X1</th>
+				<th>X2</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			#{list items:d.x1, as:'current'}
+				<tr>
+					<th>${d.z[current_index-1]}</th>
+					<th>${current}</th>
+					<th>${d.x2[current_index-1]}</th>
+				</tr>
+			#{/list}
+		</tbody>
+	</table>
+
+	<br />
+
+	<table class="table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0">
+		<thead>
+			<tr class="table-head">
+				<th>Zk</th>
+				<th>Xk1</th>
+				<th>Xk2</th>
+				<th>Xk1^2</th>
+				<th>Xk1^3</th>
+				<th>Xk1^4</th>
+				<th>Xk2^2</th>
+				<th>Xk2^3</th>
+				<th>Xk2^4</th>
+				<th>Xk1Xk2</th>
+				<th>Xk1^2Xk2^2</th>
+				<th>Xk1^2Xk2</th>
+				<th>Xk1Xk2^2</th>
+				<th>Xk1^3Xk2</th>
+				<th>Xk1Xk2^3</th>
+				<th>Xk1Zk</th>
+				<th>Xk2Zk</th>
+				<th>Xk1^2Z</th>
+				<th>Xk2^2Zk</th>
+				<th>Xk1Xk2Z</th>
+				<th>Zkm</th>
+				<th>Zkm^2</th>
+				<th>(Zk-Zk_)^2</th>
+				<th>(Zml-Zml_)^2</th>
+				<th>(Zmc-Zmc_)^2</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			#{list items:d.matriz, as:'current'}
+				<tr>
+					<td>${current[0]}</td>
+					<td>${current[1]}</td>
+					<td>${current[2]}</td>
+					<td>${current[3]}</td>
+					<td>${current[4]}</td>
+					<td>${current[5]}</td>
+					<td>${current[6]}</td>
+					<td>${current[7]}</td>
+					<td>${current[8]}</td>
+					<td>${current[9]}</td>
+					<td>${current[10]}</td>
+					<td>${current[11]}</td>
+					<td>${current[12]}</td>
+					<td>${current[13]}</td>
+					<td>${current[14]}</td>
+					<td>${current[15]}</td>
+					<td>${current[16]}</td>
+					<td>${current[17]}</td>
+					<td>${current[18]}</td>
+					<td>${current[19]}</td>
+					<td>${current[20]}</td>
+					<td>${current[21]}</td>
+					<td>${current[22]}</td>
+					<td>${current[23]}</td>
+					<td>${current[24]}</td>
+				</tr>
+			#{/list}
+		</tbody>
+	</table>
+</div>
+
+<br />
+<h1 class="page-header" style="width: 40%; margin: 0 auto;">Valoes de A...</h1>
+<br />
+<div class="overflow">
+	<br />
+
+	<table class="table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0"  style="width: 40%; margin: 0 auto;">
+		<thead>
+			<tr class="table-head">
+				<th>A</th>
+				<th>Lineal</th>
+				<th>Cuadr&aacute;tico</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<td>A0</td>
+				<td>${d.LINEAL_a0}</td>
+				<td>${d.CUADRATICO_a0}</td>
+			</tr>
+			<tr>
+				<td>A1</td>
+				<td>${d.LINEAL_a1}</td>
+				<td>${d.CUADRATICO_a1}</td>
+			</tr>
+			<tr>
+				<td>A2</td>
+				<td>${d.LINEAL_a2}</td>
+				<td>${d.CUADRATICO_a2}</td>
+			</tr>
+			<tr>
+				<td>A3</td>
+				<td></td>
+				<td>${d.CUADRATICO_a3}</td>
+			</tr>
+			<tr>
+				<td>A4</td>
+				<td></td>
+				<td>${d.CUADRATICO_a4}</td>
+			</tr>
+			<tr>
+				<td>A5</td>
+				<td></td>
+				<td>${d.CUADRATICO_a5}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<style type="text/css">
+	.verde{
+		background-color: green;
+	}
+</style>
+
+<br />
+<h1 class="page-header" style="width: 40%; margin: 0 auto;">R2</h1>
+<br />
+<div class="overflow">
+	<br />
+	<table class="table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0"  style="width: 40%; margin: 0 auto;">
+		<thead>
+			<tr class="table-head">
+				<th>-</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		
+		<tbody >
+			<tr>
+				<td>
+					R2
+				</td>
+				<td>${d.R_2__1}</td>
+				<td>${d.R_2__2}</td>
+			</tr>
+			<tr>
+				<td>
+					R
+				</td>
+				<td>${d.R__1}</td>
+				<td>${d.R__2}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<br />
+<h1 class="page-header" style="width: 40%; margin: 0 auto;">Pronostico</h1>
+<br />
+<div class="overflow">
+	<br />
+	<table class="table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0"  style="width: 40%; margin: 0 auto;">
+		<thead>
+			<tr class="table-head">
+				<th>Lineales</th>
+				<th>Cuadr&aacute;ticos</th>
+			</tr>
+		</thead>
+		
+		<tbody >
+			<tr>
+				<td>
+					<table class="table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0"  style="width: 40%; margin: 0 auto;">
+						<thead>
+							<tr>
+								<th>Parametro</th>
+								<th>X1</th>
+								<th>X2</th>
+								<th>Z</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							#{list items:d.LINEAL_param_X1, as:'current'}
+							<tr>
+								<td>${current_index}</td>
+								<td>${current}</td>
+								<td>${d.LINEAL_param_X2[current_index-1]}</td>
+								<td class="verde">${d.LINEAL_param_Y[current_index-1]}</td>
+							</tr>
+							#{/list}
+						</tbody>
+					</table>
+				</td>
+				<td>
+
+					<table class="table table-striped table-bordered table-condensed" cellpadding="0" cellspacing="0"  style="width: 40%; margin: 0 auto;">
+						<thead>
+							<tr>
+								<th>Parametro</th>
+								<th>X1</th>
+								<th>X2</th>
+								<th>Z</th>
+							</tr>
+						</thead>
+						
+						<tbody >
+							#{list items:d.CUADRATICO_param_X1, as:'current'}
+							<tr>
+								<td>${current_index}</td>
+								<td>${current}</td>
+								<td>${d.CUADRATICO_param_X2[current_index-1]}</td>
+								<td class="verde">${d.CUADRATICO_param_Y[current_index-1]}</td>
+							</tr>
+							#{/list}
+						</tbody>
+					</table>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
